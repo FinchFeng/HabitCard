@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         second = 0
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (_) in
             self.second += 1
-            print(self.second)
+            print(" \(self.second/3600):\((self.second/60)%60):\(self.second%60)")
             self.timeLabel.text = " \(self.second/3600):\((self.second/60)%60):\(self.second%60)"
         })
     }

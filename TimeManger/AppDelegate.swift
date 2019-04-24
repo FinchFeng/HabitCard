@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var bgTask:UIBackgroundTaskIdentifier!
-    var andioPlayer:AVAudioPlayer?
+    var andioPlayer:AVAudioPlayer!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -38,9 +38,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     @objc func applyForMoreTime(){
         if UIApplication.shared.backgroundTimeRemaining < 3010 {//时间小于一定数目
+//            print("applyForMoreTime")
+//            print(UIApplication.shared.backgroundTimeRemaining)
             //播放一次
-            let url = Bundle.main.url(forResource: "1", withExtension: "wav")!
-            let item = AVPlayerItem(url: url)
+            let url = Bundle.main.url(forResource: "1", withExtension: "mp3")!
             do {
                 try AVAudioSession.sharedInstance().setCategory(
                     AVAudioSession.Category.playback,//这个模式锁屏和静音模式下可以继续播放
@@ -49,8 +50,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             } catch {
                 print("Failed to set audio session category.  Error: \(error)")
             }
-            let player = AVQueuePlayer(playerItem: item)
-            player.play()
+            do {
+                try self.andioPlayer = AVAudioPlayer(contentsOf: url)
+            }catch{
+                print("Failed to set audio session category.  Error: \(error)")
+            }
+            self.andioPlayer.play()
             //重新设定一次bgTask
             UIApplication.shared.endBackgroundTask(self.bgTask)
             self.bgTask = UIApplication.shared.beginBackgroundTask(expirationHandler: {

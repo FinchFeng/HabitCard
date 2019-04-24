@@ -13,7 +13,7 @@
 		13084AEA22707FD900FA98C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13084AE922707FD900FA98C9 /* Assets.xcassets */; };
 		13084AED22707FD900FA98C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13084AEB22707FD900FA98C9 /* LaunchScreen.storyboard */; };
 		13084AF822707FD900FA98C9 /* TimeMangerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13084AF722707FD900FA98C9 /* TimeMangerTests.swift */; };
-		135EC5E322708B9D00AA8D8E /* 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 135EC5E222708B9D00AA8D8E /* 1.wav */; };
+		134CE5782270D1FD00ECB5A6 /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 134CE5772270D1FD00ECB5A6 /* 1.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 		13084AF322707FD900FA98C9 /* TimeMangerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeMangerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13084AF722707FD900FA98C9 /* TimeMangerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeMangerTests.swift; sourceTree = "<group>"; };
 		13084AF922707FD900FA98C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		135EC5E222708B9D00AA8D8E /* 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1.wav; sourceTree = "<group>"; };
+		134CE5772270D1FD00ECB5A6 /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +79,11 @@
 		13084AE122707FD700FA98C9 /* TimeManger */ = {
 			isa = PBXGroup;
 			children = (
-				135EC5E222708B9D00AA8D8E /* 1.wav */,
 				13084AE222707FD700FA98C9 /* AppDelegate.swift */,
 				13084AE422707FD700FA98C9 /* ViewController.swift */,
 				13084AE622707FD700FA98C9 /* Main.storyboard */,
-				13084AE922707FD900FA98C9 /* Assets.xcassets */,
-				13084AEB22707FD900FA98C9 /* LaunchScreen.storyboard */,
 				13084AEE22707FD900FA98C9 /* Info.plist */,
+				134CE5762270930F00ECB5A6 /* supportFiles */,
 			);
 			path = TimeManger;
 			sourceTree = "<group>";
@@ -97,6 +95,16 @@
 				13084AF922707FD900FA98C9 /* Info.plist */,
 			);
 			path = TimeMangerTests;
+			sourceTree = "<group>";
+		};
+		134CE5762270930F00ECB5A6 /* supportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				134CE5772270D1FD00ECB5A6 /* 1.mp3 */,
+				13084AE922707FD900FA98C9 /* Assets.xcassets */,
+				13084AEB22707FD900FA98C9 /* LaunchScreen.storyboard */,
+			);
+			path = supportFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,7 +195,7 @@
 			files = (
 				13084AED22707FD900FA98C9 /* LaunchScreen.storyboard in Resources */,
 				13084AEA22707FD900FA98C9 /* Assets.xcassets in Resources */,
-				135EC5E322708B9D00AA8D8E /* 1.wav in Resources */,
+				134CE5782270D1FD00ECB5A6 /* 1.mp3 in Resources */,
 				13084AE822707FD700FA98C9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
