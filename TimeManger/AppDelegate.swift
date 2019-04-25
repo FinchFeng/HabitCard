@@ -38,8 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     @objc func applyForMoreTime(){
         if UIApplication.shared.backgroundTimeRemaining < 3010 {//时间小于一定数目
-//            print("applyForMoreTime")
-//            print(UIApplication.shared.backgroundTimeRemaining)
+            print("applyForMoreTime")
             //播放一次
             let url = Bundle.main.url(forResource: "1", withExtension: "mp3")!
             do {
@@ -62,10 +61,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 UIApplication.shared.endBackgroundTask(self.bgTask)
                  self.bgTask = UIBackgroundTaskIdentifier.invalid
             })
-            
+            print(UIApplication.shared.backgroundTimeRemaining)
         }
     }
-
 
 }
 
