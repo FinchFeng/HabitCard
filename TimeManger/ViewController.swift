@@ -12,6 +12,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //重新进入应用
+        BackgroundTimer.checkNeedRestart{ (time) in
+            self.timeLabel.text = "\(time.hour):\(time.min):\(time.second)"
+        }
     }
     
     
