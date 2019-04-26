@@ -27,43 +27,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        let app = UIApplication.shared
-        self.bgTask = app.beginBackgroundTask(expirationHandler: {
-            app.endBackgroundTask(self.bgTask)
-            self.bgTask = UIBackgroundTaskIdentifier.invalid
-        })
-        Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(applyForMoreTime), userInfo: nil, repeats: true)
+        //啥都不做
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        //查看是否在计时
+//        print(BackgroundTimer.currentTimer?.isValid)
+        //在计时就更新Label
     }
     
     
-    @objc func applyForMoreTime(){
-        if UIApplication.shared.backgroundTimeRemaining < 3010 {//时间小于一定数目
-            print("applyForMoreTime")
-            //播放一次
-            let url = Bundle.main.url(forResource: "1", withExtension: "mp3")!
-            do {
-                try AVAudioSession.sharedInstance().setCategory(
-                    AVAudioSession.Category.playback,//这个模式锁屏和静音模式下可以继续播放
-                    mode: .default,
-                    options: [AVAudioSession.CategoryOptions.mixWithOthers])
-            } catch {
-                print("Failed to set audio session category.  Error: \(error)")
-            }
-            do {
-                try self.andioPlayer = AVAudioPlayer(contentsOf: url)
-            }catch{
-                print("Failed to set audio session category.  Error: \(error)")
-            }
-            self.andioPlayer.play()
-            //重新设定一次bgTask
-            UIApplication.shared.endBackgroundTask(self.bgTask)
-            self.bgTask = UIApplication.shared.beginBackgroundTask(expirationHandler: {
-                UIApplication.shared.endBackgroundTask(self.bgTask)
-                 self.bgTask = UIBackgroundTaskIdentifier.invalid
-            })
-            print(UIApplication.shared.backgroundTimeRemaining)
-        }
-    }
 
 }
 

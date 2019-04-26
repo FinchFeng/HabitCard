@@ -13,8 +13,7 @@
 		13084AEA22707FD900FA98C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13084AE922707FD900FA98C9 /* Assets.xcassets */; };
 		13084AED22707FD900FA98C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13084AEB22707FD900FA98C9 /* LaunchScreen.storyboard */; };
 		13084AF822707FD900FA98C9 /* TimeMangerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13084AF722707FD900FA98C9 /* TimeMangerTests.swift */; };
-		13BCD6A02271378700FC06CA /* backgroundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BCD69F2271378700FC06CA /* backgroundController.swift */; };
-		13BCD6A222713E5300FC06CA /* blank.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13BCD6A122713E5200FC06CA /* blank.wav */; };
+		139736112272C793002B50F4 /* BackGroundTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139736102272C793002B50F4 /* BackGroundTimer.swift */; };
 		13BCD6A422714C4B00FC06CA /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 13BCD6A322714C4B00FC06CA /* 1.mp3 */; };
 /* End PBXBuildFile section */
 
@@ -39,8 +38,7 @@
 		13084AF322707FD900FA98C9 /* TimeMangerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeMangerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13084AF722707FD900FA98C9 /* TimeMangerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeMangerTests.swift; sourceTree = "<group>"; };
 		13084AF922707FD900FA98C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		13BCD69F2271378700FC06CA /* backgroundController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgroundController.swift; sourceTree = "<group>"; };
-		13BCD6A122713E5200FC06CA /* blank.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blank.wav; sourceTree = "<group>"; };
+		139736102272C793002B50F4 /* BackGroundTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackGroundTimer.swift; sourceTree = "<group>"; };
 		13BCD6A322714C4B00FC06CA /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,8 +84,8 @@
 				13084AE222707FD700FA98C9 /* AppDelegate.swift */,
 				13084AE422707FD700FA98C9 /* ViewController.swift */,
 				13084AE622707FD700FA98C9 /* Main.storyboard */,
+				139736102272C793002B50F4 /* BackGroundTimer.swift */,
 				13084AEE22707FD900FA98C9 /* Info.plist */,
-				13BCD69F2271378700FC06CA /* backgroundController.swift */,
 				134CE5762270930F00ECB5A6 /* supportFiles */,
 			);
 			path = TimeManger;
@@ -106,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				13BCD6A322714C4B00FC06CA /* 1.mp3 */,
-				13BCD6A122713E5200FC06CA /* blank.wav */,
 				13084AE922707FD900FA98C9 /* Assets.xcassets */,
 				13084AEB22707FD900FA98C9 /* LaunchScreen.storyboard */,
 			);
@@ -165,7 +162,7 @@
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -200,7 +197,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				13084AED22707FD900FA98C9 /* LaunchScreen.storyboard in Resources */,
-				13BCD6A222713E5300FC06CA /* blank.wav in Resources */,
 				13084AEA22707FD900FA98C9 /* Assets.xcassets in Resources */,
 				13084AE822707FD700FA98C9 /* Main.storyboard in Resources */,
 				13BCD6A422714C4B00FC06CA /* 1.mp3 in Resources */,
@@ -222,8 +218,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				13084AE522707FD700FA98C9 /* ViewController.swift in Sources */,
+				139736112272C793002B50F4 /* BackGroundTimer.swift in Sources */,
 				13084AE322707FD700FA98C9 /* AppDelegate.swift in Sources */,
-				13BCD6A02271378700FC06CA /* backgroundController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

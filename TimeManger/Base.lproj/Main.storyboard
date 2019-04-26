@@ -19,8 +19,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqM-gy-6XA">
-                                <rect key="frame" x="164.5" y="328.5" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="170.5" y="328.5" width="34" height="30"/>
+                                <state key="normal" title="Start"/>
                                 <connections>
                                     <action selector="clocking" destination="BYZ-38-t0r" eventType="touchUpInside" id="APR-lM-4AZ"/>
                                 </connections>
@@ -31,6 +31,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9HW-eE-JjK">
+                                <rect key="frame" x="171.5" y="373" width="32" height="30"/>
+                                <state key="normal" title="Stop"/>
+                                <connections>
+                                    <action selector="stopIt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4a8-X1-oBE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -38,6 +45,8 @@
                             <constraint firstItem="dqM-gy-6XA" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Cw3-af-DAT"/>
                             <constraint firstItem="foe-ib-mU6" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="PlI-Rs-azI"/>
                             <constraint firstItem="dqM-gy-6XA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="WbT-YN-yWI"/>
+                            <constraint firstItem="9HW-eE-JjK" firstAttribute="centerX" secondItem="dqM-gy-6XA" secondAttribute="centerX" id="bwX-SZ-FnT"/>
+                            <constraint firstItem="9HW-eE-JjK" firstAttribute="top" secondItem="dqM-gy-6XA" secondAttribute="bottom" constant="14.5" id="tuu-Se-DFR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
