@@ -14,6 +14,8 @@
 		13084AED22707FD900FA98C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13084AEB22707FD900FA98C9 /* LaunchScreen.storyboard */; };
 		13084AF822707FD900FA98C9 /* TimeMangerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13084AF722707FD900FA98C9 /* TimeMangerTests.swift */; };
 		139736112272C793002B50F4 /* BackGroundTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139736102272C793002B50F4 /* BackGroundTimer.swift */; };
+		139F518E2276946200DF5F85 /* HabitDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F518D2276946200DF5F85 /* HabitDataModel.swift */; };
+		139F51902276A00900DF5F85 /* HabitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F518F2276A00900DF5F85 /* HabitModel.swift */; };
 		13BCD6A422714C4B00FC06CA /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 13BCD6A322714C4B00FC06CA /* 1.mp3 */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		13084AF722707FD900FA98C9 /* TimeMangerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeMangerTests.swift; sourceTree = "<group>"; };
 		13084AF922707FD900FA98C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		139736102272C793002B50F4 /* BackGroundTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackGroundTimer.swift; sourceTree = "<group>"; };
+		139F518D2276946200DF5F85 /* HabitDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDataModel.swift; sourceTree = "<group>"; };
+		139F518F2276A00900DF5F85 /* HabitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitModel.swift; sourceTree = "<group>"; };
 		13BCD6A322714C4B00FC06CA /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,7 +88,7 @@
 				13084AE222707FD700FA98C9 /* AppDelegate.swift */,
 				13084AE422707FD700FA98C9 /* ViewController.swift */,
 				13084AE622707FD700FA98C9 /* Main.storyboard */,
-				139736102272C793002B50F4 /* BackGroundTimer.swift */,
+				139F518C2276935000DF5F85 /* Models */,
 				13084AEE22707FD900FA98C9 /* Info.plist */,
 				134CE5762270930F00ECB5A6 /* supportFiles */,
 			);
@@ -108,6 +112,16 @@
 				13084AEB22707FD900FA98C9 /* LaunchScreen.storyboard */,
 			);
 			path = supportFiles;
+			sourceTree = "<group>";
+		};
+		139F518C2276935000DF5F85 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				139736102272C793002B50F4 /* BackGroundTimer.swift */,
+				139F518D2276946200DF5F85 /* HabitDataModel.swift */,
+				139F518F2276A00900DF5F85 /* HabitModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,8 +231,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				139F51902276A00900DF5F85 /* HabitModel.swift in Sources */,
 				13084AE522707FD700FA98C9 /* ViewController.swift in Sources */,
 				139736112272C793002B50F4 /* BackGroundTimer.swift in Sources */,
+				139F518E2276946200DF5F85 /* HabitDataModel.swift in Sources */,
 				13084AE322707FD700FA98C9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

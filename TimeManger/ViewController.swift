@@ -9,26 +9,32 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var model:HabitModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //重新进入应用
-        BackgroundTimer.checkNeedRestart{ (time) in
-            self.timeLabel.text = "\(time.hour):\(time.min):\(time.second)"
-        }
+        model = HabitModel()
+//        BackgroundTimer.checkNeedRestart{ (time) in
+//            self.timeLabel.text = "\(time.hour):\(time.min):\(time.second)"
+//        }
     }
     
     
     @IBOutlet weak var timeLabel: UILabel!
     
     @IBAction func clocking(){
-        BackgroundTimer.startTiming { (time) in
-            self.timeLabel.text = "\(time.hour):\(time.min):\(time.second)"
-        }
+//        print(model.habitArray)
+//        BackgroundTimer.startTiming { (time) in
+//            self.timeLabel.text = "\(time.hour):\(time.min):\(time.second)"
+//        }
     }
 
     @IBAction func stopIt(_ sender: UIButton) {
-        BackgroundTimer.stoptiming()
+//        let newHabitArray = HabitData(name: "fuck", weekilyTime: Time(hour:2,min:49,second:2), weekilyFrequency: 5)
+//        model.habitArray = []
+//        BackgroundTimer.stoptiming()
     }
 }
 
