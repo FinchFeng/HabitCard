@@ -132,6 +132,14 @@ struct Time:Codable {
         return Time(hour: hour, min: min, second: second)
     }
     
+    static func *(time:Time,int:Int)->Time{
+        var result = Time()
+        for _ in 1...int{
+            result = result + time
+        }
+        return result
+    }
+    
     //比较
     static func >(leftTime:Time,rightTime:Time)->Bool{
         if leftTime.hour == rightTime.hour {
