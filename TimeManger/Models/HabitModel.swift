@@ -85,7 +85,6 @@ class HabitModel {
                 habitArray[index].todaysRemainTime = habitArray[index].dailyTime
             }
         }
-        
     }
     
     //增加时间（要是时间超过直接完成）
@@ -135,7 +134,7 @@ class HabitModel {
     }
     //MARK:获取习惯统计数据
     
-    //每周清零一次 ⚠️注意时间的实现
+    //每周清零一次 ⚠️注意时间的实现 🔍
     func culcalterWeekilyData(){
         for index in 0..<habitArray.count{
             //进行时间统计
@@ -150,7 +149,7 @@ class HabitModel {
             habitArray[index].thisWeekRemainFrequancy = habitArray[index].weekilyFrequency
         }
     }
-    //上周未完成
+    //上周未完成 
     func getLastWeekNoneFinishHabit()->[(Time,Int)]{
         return habitArray.compactMap({ habit in
             if habit.lastWeekHaventDoneFrequancy > 0 {

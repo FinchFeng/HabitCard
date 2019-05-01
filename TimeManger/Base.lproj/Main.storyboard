@@ -38,15 +38,42 @@
                                     <action selector="stopIt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4a8-X1-oBE"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1O0-JL-NGI">
+                                <rect key="frame" x="162.5" y="411" width="50" height="30"/>
+                                <state key="normal" title="Restart"/>
+                                <connections>
+                                    <action selector="startAgain" destination="BYZ-38-t0r" eventType="touchUpInside" id="wwe-Pb-Z4b"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0k-cF-iJr">
+                                <rect key="frame" x="172.5" y="449" width="30" height="30"/>
+                                <state key="normal" title="End"/>
+                                <connections>
+                                    <action selector="end" destination="BYZ-38-t0r" eventType="touchUpInside" id="OeO-Mb-rMa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQd-XT-K6I">
+                                <rect key="frame" x="144.5" y="487" width="86" height="30"/>
+                                <state key="normal" title="ChangeTime"/>
+                                <connections>
+                                    <action selector="changeTime" destination="BYZ-38-t0r" eventType="touchUpInside" id="XcM-Nr-VBT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="pQd-XT-K6I" firstAttribute="centerX" secondItem="P0k-cF-iJr" secondAttribute="centerX" id="2K1-Hm-tQb"/>
                             <constraint firstItem="foe-ib-mU6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="7Gh-tn-MaU"/>
                             <constraint firstItem="dqM-gy-6XA" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Cw3-af-DAT"/>
+                            <constraint firstItem="1O0-JL-NGI" firstAttribute="centerX" secondItem="9HW-eE-JjK" secondAttribute="centerX" id="Hce-vu-eDM"/>
                             <constraint firstItem="foe-ib-mU6" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="PlI-Rs-azI"/>
+                            <constraint firstItem="1O0-JL-NGI" firstAttribute="top" secondItem="9HW-eE-JjK" secondAttribute="bottom" constant="8" id="QxI-Uu-Ix5"/>
+                            <constraint firstItem="P0k-cF-iJr" firstAttribute="centerX" secondItem="1O0-JL-NGI" secondAttribute="centerX" id="W47-Dz-sBT"/>
                             <constraint firstItem="dqM-gy-6XA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="WbT-YN-yWI"/>
                             <constraint firstItem="9HW-eE-JjK" firstAttribute="centerX" secondItem="dqM-gy-6XA" secondAttribute="centerX" id="bwX-SZ-FnT"/>
+                            <constraint firstItem="P0k-cF-iJr" firstAttribute="top" secondItem="1O0-JL-NGI" secondAttribute="bottom" constant="8" id="cft-rw-cl5"/>
                             <constraint firstItem="9HW-eE-JjK" firstAttribute="top" secondItem="dqM-gy-6XA" secondAttribute="bottom" constant="14.5" id="tuu-Se-DFR"/>
+                            <constraint firstItem="pQd-XT-K6I" firstAttribute="top" secondItem="P0k-cF-iJr" secondAttribute="bottom" constant="8" id="xof-x1-tl7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

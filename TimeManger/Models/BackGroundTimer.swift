@@ -21,10 +21,21 @@ class BackgroundTimer {
         }
     }
     
+    static var isPausing:Bool {
+        get{
+            return (UserDefaults.standard.object(forKey: "isPausing") as? Bool) ?? false
+        }
+        set{
+            UserDefaults.standard.set(newValue,forKey:"isPausing")
+        }
+    }
+    
     static var passedTime:Time = Time()
+    static var pausingTime:Time = Time()
     
     
     static func startTiming(changeInterFaceBlock:@escaping (Time)->Void){
+        endTiming()
         passedTime = Time()
         startTimePoint = Date()
         self.changeInterFaceBlock = changeInterFaceBlock
@@ -32,31 +43,71 @@ class BackgroundTimer {
     }
     
     static func checkNeedRestart(changeInterFaceBlock:@escaping (Time)->Void){//在后台被删除之后重新打开应用之后可以使用这个重新开始计时
+        self.changeInterFaceBlock = changeInterFaceBlock
         if isTiming {
-            self.changeInterFaceBlock = changeInterFaceBlock
             startTimer()
+        }
+        if isPausing {
+            startPausingTime()
         }
     }
     
-    //使用这个方法来进行计时时间的改变🔧
-    static func changeTime(){
+    //使用这个方法来进行计时时间的改变
+    
+    static func set(time:Time){//直接设置时间
+        //直接更改开始时间点
+        let newStartPoint = Date()-time.changeToSecond()
+        startTimePoint = newStartPoint
+    }
+    
+   @discardableResult  private static func changeTime(time:Time)->Bool{//添加或者减少时间
+        //把Time改成second
+        let second:TimeInterval = time.changeToSecond()
+        return changeTime(second:second)
+    }
+    
+    private static func changeTime(second:TimeInterval)->Bool{//没有在计时的时候返回false
+        if let startPoint = startTimePoint{
+            //更改开始时间点
+            let newPoint = startPoint + second
+            startTimePoint = newPoint
+            return true
+        }else{
+            return false
+        }
         
     }
     
-    static func stoptiming(){//计时结束方法
+    static func endTiming(){//计时结束方法
         isTiming = false
         if changeInterFaceBlock == nil {return}
         changeInterFaceBlock!(Time())
         currentTimer?.invalidate()
         currentTimer = nil
+        //要是在暂停中同时结束暂停计时
+        isPausing = false
+        currentPausingTimer?.invalidate()
+        currentPausingTimer = nil
     }
     
-    static func pasueTimimg(){//暂停计时
-        
+    static func pauseTimimg(){//暂停计时 开始记录暂停时间 🧪
+        isTiming = false
+        currentTimer?.invalidate()
+        startPausingTimePoint = Date()
+        startPausingTime()
     }
     
-    static func restartTiming(){//暂停之后重新开始
-        
+    
+    
+    static func restartTiming(){//暂停之后 调整时间点 重新开始 🧪
+        startTimer()
+        //结算暂停的时间
+        isPausing = false
+        currentPausingTimer?.invalidate()
+        currentPausingTimer = nil
+        //更改时间点
+        changeTime(time: pausingTime)
+        pausingTime = Time()
     }
     
     //MARK: Private funcation
@@ -64,12 +115,26 @@ class BackgroundTimer {
     private static func startTimer(){
         isTiming = true
         currentTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (_) in
-            if let passedTime = BackgroundTimer.getPastTime() {
-                print(isTiming)
+            if let passedTime = BackgroundTimer.getPastTime(pausingTime: false) {
+                print("Timing")
+                print(passedTime)
                 BackgroundTimer.passedTime = passedTime
                 BackgroundTimer.changeInterFaceBlock!(passedTime)
             }
         }
+    }
+    
+    private static func startPausingTime(){//重新进入屏幕可能也有调用
+        isPausing = true
+        currentPausingTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (_) in
+            if let passTime = BackgroundTimer.getPastTime(pausingTime: true){
+                BackgroundTimer.pausingTime = passTime
+                print("Pausing \(isTiming)")
+                print(BackgroundTimer.pausingTime)
+            }else{
+                print("no timer")
+            }
+        })
     }
     
     private static var startTimePoint:Date?{
@@ -83,12 +148,24 @@ class BackgroundTimer {
     
     private static var currentTimer:Timer?
     
+    private static var startPausingTimePoint:Date?{
+        get{
+            return UserDefaults.standard.object(forKey: "startPausingTimePoint") as? Date
+        }
+        set{
+            return UserDefaults.standard.set(newValue,forKey:"startPausingTimePoint")
+        }
+    }
+    
+    private static var currentPausingTimer:Timer?
+    
     private static var changeInterFaceBlock:((Time)->Void)? = nil
     
-    private static func getPastTime()->Time?{
-        if let startTime = startTimePoint {
+    private static func getPastTime(pausingTime:Bool)->Time?{
+        //选择是否是pausing time
+        let timePoint = pausingTime ? startPausingTimePoint : startTimePoint
+        if let startTime = timePoint {
             let timeDistance = Date().timeIntervalSince(startTime)
-//            print("Time distance \(timeDistance)")
             let totalSecond = Int(timeDistance)
             let hour = totalSecond/3600
             let min = (totalSecond/60)%60
@@ -153,6 +230,10 @@ struct Time:Codable {
             return leftTime.min > rightTime.min
         }
         return leftTime.hour > rightTime.hour
+    }
+    
+    func changeToSecond() -> TimeInterval {
+        return TimeInterval(self.hour*3600+self.min*60+self.second)
     }
     
 }
