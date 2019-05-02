@@ -13,6 +13,7 @@
 		13084AEA22707FD900FA98C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13084AE922707FD900FA98C9 /* Assets.xcassets */; };
 		13084AED22707FD900FA98C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13084AEB22707FD900FA98C9 /* LaunchScreen.storyboard */; };
 		13084AF822707FD900FA98C9 /* TimeMangerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13084AF722707FD900FA98C9 /* TimeMangerTests.swift */; };
+		137146DC227A8DAB0022A104 /* TimeCheckerForUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137146DB227A8DAB0022A104 /* TimeCheckerForUpdate.swift */; };
 		139736112272C793002B50F4 /* BackGroundTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139736102272C793002B50F4 /* BackGroundTimer.swift */; };
 		139F518E2276946200DF5F85 /* HabitDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F518D2276946200DF5F85 /* HabitDataModel.swift */; };
 		139F51902276A00900DF5F85 /* HabitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F518F2276A00900DF5F85 /* HabitModel.swift */; };
@@ -40,6 +41,7 @@
 		13084AF322707FD900FA98C9 /* TimeMangerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeMangerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13084AF722707FD900FA98C9 /* TimeMangerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeMangerTests.swift; sourceTree = "<group>"; };
 		13084AF922707FD900FA98C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		137146DB227A8DAB0022A104 /* TimeCheckerForUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCheckerForUpdate.swift; sourceTree = "<group>"; };
 		139736102272C793002B50F4 /* BackGroundTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackGroundTimer.swift; sourceTree = "<group>"; };
 		139F518D2276946200DF5F85 /* HabitDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDataModel.swift; sourceTree = "<group>"; };
 		139F518F2276A00900DF5F85 /* HabitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitModel.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				139736102272C793002B50F4 /* BackGroundTimer.swift */,
 				139F518D2276946200DF5F85 /* HabitDataModel.swift */,
 				139F518F2276A00900DF5F85 /* HabitModel.swift */,
+				137146DB227A8DAB0022A104 /* TimeCheckerForUpdate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				139F51902276A00900DF5F85 /* HabitModel.swift in Sources */,
 				13084AE522707FD700FA98C9 /* ViewController.swift in Sources */,
 				139736112272C793002B50F4 /* BackGroundTimer.swift in Sources */,
+				137146DC227A8DAB0022A104 /* TimeCheckerForUpdate.swift in Sources */,
 				139F518E2276946200DF5F85 /* HabitDataModel.swift in Sources */,
 				13084AE322707FD700FA98C9 /* AppDelegate.swift in Sources */,
 			);

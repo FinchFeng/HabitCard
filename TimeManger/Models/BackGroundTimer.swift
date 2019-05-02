@@ -49,6 +49,7 @@ class BackgroundTimer {
         }
         if isPausing {
             startPausingTime()
+            //更改时间标签为暂停中🔧
         }
     }
     
@@ -90,7 +91,7 @@ class BackgroundTimer {
         currentPausingTimer = nil
     }
     
-    static func pauseTimimg(){//暂停计时 开始记录暂停时间 🧪
+    static func pauseTimimg(){//暂停计时 开始记录暂停时间
         isTiming = false
         currentTimer?.invalidate()
         startPausingTimePoint = Date()
@@ -99,7 +100,7 @@ class BackgroundTimer {
     
     
     
-    static func restartTiming(){//暂停之后 调整时间点 重新开始 🧪
+    static func restartTiming(){//暂停之后 调整时间点 重新开始
         startTimer()
         //结算暂停的时间
         isPausing = false

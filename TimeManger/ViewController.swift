@@ -16,11 +16,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         //重新进入应用
         model = HabitModel()
-        
-        BackgroundTimer.checkNeedRestart{ (time) in
-            self.timeLabel.text = "\(time.hour):\(time.min):\(time.second)"
-        }
-        
+//        BackgroundTimer.checkNeedRestart{ (time) in
+//            self.timeLabel.text = "\(time.hour):\(time.min):\(time.second)"
+//        }
     }
     
     
@@ -30,31 +28,39 @@ class ViewController: UIViewController {
 //       print(model.excuteHabit(name: "fucking", time: Time(hour:1,min:33,second:12)))
 //        model.updateTodaysHabit()
 //        print(model.jumpOverSomeHabit(name: "working"))
-        BackgroundTimer.startTiming { (time) in
-            self.timeLabel.text = "\(time.hour):\(time.min):\(time.second)"
-        }
+//        BackgroundTimer.startTiming { (time) in
+//            self.timeLabel.text = "\(time.hour):\(time.min):\(time.second)"
+//        }
+        model.jumpOverSomeHabit(name:"work")
+        model.excuteHabit(name: "read", time: Time(hour:0,min:30,second:0))
     }
     
     @IBAction func startAgain(){
-        BackgroundTimer.restartTiming()
+//        BackgroundTimer.restartTiming()
+        model.addHabit(HabitData(name: "work", dailyTime: Time(hour:3,min:30,second:0), weekilyFrequency: 4))
+        model.addHabit(HabitData(name: "read", dailyTime: Time(hour:1,min:0,second:0), weekilyFrequency: 3))
     }
 
     @IBAction func stopIt(_ sender: UIButton) {
-//        model.habitArray.forEach { (habit) in
-//            let data = try! JSONEncoder().encode(habit)
-//            let string = String(data: data, encoding: .utf8)
-//            print(string!)
-//        }
-        BackgroundTimer.pauseTimimg()
+        model.habitArray.forEach { (habit) in
+            let data = try! JSONEncoder().encode(habit)
+            let string = String(data: data, encoding: .utf8)
+            print(string!)
+        }
+//        BackgroundTimer.pauseTimimg()
     }
     
     @IBAction func end(){
-        BackgroundTimer.endTiming()
+        model.habitArray.forEach { (habit) in
+            self.model.deleteHabit(name: habit.name)
+        }
+//        BackgroundTimer.endTiming()
     }
     
     @IBAction func changeTime(){
-        print("ChangeTime")
-       print(BackgroundTimer.set(time: Time(hour:0,min:5,second:0)))
+       model.culcalterWeekilyData()
+//        print("ChangeTime")
+//       print(BackgroundTimer.set(time: Time(hour:0,min:5,second:0)))
     }
     
 }

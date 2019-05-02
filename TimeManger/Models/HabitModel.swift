@@ -71,12 +71,12 @@ class HabitModel {
             return !habit.todayNeedToDisplay
         })
     }
-    //今日习惯刷新代码 写入数据   ⚠️注意时间的实现
+    //今日习惯刷新代码 写入数据  
     func updateTodaysHabit(){//在用户某一次超过设定的时间点之后进入应用之后调用
         for index in 0..<habitArray.count {
             if habitArray[index].todayNeedToDisplay {
-                //记录未完成的时间和次数加入 并且减少次数
-                habitArray[index].thisWeekRemainFrequancy -= 1
+                //记录未完成的时间和次数加入 并且不减少次数
+//                habitArray[index].thisWeekRemainFrequancy -= 1
                 jumpOverSomeHabit(name:habitArray[index].name)
             }
             //更改todayNeedToDisplay
@@ -134,7 +134,7 @@ class HabitModel {
     }
     //MARK:获取习惯统计数据
     
-    //每周清零一次 ⚠️注意时间的实现 🔍
+    //每周清零一次
     func culcalterWeekilyData(){
         for index in 0..<habitArray.count{
             //进行时间统计
