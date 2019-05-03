@@ -4,11 +4,11 @@
 //
 //  Created by 冯奕琦 on 2019/5/2.
 //  Copyright © 2019 冯奕琦. All rights reserved.
-//
+// 🔧
 
 import Foundation
 
-class TimeChecker {
+class TimeChecker {//开应用要做的第一件事情就是调用这个类⚠️
     
     //储存上次打开的时间
     //需要日刷新的时间 例如 2:00 AM

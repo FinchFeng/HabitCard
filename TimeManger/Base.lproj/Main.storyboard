@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FcQ-0d-fhw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -83,6 +83,138 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="897" y="-754"/>
+        </scene>
+        <!--统计-->
+        <scene sceneID="k7q-yw-h4m">
+            <objects>
+                <viewController id="Qta-AM-NuJ" customClass="HabitDataViewController" customModule="TimeManger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rec-rR-h9L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="rwW-af-Y5H"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="统计" id="sS8-az-09j"/>
+                    <connections>
+                        <segue destination="cGr-YX-j59" kind="show" identifier="segueToHabitDetailVC" id="jYi-S5-hWI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jOK-Hy-zSe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2078" y="-109"/>
+        </scene>
+        <!--Add New Habit View Controller-->
+        <scene sceneID="NTQ-PN-63c">
+            <objects>
+                <viewController id="IAJ-v9-gGI" customClass="AddNewHabitViewController" customModule="TimeManger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cyk-Pn-h6r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Habit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cn-Vh-n6f">
+                                <rect key="frame" x="147.5" y="323" width="80" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4cn-Vh-n6f" firstAttribute="centerY" secondItem="Cyk-Pn-h6r" secondAttribute="centerY" id="Svt-Cx-XkI"/>
+                            <constraint firstItem="4cn-Vh-n6f" firstAttribute="centerX" secondItem="Cyk-Pn-h6r" secondAttribute="centerX" id="nhZ-rX-p1q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XQr-gR-rzt"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vbx-wO-xEK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3062" y="-1122"/>
+        </scene>
+        <!--设置-->
+        <scene sceneID="VDj-A6-G2d">
+            <objects>
+                <viewController id="3FC-9p-wLX" customClass="SettingsViewController" customModule="TimeManger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0S7-Bp-5OV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="zIf-ZS-QRG"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="设置" id="WpF-Hq-bOL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ahK-3m-wVU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2078" y="607"/>
+        </scene>
+        <!--Habit Detail View Controller-->
+        <scene sceneID="3Li-YM-7aY">
+            <objects>
+                <viewController id="cGr-YX-j59" customClass="HabitDetailViewController" customModule="TimeManger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AeH-cl-eEx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="xhS-tK-g8G"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="inr-gs-DJ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3062" y="337"/>
+        </scene>
+        <!--今日-->
+        <scene sceneID="nCp-Be-I90">
+            <objects>
+                <viewController id="YvO-4V-2LL" customClass="TodaysTaskViewController" customModule="TimeManger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8p6-GX-htc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="g9A-5J-UMR"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="今日" id="ppp-HA-KPZ"/>
+                    <connections>
+                        <segue destination="IAJ-v9-gGI" kind="presentation" identifier="segueToAddNewHabitVC" id="sgZ-bT-YVm"/>
+                        <segue destination="oU0-OJ-hBi" kind="presentation" identifier="segueToExcuteHabitVC" id="iJB-ba-LCE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MEK-bV-4Mf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2078" y="-810"/>
+        </scene>
+        <!--Excute Habit View Controller-->
+        <scene sceneID="nmc-pN-3hV">
+            <objects>
+                <viewController id="oU0-OJ-hBi" customClass="ExcuteHabitViewController" customModule="TimeManger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1jh-4L-tfm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="nXg-vx-J9F"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qvG-LZ-bip" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3062" y="-402"/>
+        </scene>
+        <!--Main Tab Bar Controller-->
+        <scene sceneID="RXc-dM-8Hx">
+            <objects>
+                <tabBarController id="FcQ-0d-fhw" customClass="MainTabBarController" customModule="TimeManger" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zL0-wJ-b3w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="YvO-4V-2LL" kind="relationship" relationship="viewControllers" id="nrg-be-fI0"/>
+                        <segue destination="Qta-AM-NuJ" kind="relationship" relationship="viewControllers" id="4pV-hp-Dfi"/>
+                        <segue destination="3FC-9p-wLX" kind="relationship" relationship="viewControllers" id="t1C-vv-BiF"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Wf-a5-QGr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="897" y="85"/>
         </scene>
     </scenes>
 </document>
