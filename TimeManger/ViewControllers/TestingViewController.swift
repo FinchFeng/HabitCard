@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftDate
 
 class ViewController: UIViewController {
     
@@ -16,51 +17,40 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         //重新进入应用
         model = HabitModel()
-//        BackgroundTimer.checkNeedRestart{ (time) in
-//            self.timeLabel.text = "\(time.hour):\(time.min):\(time.second)"
-//        }
+        BackgroundTimer.checkNeedRestart{ (time) in
+            self.timeLabel.text = "\(time.hour):\(time.min):\(time.second)"
+        }
     }
     
     
     @IBOutlet weak var timeLabel: UILabel!
     
     @IBAction func clocking(){
-//       print(model.excuteHabit(name: "fucking", time: Time(hour:1,min:33,second:12)))
-//        model.updateTodaysHabit()
-//        print(model.jumpOverSomeHabit(name: "working"))
 //        BackgroundTimer.startTiming { (time) in
 //            self.timeLabel.text = "\(time.hour):\(time.min):\(time.second)"
 //        }
-        model.jumpOverSomeHabit(name:"work")
-        model.excuteHabit(name: "read", time: Time(hour:0,min:30,second:0))
+//
+        TimeChecker.checkUpdate()
     }
     
     @IBAction func startAgain(){
-//        BackgroundTimer.restartTiming()
-        model.addHabit(HabitData(name: "work", dailyTime: Time(hour:3,min:30,second:0), weekilyFrequency: 4))
-        model.addHabit(HabitData(name: "read", dailyTime: Time(hour:1,min:0,second:0), weekilyFrequency: 3))
+        BackgroundTimer.restartTiming()
+
     }
 
     @IBAction func stopIt(_ sender: UIButton) {
-        model.habitArray.forEach { (habit) in
-            let data = try! JSONEncoder().encode(habit)
-            let string = String(data: data, encoding: .utf8)
-            print(string!)
-        }
-//        BackgroundTimer.pauseTimimg()
+       
+        BackgroundTimer.pauseTimimg()
     }
     
     @IBAction func end(){
-        model.habitArray.forEach { (habit) in
-            self.model.deleteHabit(name: habit.name)
-        }
-//        BackgroundTimer.endTiming()
+        BackgroundTimer.endTiming()
     }
     
     @IBAction func changeTime(){
-       model.culcalterWeekilyData()
-//        print("ChangeTime")
-//       print(BackgroundTimer.set(time: Time(hour:0,min:5,second:0)))
+      
+        print("ChangeTime")
+       print(BackgroundTimer.set(time: Time(hour:0,min:5,second:0)))
     }
     
 }

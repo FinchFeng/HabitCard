@@ -10,25 +10,39 @@ import XCTest
 @testable import TimeManger
 
 class TimeMangerTests: XCTestCase {
-
+    //可以在这里直接对Model进行测试
+    var model = HabitModel()
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+//        model.addHabit(HabitData(name: "work", dailyTime: Time(hour: 2, min: 20, second: 0), weekilyFrequency: 3))
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func printAllhabit(){
+        model.habitArray.forEach { (habit) in
+            let data = try! JSONEncoder().encode(habit)
+            let string = String(data: data, encoding: .utf8)
+            print(string!)
         }
     }
+    
+    
 
+    func testExample() {
+//        model.excuteHabit(name: "work", time: Time(hour: 2, min: 10, second: 0))
+        printAllhabit()
+    }
+
+    func testDailyUpdate(){
+        
+    }
+    
+    
 }
+//       print(model.excuteHabit(name: "fucking", time: Time(hour:1,min:33,second:12)))
+//        model.updateTodaysHabit()
+//        print(model.jumpOverSomeHabit(name: "working"))
+//        model.jumpOverSomeHabit(name:"work")
+//        model.excuteHabit(name: "read", time: Time(hour:0,min:30,second:0))
+//        model.addHabit(HabitData(name: "work", dailyTime: Time(hour:3,min:30,second:0), weekilyFrequency: 4))
+//        model.addHabit(HabitData(name: "read", dailyTime: Time(hour:1,min:0,second:0), weekilyFrequency: 3))
+//        model.culcalterWeekilyData()
