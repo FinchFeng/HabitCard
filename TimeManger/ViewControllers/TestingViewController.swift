@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //重新进入应用
+        
         model = HabitModel()
         BackgroundTimer.checkNeedRestart{ (time) in
             self.timeLabel.text = "\(time.hour):\(time.min):\(time.second)"
@@ -26,11 +27,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     
     @IBAction func clocking(){
+        TimeChecker.checkUpdate()
 //        BackgroundTimer.startTiming { (time) in
 //            self.timeLabel.text = "\(time.hour):\(time.min):\(time.second)"
 //        }
 //
-        TimeChecker.checkUpdate()
+        
     }
     
     @IBAction func startAgain(){

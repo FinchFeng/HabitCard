@@ -4,26 +4,43 @@
 //
 //  Created by 冯奕琦 on 2019/5/2.
 //  Copyright © 2019 冯奕琦. All rights reserved.
-// 🔧
+// 🔍
+//开应用要做的第一件事情就是调用这个类 还有从后台返回前端的时候🔧
 
 import Foundation
 
-class TimeChecker {//开应用要做的第一件事情就是调用这个类 还有从后台返回前端的时候
+class TimeChecker {
     
     private static let userDefault = UserDefaults.standard
     
     //储存上次登陆的下个更新时间
-    static var currentNextWeekliyDate:Date {//注意初始化⚠️
+    static var currentNextWeekliyDate:Date {
         get{
-            return userDefault.object(forKey: "currentNextWeekliyDate") as! Date
+            //注意初始化 检查是否为nil
+            if let oldData = userDefault.object(forKey: "currentNextWeekliyDate") as? Date {
+                return oldData
+            }else{
+                let firstWeekliyDate = getNextDate(daily: false)
+                print("TimeChecker 第一次获取weekily\(firstWeekliyDate.description(with: .current))")
+                userDefault.set(firstWeekliyDate, forKey: "currentNextWeekliyDate")
+                return firstWeekliyDate
+            }
         }
         set{
             userDefault.set(newValue, forKey: "currentNextWeekliyDate")
         }
     }
-    static var currentNextDaliyDate:Date {//注意初始化⚠️
+    static var currentNextDaliyDate:Date {
         get{
-            return userDefault.object(forKey: "currentNextDaliyDate") as! Date
+            //注意初始化 检查是否为nil
+            if let oldData = userDefault.object(forKey: "currentNextDaliyDate") as? Date {
+                return oldData
+            }else{
+                let firstDailyDate = getNextDate(daily: true)
+                print("TimeChecker 第一次获取firstDailyDate\(firstDailyDate.description(with: .current))")
+                userDefault.set(firstDailyDate, forKey: "currentNextDaliyDate")
+                return firstDailyDate
+            }
         }
         set{
             userDefault.set(newValue, forKey: "currentNextDaliyDate")
@@ -56,10 +73,8 @@ class TimeChecker {//开应用要做的第一件事情就是调用这个类 还�
     
     //实现方法:检查这次登陆与上次登陆中的时间段是否跨过需要刷新的时间点,如果跨过就刷新 🔍
     static func checkUpdate(){
-        let currentTimePoint = Date()
-//        print(currentTimePoint.description(with: .current))
         //获取最近的星期一
-        let nextMonday = Calendar.current.nextDate(after: currentTimePoint, matching: DateComponents(weekday:2), matchingPolicy: .nextTime)!
+        let nextMonday = getNextDate(daily: false)
         //判断NextMonday是否更新 更新说明:要是更新了说明已经过了这个点
         if currentNextWeekliyDate != nextMonday {
             //更新
@@ -68,7 +83,7 @@ class TimeChecker {//开应用要做的第一件事情就是调用这个类 还�
             weekilyUpdateBlocks?()
         }
         //或者日常更新的时间
-        let nextDailyTime = Calendar.current.nextDate(after: currentTimePoint, matching: DateComponents(hour:2), matchingPolicy: .nextTime)!
+        let nextDailyTime = getNextDate(daily: true)
         //判断NextMonday是否更新 更新说明:要是更新了说明已经过了这个点
         if currentNextDaliyDate != nextDailyTime {
             //更新
@@ -79,5 +94,14 @@ class TimeChecker {//开应用要做的第一件事情就是调用这个类 还�
         print(nextMonday.description(with: .current))
         print("nextDailyTime \(nextDailyTime.description(with: .current))")
         
+    }
+    
+    private static func getNextDate(daily:Bool)->Date{
+        let currentTimePoint = Date()
+        if daily {
+            return  Calendar.current.nextDate(after: currentTimePoint, matching: DateComponents(hour:2), matchingPolicy: .nextTime)!
+        }else{
+            return Calendar.current.nextDate(after: currentTimePoint, matching: DateComponents(weekday:2), matchingPolicy: .nextTime)!
+        }
     }
 }
