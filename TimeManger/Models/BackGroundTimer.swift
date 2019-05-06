@@ -237,5 +237,11 @@ struct Time:Codable {
         return TimeInterval(self.hour*3600+self.min*60+self.second)
     }
     
+    func changeToString() -> String {
+        let hourString = hour == 0 ? "" : "\(hour)h"
+        let minString = hour == 0 ? "\(min)m" : "\(min)"
+        return hourString + minString
+    }
+    
 }
 

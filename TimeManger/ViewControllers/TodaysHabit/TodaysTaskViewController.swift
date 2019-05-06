@@ -8,7 +8,8 @@
 
 import UIKit
 
-class TodaysTaskViewController: UIViewController {
+class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
+    
     
     var model:HabitModel!
     
@@ -20,10 +21,37 @@ class TodaysTaskViewController: UIViewController {
         super.viewDidLoad()
         //在这里获取TabBarController的Model
         model = tabBarVC.model
-        
+        //配置CollectionView
+        collectionView.delegate = self
+        collectionView.dataSource = self
         print("TodaysTask Loads")
     }
-    //MARK:CollectionViews
+    //MARK:CollectionViews 还有移动顺序和储存颜色的两个功能需要🔧
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    // MARK: - UICollectionViewDataSource
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let id  = indexPath.row%2 == 0 ? "leftCard" : "rightCard"
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: id, for: indexPath) as!  CardView
+        //实例
+        cell.setDatas(title: "Work", todayRemain: Time(hour:3,min:45,second:0), weekilyRemainFrequancy: 3, color: #colorLiteral(red: 0.02745098039, green: 0.462745098, blue: 0.4705882353, alpha: 1) )
+        //在这里链接数据
+        return cell
+    }
+    
+    // MARK: - Collection View Flow Layout Delegate
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cardWidth = Constants.screenWidth/2.07
+        let cardHeight = cardWidth/Constants.cardsRadio
+        //返回固定的Card大小
+        return CGSize(width: cardWidth, height: cardHeight)
+    }
     
     //使用CollectionView展示今日习惯 有一个HabitData数组可以直接使用
     var todaysHabbits:[HabitData] {
@@ -33,7 +61,6 @@ class TodaysTaskViewController: UIViewController {
     //配置习惯卡片被点击之后跳转到执行习惯的VC 处理执行习惯VC返回之后的数据
     
     //配置习惯卡片的更多操作 ...按钮
-    
     
     //MARK:Segues and Segue back
 

@@ -19,6 +19,8 @@
 		139736112272C793002B50F4 /* BackGroundTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139736102272C793002B50F4 /* BackGroundTimer.swift */; };
 		139F518E2276946200DF5F85 /* HabitDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F518D2276946200DF5F85 /* HabitDataModel.swift */; };
 		139F51902276A00900DF5F85 /* HabitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F518F2276A00900DF5F85 /* HabitModel.swift */; };
+		139FA91122801DB200F657B9 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139FA91022801DB200F657B9 /* CardView.swift */; };
+		139FA91422801F4400F657B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139FA91322801F4400F657B9 /* Constants.swift */; };
 		13DC72EE227BDC860078C04B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DC72ED227BDC850078C04B /* MainTabBarController.swift */; };
 		13DC72F0227BDDD50078C04B /* TodaysTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DC72EF227BDDD50078C04B /* TodaysTaskViewController.swift */; };
 		13DC72F2227BDE030078C04B /* HabitDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DC72F1227BDE030078C04B /* HabitDataViewController.swift */; };
@@ -58,6 +60,8 @@
 		139736102272C793002B50F4 /* BackGroundTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackGroundTimer.swift; sourceTree = "<group>"; };
 		139F518D2276946200DF5F85 /* HabitDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDataModel.swift; sourceTree = "<group>"; };
 		139F518F2276A00900DF5F85 /* HabitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitModel.swift; sourceTree = "<group>"; };
+		139FA91022801DB200F657B9 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		139FA91322801F4400F657B9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		13DC72ED227BDC850078C04B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		13DC72EF227BDDD50078C04B /* TodaysTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysTaskViewController.swift; sourceTree = "<group>"; };
 		13DC72F1227BDE030078C04B /* HabitDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDataViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 			children = (
 				13084AE622707FD700FA98C9 /* Main.storyboard */,
 				13DC72EC227BDC450078C04B /* ViewControllers */,
+				139FA91222801DBD00F657B9 /* Views */,
 				139F518C2276935000DF5F85 /* Models */,
 				13084AEE22707FD900FA98C9 /* Info.plist */,
 				134CE5762270930F00ECB5A6 /* supportFiles */,
@@ -157,8 +162,17 @@
 				139F518F2276A00900DF5F85 /* HabitModel.swift */,
 				137146DB227A8DAB0022A104 /* TimeCheckerForUpdate.swift */,
 				13969E82227DBD1C0012CBB9 /* Extensions.swift */,
+				139FA91322801F4400F657B9 /* Constants.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		139FA91222801DBD00F657B9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				139FA91022801DB200F657B9 /* CardView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		13DC72EC227BDC450078C04B /* ViewControllers */ = {
@@ -177,8 +191,8 @@
 			isa = PBXGroup;
 			children = (
 				13DC72EF227BDDD50078C04B /* TodaysTaskViewController.swift */,
-				13DC72F5227BE76A0078C04B /* ExcuteHabitViewController.swift */,
 				13DC72F7227BE7850078C04B /* AddNewHabitViewController.swift */,
+				13DC72F5227BE76A0078C04B /* ExcuteHabitViewController.swift */,
 			);
 			path = TodaysHabit;
 			sourceTree = "<group>";
@@ -212,7 +226,6 @@
 				AAB23C9DF9BC3B1CD71695F6 /* Pods-TimeManger-TimeMangerTests.debug.xcconfig */,
 				A59AEBDB76BBB652B4C225C4 /* Pods-TimeManger-TimeMangerTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -421,8 +434,10 @@
 				139F51902276A00900DF5F85 /* HabitModel.swift in Sources */,
 				13DC72F6227BE76A0078C04B /* ExcuteHabitViewController.swift in Sources */,
 				13084AE522707FD700FA98C9 /* TestingViewController.swift in Sources */,
+				139FA91122801DB200F657B9 /* CardView.swift in Sources */,
 				139736112272C793002B50F4 /* BackGroundTimer.swift in Sources */,
 				13DC72F4227BDE100078C04B /* SettingsViewController.swift in Sources */,
+				139FA91422801F4400F657B9 /* Constants.swift in Sources */,
 				13DC72F2227BDE030078C04B /* HabitDataViewController.swift in Sources */,
 				13DC72EE227BDC860078C04B /* MainTabBarController.swift in Sources */,
 				13DC72FB227BEDD20078C04B /* HabitDetailViewController.swift in Sources */,
