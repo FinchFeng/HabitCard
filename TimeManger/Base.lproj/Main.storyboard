@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oU0-OJ-hBi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FcQ-0d-fhw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -119,6 +119,9 @@
                                     <constraint firstAttribute="width" secondItem="YD4-kT-grW" secondAttribute="height" id="vQn-BN-WXI"/>
                                 </constraints>
                                 <state key="normal" image="closePage"/>
+                                <connections>
+                                    <action selector="cancelButton" destination="IAJ-v9-gGI" eventType="touchUpInside" id="Zef-6Y-Imf"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的新习惯是" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8H-PO-moc">
                                 <rect key="frame" x="16" y="83" width="152" height="30"/>
@@ -198,6 +201,25 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.60098958329999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xSj-nc-3ej">
+                                <rect key="frame" x="129.5" y="489" width="116" height="116"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="116" id="q9h-yK-s6u"/>
+                                    <constraint firstAttribute="width" secondItem="xSj-nc-3ej" secondAttribute="height" multiplier="1:1" id="xe3-md-eOf"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="确定" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ed-Xr-lvu">
+                                <rect key="frame" x="161" y="531" width="53" height="32"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIW-IC-IHQ">
+                                <rect key="frame" x="129.5" y="489" width="116" height="116"/>
+                                <connections>
+                                    <action selector="doneAction" destination="IAJ-v9-gGI" eventType="touchUpInside" id="9dv-Zb-go8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -206,6 +228,8 @@
                             <constraint firstItem="MU2-gP-yBp" firstAttribute="leading" secondItem="NFG-QF-KiY" secondAttribute="trailing" id="4zj-Ka-3zr"/>
                             <constraint firstItem="Ffv-uB-Hl3" firstAttribute="trailing" secondItem="lif-j1-R7d" secondAttribute="trailing" id="5iH-7Y-Qff"/>
                             <constraint firstItem="MU2-gP-yBp" firstAttribute="firstBaseline" secondItem="NFG-QF-KiY" secondAttribute="firstBaseline" id="AIG-v8-4G9"/>
+                            <constraint firstItem="nIW-IC-IHQ" firstAttribute="top" secondItem="xSj-nc-3ej" secondAttribute="top" id="AIi-q5-MO8"/>
+                            <constraint firstItem="xSj-nc-3ej" firstAttribute="centerX" secondItem="XQr-gR-rzt" secondAttribute="centerX" id="BBd-A7-9m5"/>
                             <constraint firstItem="lif-j1-R7d" firstAttribute="leading" secondItem="v8H-PO-moc" secondAttribute="trailing" id="Bpu-Ka-bbk"/>
                             <constraint firstItem="qx5-9d-4gG" firstAttribute="leading" secondItem="sAh-FI-XLF" secondAttribute="leading" id="C6K-Ot-qUj"/>
                             <constraint firstItem="YD4-kT-grW" firstAttribute="top" secondItem="XQr-gR-rzt" secondAttribute="top" constant="11" id="Dyl-GV-v6D"/>
@@ -213,17 +237,23 @@
                             <constraint firstItem="dP3-TA-YvI" firstAttribute="leading" secondItem="qx5-9d-4gG" secondAttribute="trailing" id="I66-NR-rr4"/>
                             <constraint firstItem="qx5-9d-4gG" firstAttribute="top" secondItem="sAh-FI-XLF" secondAttribute="bottom" constant="30" id="NXt-zp-m9B"/>
                             <constraint firstItem="NFG-QF-KiY" firstAttribute="firstBaseline" secondItem="sAh-FI-XLF" secondAttribute="firstBaseline" id="O3x-1r-IyO"/>
+                            <constraint firstItem="nIW-IC-IHQ" firstAttribute="leading" secondItem="xSj-nc-3ej" secondAttribute="leading" id="PpP-VU-wPQ"/>
+                            <constraint firstItem="XQr-gR-rzt" firstAttribute="bottom" secondItem="xSj-nc-3ej" secondAttribute="bottom" constant="62" id="QIY-yp-yyQ"/>
                             <constraint firstItem="hjE-As-aIo" firstAttribute="firstBaseline" secondItem="dP3-TA-YvI" secondAttribute="firstBaseline" id="QLe-X8-zhp"/>
                             <constraint firstItem="dVe-wG-ciQ" firstAttribute="trailing" secondItem="dP3-TA-YvI" secondAttribute="trailing" id="RYM-FX-736"/>
                             <constraint firstItem="NJd-Bf-mNy" firstAttribute="top" secondItem="NFG-QF-KiY" secondAttribute="bottom" id="SFu-Zf-bDs"/>
                             <constraint firstItem="NJd-Bf-mNy" firstAttribute="trailing" secondItem="NFG-QF-KiY" secondAttribute="trailing" id="Tz9-2O-F27"/>
                             <constraint firstItem="Ffv-uB-Hl3" firstAttribute="leading" secondItem="lif-j1-R7d" secondAttribute="leading" id="VnZ-f7-Ozg"/>
                             <constraint firstItem="Ffv-uB-Hl3" firstAttribute="top" secondItem="lif-j1-R7d" secondAttribute="bottom" id="XcQ-ni-GKz"/>
+                            <constraint firstItem="1Ed-Xr-lvu" firstAttribute="centerY" secondItem="xSj-nc-3ej" secondAttribute="centerY" id="Xsq-EG-UdE"/>
                             <constraint firstItem="sAh-FI-XLF" firstAttribute="leading" secondItem="v8H-PO-moc" secondAttribute="leading" id="Y0s-mi-oUu"/>
+                            <constraint firstItem="1Ed-Xr-lvu" firstAttribute="centerX" secondItem="xSj-nc-3ej" secondAttribute="centerX" id="bz5-z1-ich"/>
                             <constraint firstItem="hjE-As-aIo" firstAttribute="leading" secondItem="dP3-TA-YvI" secondAttribute="trailing" id="ebh-w7-hCH"/>
                             <constraint firstItem="v8H-PO-moc" firstAttribute="top" secondItem="YD4-kT-grW" secondAttribute="bottom" constant="18" id="lWi-UM-zuc"/>
                             <constraint firstItem="dVe-wG-ciQ" firstAttribute="leading" secondItem="dP3-TA-YvI" secondAttribute="leading" id="liK-73-owP"/>
                             <constraint firstItem="sAh-FI-XLF" firstAttribute="top" secondItem="v8H-PO-moc" secondAttribute="bottom" constant="30" id="qGc-aP-r2o"/>
+                            <constraint firstItem="nIW-IC-IHQ" firstAttribute="bottom" secondItem="xSj-nc-3ej" secondAttribute="bottom" id="sKb-6X-Kuw"/>
+                            <constraint firstItem="nIW-IC-IHQ" firstAttribute="trailing" secondItem="xSj-nc-3ej" secondAttribute="trailing" id="ufo-uj-58P"/>
                             <constraint firstItem="XQr-gR-rzt" firstAttribute="trailing" secondItem="YD4-kT-grW" secondAttribute="trailing" constant="20" id="v2Q-yB-mMy"/>
                             <constraint firstItem="lif-j1-R7d" firstAttribute="firstBaseline" secondItem="v8H-PO-moc" secondAttribute="firstBaseline" id="vCj-TM-Upm"/>
                             <constraint firstItem="dVe-wG-ciQ" firstAttribute="top" secondItem="dP3-TA-YvI" secondAttribute="bottom" id="y45-W7-BYi"/>
@@ -231,6 +261,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XQr-gR-rzt"/>
                     </view>
+                    <connections>
+                        <outlet property="circleView" destination="xSj-nc-3ej" id="6Ee-V8-ctG"/>
+                        <outlet property="newHabitDailyTimeField" destination="NFG-QF-KiY" id="PmJ-Ce-58r"/>
+                        <outlet property="newHabitTextField" destination="lif-j1-R7d" id="aGu-Ic-Nj0"/>
+                        <outlet property="newHabitWeeklyFrequencyField" destination="dP3-TA-YvI" id="7QY-qN-QC0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vbx-wO-xEK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -279,7 +315,11 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="今日计划" id="1pv-3M-Fv2">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gbK-pC-1Zt"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gbK-pC-1Zt">
+                                            <connections>
+                                                <action selector="addNewHabit:" destination="YvO-4V-2LL" id="YJy-y2-STy"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

@@ -63,7 +63,10 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
     //配置习惯卡片的更多操作 ...按钮
     
     //MARK:Segues and Segue back
-
+    @IBAction func addNewHabit(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "segueToAddNewHabitVC", sender: nil)
+    }
+    
     //跳转到另外一个VC来添加习惯 处理这个VC返回到数据
     
     @IBAction func segue() {
