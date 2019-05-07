@@ -26,7 +26,7 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
         collectionView.dataSource = self
         print("TodaysTask Loads")
     }
-    //MARK:CollectionViews 还有移动顺序和储存颜色的两个功能需要🔧
+    //MARK:CollectionViews 还有 移动顺序 和 储存颜色 的两个功能需要🔧
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - UICollectionViewDataSource

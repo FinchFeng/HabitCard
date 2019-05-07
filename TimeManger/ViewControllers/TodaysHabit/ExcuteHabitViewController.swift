@@ -11,13 +11,50 @@
 import UIKit
 
 class ExcuteHabitViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    //在上一个VC调用
+    func setDataIn(habit:HabitData) {
+        //配置颜色
+        
+        //title
+        habitTitle = habit.name
+        //今日的remainTime
+        self.todayRemainTime = habit.todaysRemainTime
     }
     
+    //Segue过来的数据
+    var themeColor:UIColor!
+    var habitTitle:String!
+    var todayRemainTime:Time!
+    
+    //IBOutlet
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var excuteTimeLabel: UILabel!
+    @IBOutlet weak var circleView: UIView!
+    @IBOutlet weak var remainTimeLabel: UILabel!
+    @IBOutlet weak var pauseAndRestartButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //画圈圈 等待封装🔧
+        let oval = UIBezierPath(ovalIn: circleView.frame)
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = oval.cgPath
+        //change the fill color
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        //you can change the stroke color
+        shapeLayer.strokeColor = UIColor.white.cgColor
+        //you can change the line width
+        shapeLayer.lineWidth = 5.0
+        view.layer.addSublayer(shapeLayer)
+    }
+    
+    //ButtonActions
+    
+    @IBAction func pushButton(sender:UIButton){
+        print(sender.tag)
+        //开始暂停和结束 BackGroundTimer🔧
+    }
 
 
 }
