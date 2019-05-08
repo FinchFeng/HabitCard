@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SwiftDate
+
 
 class ViewController: UIViewController {
     
@@ -27,7 +27,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     
     @IBAction func clocking(){
-        TimeChecker.checkUpdate()
+        SPAlert.present(title: "已完成工作", preset: .done)
+//        TimeChecker.checkUpdate()
 //        BackgroundTimer.startTiming { (time) in
 //            self.timeLabel.text = "\(time.hour):\(time.min):\(time.second)"
 //        }

@@ -23,6 +23,12 @@
 		139FA91422801F4400F657B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139FA91322801F4400F657B9 /* Constants.swift */; };
 		13AC386F228252F400E0E65C /* HabitDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC386E228252F400E0E65C /* HabitDataTableViewCell.swift */; };
 		13AC38712282531400E0E65C /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC38702282531400E0E65C /* TitleTableViewCell.swift */; };
+		13AC38822282F47700E0E65C /* SPAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC387B2282F47700E0E65C /* SPAlertView.swift */; };
+		13AC38832282F47700E0E65C /* SPAlertPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC387C2282F47700E0E65C /* SPAlertPreset.swift */; };
+		13AC38842282F47700E0E65C /* SPAlertIconHeartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC387E2282F47700E0E65C /* SPAlertIconHeartView.swift */; };
+		13AC38852282F47700E0E65C /* SPAlertIconDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC387F2282F47700E0E65C /* SPAlertIconDoneView.swift */; };
+		13AC38862282F47700E0E65C /* SPAlertHaptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC38802282F47700E0E65C /* SPAlertHaptic.swift */; };
+		13AC38872282F47700E0E65C /* SPAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC38812282F47700E0E65C /* SPAlert.swift */; };
 		13DC72EE227BDC860078C04B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DC72ED227BDC850078C04B /* MainTabBarController.swift */; };
 		13DC72F0227BDDD50078C04B /* TodaysTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DC72EF227BDDD50078C04B /* TodaysTaskViewController.swift */; };
 		13DC72F2227BDE030078C04B /* HabitDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DC72F1227BDE030078C04B /* HabitDataViewController.swift */; };
@@ -46,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0846174E6C66F1DF9188A4CB /* Pods-TimeManger-TimeMangerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeManger-TimeMangerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeManger-TimeMangerTests/Pods-TimeManger-TimeMangerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0E5C731491E2B1DA67F04DEC /* Pods-TimeManger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeManger.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeManger/Pods-TimeManger.release.xcconfig"; sourceTree = "<group>"; };
 		13084ADF22707FD700FA98C9 /* TimeManger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeManger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13084AE222707FD700FA98C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13084AE422707FD700FA98C9 /* TestingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +74,12 @@
 		139FA91322801F4400F657B9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		13AC386E228252F400E0E65C /* HabitDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDataTableViewCell.swift; sourceTree = "<group>"; };
 		13AC38702282531400E0E65C /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		13AC387B2282F47700E0E65C /* SPAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPAlertView.swift; sourceTree = "<group>"; };
+		13AC387C2282F47700E0E65C /* SPAlertPreset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPAlertPreset.swift; sourceTree = "<group>"; };
+		13AC387E2282F47700E0E65C /* SPAlertIconHeartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPAlertIconHeartView.swift; sourceTree = "<group>"; };
+		13AC387F2282F47700E0E65C /* SPAlertIconDoneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPAlertIconDoneView.swift; sourceTree = "<group>"; };
+		13AC38802282F47700E0E65C /* SPAlertHaptic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPAlertHaptic.swift; sourceTree = "<group>"; };
+		13AC38812282F47700E0E65C /* SPAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPAlert.swift; sourceTree = "<group>"; };
 		13DC72ED227BDC850078C04B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		13DC72EF227BDDD50078C04B /* TodaysTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysTaskViewController.swift; sourceTree = "<group>"; };
 		13DC72F1227BDE030078C04B /* HabitDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDataViewController.swift; sourceTree = "<group>"; };
@@ -74,14 +88,10 @@
 		13DC72F7227BE7850078C04B /* AddNewHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewHabitViewController.swift; sourceTree = "<group>"; };
 		13DC72FA227BEDD20078C04B /* HabitDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailViewController.swift; sourceTree = "<group>"; };
 		346A6DE7ADDA254E404A16E9 /* Pods_TimeManger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeManger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		48972C528B57CDCD26EAA554 /* Pods-TimeManger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeManger.release.xcconfig"; path = "Target Support Files/Pods-TimeManger/Pods-TimeManger.release.xcconfig"; sourceTree = "<group>"; };
-		6018B2DFAEAF94162F2143B4 /* Pods-TimeManger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeManger.debug.xcconfig"; path = "Target Support Files/Pods-TimeManger/Pods-TimeManger.debug.xcconfig"; sourceTree = "<group>"; };
 		841BF4D75360084186ABCC25 /* Pods_TimeMangerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeMangerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A59AEBDB76BBB652B4C225C4 /* Pods-TimeManger-TimeMangerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeManger-TimeMangerTests.release.xcconfig"; path = "Target Support Files/Pods-TimeManger-TimeMangerTests/Pods-TimeManger-TimeMangerTests.release.xcconfig"; sourceTree = "<group>"; };
-		AAB23C9DF9BC3B1CD71695F6 /* Pods-TimeManger-TimeMangerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeManger-TimeMangerTests.debug.xcconfig"; path = "Target Support Files/Pods-TimeManger-TimeMangerTests/Pods-TimeManger-TimeMangerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B7D0DBBBF9BB4A2F03201ABE /* Pods_TimeManger_TimeMangerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeManger_TimeMangerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7F9CBFB5EAF5B9E183A4D9D /* Pods-TimeMangerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeMangerTests.debug.xcconfig"; path = "Target Support Files/Pods-TimeMangerTests/Pods-TimeMangerTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E9500FF4A805EA87F27F2644 /* Pods-TimeMangerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeMangerTests.release.xcconfig"; path = "Target Support Files/Pods-TimeMangerTests/Pods-TimeMangerTests.release.xcconfig"; sourceTree = "<group>"; };
+		D3EF325A8B6EA7C1072F2A97 /* Pods-TimeManger-TimeMangerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeManger-TimeMangerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeManger-TimeMangerTests/Pods-TimeManger-TimeMangerTests.release.xcconfig"; sourceTree = "<group>"; };
+		EF514E27727BCE33C56314B4 /* Pods-TimeManger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeManger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeManger/Pods-TimeManger.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,8 +121,8 @@
 				13084AE122707FD700FA98C9 /* TimeManger */,
 				13084AF622707FD900FA98C9 /* TimeMangerTests */,
 				13084AE022707FD700FA98C9 /* Products */,
-				ED0C1757D16DC10782FEBA85 /* Pods */,
 				478588FFCA742B1C1A2A8736 /* Frameworks */,
+				8F5C286B5A11AAE86E27F65B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +144,7 @@
 				139F518C2276935000DF5F85 /* Models */,
 				13084AEE22707FD900FA98C9 /* Info.plist */,
 				134CE5762270930F00ECB5A6 /* supportFiles */,
+				13AC38792282F47700E0E65C /* Source */,
 			);
 			path = TimeManger;
 			sourceTree = "<group>";
@@ -181,6 +192,35 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		13AC38792282F47700E0E65C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				13AC387A2282F47700E0E65C /* SPAlert */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		13AC387A2282F47700E0E65C /* SPAlert */ = {
+			isa = PBXGroup;
+			children = (
+				13AC387B2282F47700E0E65C /* SPAlertView.swift */,
+				13AC387C2282F47700E0E65C /* SPAlertPreset.swift */,
+				13AC387D2282F47700E0E65C /* Icons */,
+				13AC38802282F47700E0E65C /* SPAlertHaptic.swift */,
+				13AC38812282F47700E0E65C /* SPAlert.swift */,
+			);
+			path = SPAlert;
+			sourceTree = "<group>";
+		};
+		13AC387D2282F47700E0E65C /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				13AC387E2282F47700E0E65C /* SPAlertIconHeartView.swift */,
+				13AC387F2282F47700E0E65C /* SPAlertIconDoneView.swift */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
 		13DC72EC227BDC450078C04B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,17 +262,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		ED0C1757D16DC10782FEBA85 /* Pods */ = {
+		8F5C286B5A11AAE86E27F65B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6018B2DFAEAF94162F2143B4 /* Pods-TimeManger.debug.xcconfig */,
-				48972C528B57CDCD26EAA554 /* Pods-TimeManger.release.xcconfig */,
-				C7F9CBFB5EAF5B9E183A4D9D /* Pods-TimeMangerTests.debug.xcconfig */,
-				E9500FF4A805EA87F27F2644 /* Pods-TimeMangerTests.release.xcconfig */,
-				AAB23C9DF9BC3B1CD71695F6 /* Pods-TimeManger-TimeMangerTests.debug.xcconfig */,
-				A59AEBDB76BBB652B4C225C4 /* Pods-TimeManger-TimeMangerTests.release.xcconfig */,
+				EF514E27727BCE33C56314B4 /* Pods-TimeManger.debug.xcconfig */,
+				0E5C731491E2B1DA67F04DEC /* Pods-TimeManger.release.xcconfig */,
+				0846174E6C66F1DF9188A4CB /* Pods-TimeManger-TimeMangerTests.debug.xcconfig */,
+				D3EF325A8B6EA7C1072F2A97 /* Pods-TimeManger-TimeMangerTests.release.xcconfig */,
 			);
-			path = Pods;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,7 +284,6 @@
 				13084ADB22707FD700FA98C9 /* Sources */,
 				13084ADC22707FD700FA98C9 /* Frameworks */,
 				13084ADD22707FD700FA98C9 /* Resources */,
-				A440877AE0BCD5149602A6E5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -265,7 +302,6 @@
 				13084AEF22707FD900FA98C9 /* Sources */,
 				13084AF022707FD900FA98C9 /* Frameworks */,
 				13084AF122707FD900FA98C9 /* Resources */,
-				A749B53BC66840A3661BA4CF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -346,15 +382,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-TimeManger-TimeMangerTests-checkManifestLockResult.txt",
 			);
@@ -368,65 +400,17 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-TimeManger-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A440877AE0BCD5149602A6E5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TimeManger/Pods-TimeManger-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TimeManger/Pods-TimeManger-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A749B53BC66840A3661BA4CF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TimeManger-TimeMangerTests/Pods-TimeManger-TimeMangerTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TimeManger-TimeMangerTests/Pods-TimeManger-TimeMangerTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -445,13 +429,19 @@
 				13DC72F4227BDE100078C04B /* SettingsViewController.swift in Sources */,
 				139FA91422801F4400F657B9 /* Constants.swift in Sources */,
 				13DC72F2227BDE030078C04B /* HabitDataViewController.swift in Sources */,
+				13AC38852282F47700E0E65C /* SPAlertIconDoneView.swift in Sources */,
 				13DC72EE227BDC860078C04B /* MainTabBarController.swift in Sources */,
 				13AC386F228252F400E0E65C /* HabitDataTableViewCell.swift in Sources */,
+				13AC38842282F47700E0E65C /* SPAlertIconHeartView.swift in Sources */,
 				13DC72FB227BEDD20078C04B /* HabitDetailViewController.swift in Sources */,
+				13AC38832282F47700E0E65C /* SPAlertPreset.swift in Sources */,
 				137146DC227A8DAB0022A104 /* TimeCheckerForUpdate.swift in Sources */,
 				139F518E2276946200DF5F85 /* HabitDataModel.swift in Sources */,
 				13084AE322707FD700FA98C9 /* AppDelegate.swift in Sources */,
+				13AC38822282F47700E0E65C /* SPAlertView.swift in Sources */,
+				13AC38872282F47700E0E65C /* SPAlert.swift in Sources */,
 				13DC72F0227BDDD50078C04B /* TodaysTaskViewController.swift in Sources */,
+				13AC38862282F47700E0E65C /* SPAlertHaptic.swift in Sources */,
 				13AC38712282531400E0E65C /* TitleTableViewCell.swift in Sources */,
 				13969E83227DBD1C0012CBB9 /* Extensions.swift in Sources */,
 			);
@@ -614,12 +604,13 @@
 		};
 		13084AFD22707FD900FA98C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6018B2DFAEAF94162F2143B4 /* Pods-TimeManger.debug.xcconfig */;
+			baseConfigurationReference = EF514E27727BCE33C56314B4 /* Pods-TimeManger.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K2D6DE8NGJ;
 				INFOPLIST_FILE = TimeManger/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -633,12 +624,13 @@
 		};
 		13084AFE22707FD900FA98C9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 48972C528B57CDCD26EAA554 /* Pods-TimeManger.release.xcconfig */;
+			baseConfigurationReference = 0E5C731491E2B1DA67F04DEC /* Pods-TimeManger.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K2D6DE8NGJ;
 				INFOPLIST_FILE = TimeManger/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -652,7 +644,7 @@
 		};
 		13084B0022707FD900FA98C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AAB23C9DF9BC3B1CD71695F6 /* Pods-TimeManger-TimeMangerTests.debug.xcconfig */;
+			baseConfigurationReference = 0846174E6C66F1DF9188A4CB /* Pods-TimeManger-TimeMangerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -674,7 +666,7 @@
 		};
 		13084B0122707FD900FA98C9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A59AEBDB76BBB652B4C225C4 /* Pods-TimeManger-TimeMangerTests.release.xcconfig */;
+			baseConfigurationReference = D3EF325A8B6EA7C1072F2A97 /* Pods-TimeManger-TimeMangerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
