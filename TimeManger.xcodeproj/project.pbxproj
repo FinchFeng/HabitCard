@@ -21,6 +21,8 @@
 		139F51902276A00900DF5F85 /* HabitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F518F2276A00900DF5F85 /* HabitModel.swift */; };
 		139FA91122801DB200F657B9 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139FA91022801DB200F657B9 /* CardView.swift */; };
 		139FA91422801F4400F657B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139FA91322801F4400F657B9 /* Constants.swift */; };
+		13AC386F228252F400E0E65C /* HabitDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC386E228252F400E0E65C /* HabitDataTableViewCell.swift */; };
+		13AC38712282531400E0E65C /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC38702282531400E0E65C /* TitleTableViewCell.swift */; };
 		13DC72EE227BDC860078C04B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DC72ED227BDC850078C04B /* MainTabBarController.swift */; };
 		13DC72F0227BDDD50078C04B /* TodaysTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DC72EF227BDDD50078C04B /* TodaysTaskViewController.swift */; };
 		13DC72F2227BDE030078C04B /* HabitDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DC72F1227BDE030078C04B /* HabitDataViewController.swift */; };
@@ -62,6 +64,8 @@
 		139F518F2276A00900DF5F85 /* HabitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitModel.swift; sourceTree = "<group>"; };
 		139FA91022801DB200F657B9 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		139FA91322801F4400F657B9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		13AC386E228252F400E0E65C /* HabitDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDataTableViewCell.swift; sourceTree = "<group>"; };
+		13AC38702282531400E0E65C /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		13DC72ED227BDC850078C04B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		13DC72EF227BDDD50078C04B /* TodaysTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysTaskViewController.swift; sourceTree = "<group>"; };
 		13DC72F1227BDE030078C04B /* HabitDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDataViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				139FA91022801DB200F657B9 /* CardView.swift */,
+				13AC386E228252F400E0E65C /* HabitDataTableViewCell.swift */,
+				13AC38702282531400E0E65C /* TitleTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -440,11 +446,13 @@
 				139FA91422801F4400F657B9 /* Constants.swift in Sources */,
 				13DC72F2227BDE030078C04B /* HabitDataViewController.swift in Sources */,
 				13DC72EE227BDC860078C04B /* MainTabBarController.swift in Sources */,
+				13AC386F228252F400E0E65C /* HabitDataTableViewCell.swift in Sources */,
 				13DC72FB227BEDD20078C04B /* HabitDetailViewController.swift in Sources */,
 				137146DC227A8DAB0022A104 /* TimeCheckerForUpdate.swift in Sources */,
 				139F518E2276946200DF5F85 /* HabitDataModel.swift in Sources */,
 				13084AE322707FD700FA98C9 /* AppDelegate.swift in Sources */,
 				13DC72F0227BDDD50078C04B /* TodaysTaskViewController.swift in Sources */,
+				13AC38712282531400E0E65C /* TitleTableViewCell.swift in Sources */,
 				13969E83227DBD1C0012CBB9 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
