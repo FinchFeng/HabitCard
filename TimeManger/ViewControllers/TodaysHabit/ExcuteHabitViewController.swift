@@ -36,8 +36,13 @@ class ExcuteHabitViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //画圈圈 等待封装🔧
-        view.addCircle(frame: circleView.frame, fillColor:  UIColor.clear, strokeColor: UIColor.white, lineWidth: 5)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //画圈圈
+        circleView.addCircle(frame: circleView.bounds, fillColor:  UIColor.clear, strokeColor: UIColor.white, lineWidth: 5)
     }
     
     //ButtonActions

@@ -66,6 +66,7 @@
 		13084AF922707FD900FA98C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		136D9D12227D7C0000DC85C4 /* UnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTest.swift; sourceTree = "<group>"; };
 		137146DB227A8DAB0022A104 /* TimeCheckerForUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCheckerForUpdate.swift; sourceTree = "<group>"; };
+		1393A4F022845F5900BB7631 /* TimeManger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TimeManger.entitlements; sourceTree = "<group>"; };
 		13969E82227DBD1C0012CBB9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		139736102272C793002B50F4 /* BackGroundTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackGroundTimer.swift; sourceTree = "<group>"; };
 		139F518D2276946200DF5F85 /* HabitDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDataModel.swift; sourceTree = "<group>"; };
@@ -138,6 +139,7 @@
 		13084AE122707FD700FA98C9 /* TimeManger */ = {
 			isa = PBXGroup;
 			children = (
+				1393A4F022845F5900BB7631 /* TimeManger.entitlements */,
 				13084AE622707FD700FA98C9 /* Main.storyboard */,
 				13DC72EC227BDC450078C04B /* ViewControllers */,
 				139FA91222801DBD00F657B9 /* Views */,
@@ -326,6 +328,9 @@
 					13084ADE22707FD700FA98C9 = {
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 0;
 							};
@@ -607,6 +612,7 @@
 			baseConfigurationReference = EF514E27727BCE33C56314B4 /* Pods-TimeManger.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TimeManger/TimeManger.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K2D6DE8NGJ;
 				INFOPLIST_FILE = TimeManger/Info.plist;
@@ -615,7 +621,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fengyiqi.TimeManger;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fengyiqi.newBundleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -627,6 +633,7 @@
 			baseConfigurationReference = 0E5C731491E2B1DA67F04DEC /* Pods-TimeManger.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TimeManger/TimeManger.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K2D6DE8NGJ;
 				INFOPLIST_FILE = TimeManger/Info.plist;
@@ -635,7 +642,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fengyiqi.TimeManger;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fengyiqi.newBundleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

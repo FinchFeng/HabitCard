@@ -27,7 +27,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     
     @IBAction func clocking(){
-        SPAlert.present(title: "已完成工作", preset: .done)
+        let alertView = SPAlertView(title: "工作 已完成", message: nil, preset: .done)
+        alertView.duration = 0.8
+        alertView.cornerRadius = 35
+        alertView.present()
 //        TimeChecker.checkUpdate()
 //        BackgroundTimer.startTiming { (time) in
 //            self.timeLabel.text = "\(time.hour):\(time.min):\(time.second)"
@@ -38,7 +41,6 @@ class ViewController: UIViewController {
     
     @IBAction func startAgain(){
         BackgroundTimer.restartTiming()
-
     }
 
     @IBAction func stopIt(_ sender: UIButton) {

@@ -23,6 +23,11 @@ class HabitDetailViewController: UIViewController {
         //更改bar的颜色和title的颜色
         
         //手动画scrollView
+       
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         //展示数据
         let gap:CGFloat = 30
         var lastLine = createALabelGroup(title: "总执行时间", message: "6h8m", yPosition: 30)
