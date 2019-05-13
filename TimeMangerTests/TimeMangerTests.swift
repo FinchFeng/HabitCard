@@ -27,12 +27,17 @@ class TimeMangerTests: XCTestCase {
     
 
     func testExample() {
-//        model.addHabit(HabitData(name: "work", dailyTime: Time(hour: 2, min: 20, second: 0), weekilyFrequency: 3))
-        printAllhabit()
+        
     }
 
     func testDailyUpdate(){
         model.updateTodaysHabit()
+        printAllhabit()
+    }
+    
+    func testClearHabit() {
+        model.deleteHabit(name: "work")
+        model.addHabit(HabitData(name: "work", dailyTime: Time(hour: 2, min: 20, second: 0), weekilyFrequency: 3,color:ConstantsColor.getAColor()))
         printAllhabit()
     }
     

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct HabitData:Codable {//可储存 codeable
     
@@ -14,13 +15,14 @@ struct HabitData:Codable {//可储存 codeable
     var name:String
     var dailyTime:Time
     var weekilyFrequency:Int
-    init(name:String,dailyTime:Time,weekilyFrequency:Int) {
+    init(name:String,dailyTime:Time,weekilyFrequency:Int,color:UIColor) {
         self.name = name
         self.dailyTime = dailyTime
         self.weekilyFrequency = weekilyFrequency
         //添加之后直接展示这个习惯
         self.todaysRemainTime = dailyTime
         self.thisWeekRemainFrequancy = weekilyFrequency
+        self.colorInt = color.changeToAInt()
     }
     
     //每日数据
@@ -36,6 +38,9 @@ struct HabitData:Codable {//可储存 codeable
     //上周未完成
     var lastWeekHaventDoneTime = Time()//每周更新
     var lastWeekHaventDoneFrequancy = 0//每周更新
+    
+    //颜色
+    var colorInt:Int
 }
 
 

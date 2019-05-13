@@ -25,17 +25,16 @@ class CardView: UICollectionViewCell {
         cardBackgroundView.layer.shadowOpacity = 0.5
         cardBackgroundView.layer.shadowOffset = CGSize(width: 2, height: 4)
         cardBackgroundView.layer.shadowRadius = 4//模糊程度
-
     }
     
     var habitData:HabitData!
     //配置数据
-    func setDatas(data:HabitData,color:UIColor) {
+    func setDatas(data:HabitData) {
         self.habitData = data
         self.title.text = data.name
         dailyTime.text = data.todaysRemainTime.changeToString()
         weekilyTime.text = "\(data.thisWeekRemainFrequancy)"
-        cardBackgroundView.backgroundColor = color
+        cardBackgroundView.backgroundColor = data.colorInt.changeToAColor()
     }
     
     func setBlocks(todayDoneBlock:((String)->Void)!

@@ -47,7 +47,7 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
         //实例
         let data = todaysHabbits[indexPath.row]
         //在这里链接数据
-        cell.setDatas(data:data, color: #colorLiteral(red: 0.1034872308, green: 0.3690240681, blue: 0.5518581867, alpha: 1))
+        cell.setDatas(data:data)
         setCellMoreActionBlock(cell: cell)
         return cell
     }
@@ -107,7 +107,7 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
             let destiVC = segue.destination as! ExcuteHabitViewController
             let selectData = todaysHabbits[selectedIndex]
             destiVC.habitTitle = selectData.name
-            destiVC.themeColor = #colorLiteral(red: 0.1034872308, green: 0.3690240681, blue: 0.5518581867, alpha: 1)
+            destiVC.themeColor = selectData.colorInt.changeToAColor()
             destiVC.todayRemainTime = selectData.todaysRemainTime
         }
     }
