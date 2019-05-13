@@ -10,7 +10,6 @@ import UIKit
 
 class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     
-    
     var model:HabitModel!
     
     var tabBarVC:MainTabBarController {
@@ -25,22 +24,31 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
         collectionView.delegate = self
         collectionView.dataSource = self
         print("TodaysTask Loads")
+        print(todaysHabbits)
+//        print(model.habitArray)
     }
-    //MARK:CollectionViews 还有 移动顺序 和 储存颜色 的两个功能需要🔧
+    //MARK: - CollectionViews 还有 移动顺序 和 储存颜色 的两个功能需要🔧
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    //使用CollectionView展示今日习惯 有一个HabitData数组可以直接使用
+    var todaysHabbits:[HabitData] {
+        return model.habitForTodayArray
+    }
     
     // MARK: - UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return todaysHabbits.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let id  = indexPath.row%2 == 0 ? "leftCard" : "rightCard"
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: id, for: indexPath) as!  CardView
         //实例
-        cell.setDatas(title: "Work", todayRemain: Time(hour:3,min:45,second:0), weekilyRemainFrequancy: 3, color: #colorLiteral(red: 0.02745098039, green: 0.462745098, blue: 0.4705882353, alpha: 1) )
+        let data = todaysHabbits[indexPath.row]
         //在这里链接数据
+        cell.setDatas(data:data, color: #colorLiteral(red: 0.1034872308, green: 0.3690240681, blue: 0.5518581867, alpha: 1))
+        setCellMoreActionBlock(cell: cell)
         return cell
     }
     
@@ -53,16 +61,58 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
         return CGSize(width: cardWidth, height: cardHeight)
     }
     
-    //使用CollectionView展示今日习惯 有一个HabitData数组可以直接使用
-    var todaysHabbits:[HabitData] {
-        return model.habitForTodayArray
+    //配置习惯卡片被点击之后跳转到执行习惯的VC
+    
+    var selectedIndex = 0
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
+        performSegue(withIdentifier: "segueToExcuteHabitVC", sender: nil)
     }
     
-    //配置习惯卡片被点击之后跳转到执行习惯的VC 处理执行习惯VC返回之后的数据
-    
     //配置习惯卡片的更多操作 ...按钮
+    func setCellMoreActionBlock(cell:CardView){
+        cell.setBlocks(todayDoneBlock: { (name) in
+            self.model.todayDone(habitName: name)
+            //刷新数据
+            self.reloadDateFromModel()
+            //完成奖励动画
+            self.showAnimationDoneAHabit(name: name)
+        }, jumpTodayBlock: { (name) in
+            self.model.jumpOverSomeHabit(name: name)
+            //刷新数据
+            self.reloadDateFromModel()
+        }) { (data) in
+            //perform segue to 详细View
+        }
+    }
+    //MARK: - 动画和重新从Model中刷新数据
     
-    //MARK:Segues and Segue back
+    func reloadDateFromModel(){
+        collectionView.reloadData()
+    }
+    
+    func showAnimationDoneAHabit(name:String) {
+        //动画
+        let alertView = SPAlertView(title: "\(name) 已完成", message: nil, preset: .done)
+        alertView.duration = 0.8//再调整🔧
+        alertView.cornerRadius = 35
+        alertView.present()
+    }
+    
+    
+    //MARK: - Segues and Segue back
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier! == "segueToExcuteHabitVC"{
+            let destiVC = segue.destination as! ExcuteHabitViewController
+            let selectData = todaysHabbits[selectedIndex]
+            destiVC.habitTitle = selectData.name
+            destiVC.themeColor = #colorLiteral(red: 0.1034872308, green: 0.3690240681, blue: 0.5518581867, alpha: 1)
+            destiVC.todayRemainTime = selectData.todaysRemainTime
+        }
+    }
+    
+    
     @IBAction func addNewHabit(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "segueToAddNewHabitVC", sender: nil)
     }
@@ -71,6 +121,11 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
     
     @IBAction func segue() {
         performSegue(withIdentifier: "segueToAddNewHabitVC", sender: nil)
+    }
+    
+    //Unwind Action
+    @IBAction func unwind(segue:UIStoryboardSegue){
+        print("back To Today")
     }
     
 

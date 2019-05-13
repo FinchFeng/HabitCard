@@ -14,7 +14,6 @@ class TimeMangerTests: XCTestCase {
     var model = HabitModel()
     
     override func setUp() {
-//        model.addHabit(HabitData(name: "work", dailyTime: Time(hour: 2, min: 20, second: 0), weekilyFrequency: 3))
     }
     
     func printAllhabit(){
@@ -28,12 +27,13 @@ class TimeMangerTests: XCTestCase {
     
 
     func testExample() {
-//        model.excuteHabit(name: "work", time: Time(hour: 2, min: 10, second: 0))
+//        model.addHabit(HabitData(name: "work", dailyTime: Time(hour: 2, min: 20, second: 0), weekilyFrequency: 3))
         printAllhabit()
     }
 
     func testDailyUpdate(){
-        
+        model.updateTodaysHabit()
+        printAllhabit()
     }
     
     

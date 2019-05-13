@@ -28,17 +28,45 @@ class CardView: UICollectionViewCell {
 
     }
     
+    var habitData:HabitData!
     //配置数据
-    func setDatas(title:String,todayRemain:Time,weekilyRemainFrequancy:Int,color:UIColor) {
-        self.title.text = title
-        dailyTime.text = todayRemain.changeToString()
-        weekilyTime.text = "\(weekilyRemainFrequancy)"
+    func setDatas(data:HabitData,color:UIColor) {
+        self.habitData = data
+        self.title.text = data.name
+        dailyTime.text = data.todaysRemainTime.changeToString()
+        weekilyTime.text = "\(data.thisWeekRemainFrequancy)"
         cardBackgroundView.backgroundColor = color
     }
     
+    func setBlocks(todayDoneBlock:((String)->Void)!
+        ,jumpTodayBlock:((String)->Void)!,
+         goToDetailVC:((HabitData)->Void)!){
+        self.todayDoneBlock = todayDoneBlock
+        self.jumpTodayBlock = jumpTodayBlock
+        self.goToDetailVC = goToDetailVC
+    }
+    
+    //moreAction
+    
+    var todayDoneBlock:((String)->Void)!
+    var jumpTodayBlock:((String)->Void)!
+    var goToDetailVC:((HabitData)->Void)!
+    
     @IBAction func moreAcation(){
-        //在链接VC的时候使用搞一个block 🔧
         print("MoreActions")
+        let alertController = UIAlertController(title: "工作卡片", message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "今天跳过此习惯", style: .destructive, handler: { (_) in
+            self.jumpTodayBlock(self.habitData.name)
+        }))
+        alertController.addAction(UIAlertAction(title: "已完成此习惯", style: .default, handler: { (_) in
+            self.todayDoneBlock(self.habitData.name)
+        }))
+        alertController.addAction(UIAlertAction(title: "查看或编辑此习惯", style: .default, handler: { (_) in
+            self.goToDetailVC(self.habitData)
+        }))
+        //使用当前的vc展示
+        UIApplication.topViewController()!.present(alertController, animated: true, completion: nil)
     }
     
     

@@ -68,7 +68,7 @@ class HabitModel {
     //获取今日习惯数组 应该是一个计算属性
     var habitForTodayArray:[HabitData]{
         return habitArray.filter({ (habit) -> Bool in
-            return !habit.todayNeedToDisplay
+            return habit.todayNeedToDisplay
         })
     }
     //今日习惯刷新代码 写入数据  

@@ -232,6 +232,7 @@
                                 <state key="normal" image="closePage"/>
                                 <connections>
                                     <action selector="cancelButton" destination="IAJ-v9-gGI" eventType="touchUpInside" id="Zef-6Y-Imf"/>
+                                    <segue destination="9GK-rH-yhO" kind="unwind" unwindAction="unwindWithSegue:" id="2WV-ct-Sl5"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的新习惯是" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8H-PO-moc">
@@ -730,6 +731,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MEK-bV-4Mf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="9GK-rH-yhO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2077.5999999999999" y="-810.0449775112445"/>
         </scene>
@@ -748,6 +750,9 @@
                                     <constraint firstAttribute="width" secondItem="68W-sm-vgi" secondAttribute="height" multiplier="6:11" id="eOK-HN-UEr"/>
                                 </constraints>
                                 <state key="normal" image="backButton"/>
+                                <connections>
+                                    <segue destination="9GK-rH-yhO" kind="unwind" unwindAction="unwindWithSegue:" id="Ggx-Ww-emT"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioN-Kq-goS">
                                 <rect key="frame" x="155" y="34" width="65" height="24"/>
@@ -901,6 +906,6 @@
         <image name="pauseButton" width="250" height="250"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nhu-ZO-OY4"/>
+        <segue reference="sgZ-bT-YVm"/>
     </inferredMetricsTieBreakers>
 </document>
