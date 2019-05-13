@@ -11,5 +11,8 @@ import UIKit
 class TitleTableViewCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
-
+    
+    func set(title:String) {
+        self.title.text = title
+    }
 }

@@ -16,14 +16,27 @@ class HabitDataTableViewCell: UITableViewCell {
     @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet weak var daysLabel: UILabel!
     
-    func setDataIn(){//🔧
-        //读入这些数据 设置颜色什么的
+    var data:HabitData!
+    func setDataIn(data:HabitData,isHaventDoneCell:Bool){
+        self.data = data
+        //设置数据
+        if isHaventDoneCell {
+            habitTitle.text = data.name
+            background.backgroundColor = UIColor.red
+            hourLabel.text = data.lastWeekHaventDoneTime.changeToString()
+            daysLabel.text = "\(data.lastWeekHaventDoneFrequancy)天"
+        }else{
+            habitTitle.text = data.name
+            background.backgroundColor = data.colorInt.changeToAColor()
+            hourLabel.text = ""
+            daysLabel.text = "\(data.totalExecuteDays)天"
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         //Segue
-        
+        print("select this view \(data.name)")
     }
 
 }
