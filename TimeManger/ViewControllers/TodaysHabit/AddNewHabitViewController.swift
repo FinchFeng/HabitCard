@@ -5,7 +5,7 @@
 //  Created by 冯奕琦 on 2019/5/3.
 //  Copyright © 2019 冯奕琦. All rights reserved.
 //
-//unwind 对5s屏幕进行适配 🔧
+// 对5s屏幕进行适配 🔧
 
 import UIKit
 
@@ -29,10 +29,54 @@ class AddNewHabitViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         newHabitWeeklyFrequencyField.delegate = delegateClass
     }
     
+    //Segue
+//    var newHabitData:HabitData!
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier! == "unwindToTodayFromAdding" , let newData = sender! as? HabitData {
+            let todaysVC = segue.destination as! TodaysTaskViewController
+            //在这里直接添加
+            todaysVC.model.addHabit(newData)
+        }
+    }
+    
+    //检查名称的闭包 segue的时候配置
+    var checkNameBlock:((String)->Bool)!
+    
     @IBAction func doneAction() {
         print("unwind with a new habit data")
-        //返回一个新习惯数据🔧
+        //返回一个新习惯数据
+        //检查新名称是否可以使用
+        if let frequency = Int(newHabitWeeklyFrequencyField.text ?? "") , (frequency > 0) ,frequency < 8{
+            //检查一下有没有同名
+            if let name =  newHabitTextField.text {
+                if checkNameBlock(name){
+                    //获取小时和分钟
+                    let timeString = newHabitDailyTimeField.text!
+                    let newHabitData = HabitData(name: newHabitTextField.text ?? "",
+                                                 dailyTime: timeString.changeToTime(),
+                                                 weekilyFrequency:frequency,
+                                                 color: ConstantsColor.getAColor())
+                    //unwind新的habit
+                    performSegue(withIdentifier: "unwindToTodayFromAdding", sender: newHabitData)
+                }else{
+                    //有同名
+                    showMassage("此名字被使用过了")
+                }
+            }else{
+                //没有输入名称
+                showMassage("没有输入名称")
+            }
+            
+        }else{
+            showMassage("每周次数不能超过7")
+        }
         
+    }
+    
+    func showMassage(_ word:String){
+        let controller = UIAlertController(title: "注意", message: word, preferredStyle: .alert)
+        controller.addAction(UIAlertAction(title: "好的", style: .default, handler: nil))
+        self.present(controller, animated: true, completion: nil)
     }
     
     @IBAction func cancelButton() {

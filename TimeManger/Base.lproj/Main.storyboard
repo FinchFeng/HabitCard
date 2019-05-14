@@ -232,7 +232,7 @@
                                 <state key="normal" image="closePage"/>
                                 <connections>
                                     <action selector="cancelButton" destination="IAJ-v9-gGI" eventType="touchUpInside" id="Zef-6Y-Imf"/>
-                                    <segue destination="9GK-rH-yhO" kind="unwind" unwindAction="unwindWithSegue:" id="2WV-ct-Sl5"/>
+                                    <segue destination="9GK-rH-yhO" kind="unwind" identifier="unwindToTodayFromAdding" unwindAction="unwindWithSegue:" id="2WV-ct-Sl5"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的新习惯是" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8H-PO-moc">

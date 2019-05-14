@@ -27,7 +27,7 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
         print(todaysHabbits)
 //        print(model.habitArray)
     }
-    //MARK: - CollectionViews 还有 移动顺序 和 储存颜色 的两个功能需要🔧
+    //MARK: - CollectionViews 还有 移动顺序 🔧
     @IBOutlet weak var collectionView: UICollectionView!
     
     //使用CollectionView展示今日习惯 有一个HabitData数组可以直接使用
@@ -109,6 +109,9 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
             destiVC.habitTitle = selectData.name
             destiVC.themeColor = selectData.colorInt.changeToAColor()
             destiVC.todayRemainTime = selectData.todaysRemainTime
+        }else if segue.identifier! == "segueToAddNewHabitVC"{
+            let destiVC = segue.destination as! AddNewHabitViewController
+            destiVC.checkNameBlock = model.checkNameOfNewHabit
         }
     }
     
@@ -125,6 +128,7 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
     
     //Unwind Action
     @IBAction func unwind(segue:UIStoryboardSegue){
+        reloadDateFromModel()
         print("back To Today")
     }
     

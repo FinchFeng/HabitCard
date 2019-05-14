@@ -14,7 +14,15 @@ class HabitModel {
         //获取数据
         habitArray = getHabitDataFromDocument()
     }
-    
+    //检查名称是否可以使用
+    func checkNameOfNewHabit(name:String)->Bool{
+        for habit in habitArray {
+            if habit.name == name {
+                return false
+            }
+        }
+        return true
+    }
     //总习惯数组(直接储存和获取)
     var habitArray:[HabitData] = []{
         didSet{

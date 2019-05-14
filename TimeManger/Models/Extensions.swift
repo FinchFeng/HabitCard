@@ -16,6 +16,16 @@ import UIKit
 //    }
 //}
 
+extension String {
+    func changeToTime() -> Time {
+        let string = self
+        let midIndex = string.firstIndex(of: ":")!
+        let hourString = string[..<midIndex]
+        let minString = string[string.index(after: midIndex)..<string.endIndex]
+        return Time(hour:Int(hourString)!,min:Int(minString)!,second:0)
+    }
+}
+
 
 extension UIView{
     //传入子View的Frame
