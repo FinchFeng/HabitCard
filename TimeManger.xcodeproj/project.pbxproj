@@ -121,6 +121,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1304C29A228A5E3D00EE9DB8 /* TimeModel */ = {
+			isa = PBXGroup;
+			children = (
+				139736102272C793002B50F4 /* BackGroundTimer.swift */,
+				137146DB227A8DAB0022A104 /* TimeCheckerForUpdate.swift */,
+			);
+			path = TimeModel;
+			sourceTree = "<group>";
+		};
 		13084AD622707FD700FA98C9 = {
 			isa = PBXGroup;
 			children = (
@@ -179,10 +188,9 @@
 		139F518C2276935000DF5F85 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				139736102272C793002B50F4 /* BackGroundTimer.swift */,
+				1304C29A228A5E3D00EE9DB8 /* TimeModel */,
 				139F518D2276946200DF5F85 /* HabitDataModel.swift */,
 				139F518F2276A00900DF5F85 /* HabitModel.swift */,
-				137146DB227A8DAB0022A104 /* TimeCheckerForUpdate.swift */,
 				13969E82227DBD1C0012CBB9 /* Extensions.swift */,
 				139FA91322801F4400F657B9 /* Constants.swift */,
 			);

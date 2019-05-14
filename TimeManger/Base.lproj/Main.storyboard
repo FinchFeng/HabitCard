@@ -751,7 +751,7 @@
                                 </constraints>
                                 <state key="normal" image="backButton"/>
                                 <connections>
-                                    <segue destination="9GK-rH-yhO" kind="unwind" unwindAction="unwindWithSegue:" id="Ggx-Ww-emT"/>
+                                    <action selector="goGackWithNoTime" destination="oU0-OJ-hBi" eventType="touchUpInside" id="2Re-HY-ouI"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioN-Kq-goS">
@@ -763,8 +763,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UqY-fy-ilJ">
                                 <rect key="frame" x="71.5" y="159" width="232" height="231.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFm-7t-M9X">
-                                        <rect key="frame" x="49" y="87" width="134.5" height="57.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:0:0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFm-7t-M9X">
+                                        <rect key="frame" x="57.5" y="87" width="117" height="58"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="48"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -851,7 +851,9 @@
                         <outlet property="excuteTimeLabel" destination="lFm-7t-M9X" id="sl6-iS-juz"/>
                         <outlet property="pauseAndRestartButton" destination="sDJ-nF-OKB" id="pgK-hy-jZ9"/>
                         <outlet property="remainTimeLabel" destination="jOz-Yd-grc" id="DN9-o4-lMd"/>
+                        <outlet property="startOrEndButton" destination="aHl-9P-Msy" id="KGo-3Z-VKx"/>
                         <outlet property="titleLabel" destination="ioN-Kq-goS" id="Hba-4P-ZNM"/>
+                        <segue destination="9GK-rH-yhO" kind="unwind" identifier="unwindToToday" unwindAction="unwindWithSegue:" id="O0Y-hR-oak"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvG-LZ-bip" userLabel="First Responder" sceneMemberID="firstResponder"/>

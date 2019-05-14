@@ -35,7 +35,7 @@ class BackgroundTimer {
     
     
     static func startTiming(changeInterFaceBlock:@escaping (Time)->Void){
-        endTiming()
+//        endTiming()
         passedTime = Time()
         startTimePoint = Date()
         self.changeInterFaceBlock = changeInterFaceBlock
@@ -130,7 +130,7 @@ class BackgroundTimer {
         currentPausingTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (_) in
             if let passTime = BackgroundTimer.getPastTime(pausingTime: true){
                 BackgroundTimer.pausingTime = passTime
-                print("Pausing \(isTiming)")
+//                print("Pausing \(isTiming)")
                 print(BackgroundTimer.pausingTime)
             }else{
                 print("no timer")
