@@ -40,7 +40,7 @@ class ExcuteHabitViewController: UIViewController {
         titleLabel.text = habitTitle
         remainTimeLabel.text = todayRemainTime.changeToString()
         view.backgroundColor = themeColor
-        //退出重新进的时候在这里配置restart
+        //退出重新进的时候在这里配置restart🔧
         BackgroundTimer.startTiming(changeInterFaceBlock: self.checkBlock)
     }
     
@@ -104,7 +104,7 @@ class ExcuteHabitViewController: UIViewController {
     //MARK:- ButtonActions
     @IBAction func pushButton(sender:UIButton){
         print(sender.tag)
-        //开始暂停和结束 BackGroundTimer🔧
+        //开始暂停和结束 BackGroundTimer
         switch sender.tag {
         case 0:
             if BackgroundTimer.isPausing {
@@ -116,12 +116,12 @@ class ExcuteHabitViewController: UIViewController {
             }
         case 1:
             BackgroundTimer.endTiming()
-            //返回数据给TodayVC
+            //返回数据给TodayVC🔧
         case 2:
             let alert = UIAlertController(title: habitTitle, message: nil, preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "已完成", style: .destructive, handler: { (_) in
-                
+                alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+                alert.addAction(UIAlertAction(title: "已完成", style: .destructive, handler: { (_) in
+                    //返回数据给TodayVC🔧
             }))
 //            alert.addAction(UIAlertAction(title: "编辑时间", style: .default, handler: { (_) in
 //
