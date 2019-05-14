@@ -54,6 +54,20 @@ class ExcuteHabitViewController: UIViewController {
         super.viewDidAppear(animated)
     }
     
+    //Segue back
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier! == "unwindToToday" {
+            let destVC = segue.destination as! TodaysTaskViewController
+            destVC.excuteHabitName = habitTitle
+            if let excuteTime = sender as? Time{
+                destVC.excuteTimeFromUnwind = excuteTime
+            }
+            if let doneIt = sender as? Bool{
+                //直接完成
+                destVC.finishThisWork = doneIt
+            }
+        }
+    }
     
     // changeTimeLabelBlock
     lazy var checkBlock:(Time)->Void = { [weak self] (time) in
@@ -117,11 +131,14 @@ class ExcuteHabitViewController: UIViewController {
         case 1:
             BackgroundTimer.endTiming()
             //返回数据给TodayVC🔧
+            performSegue(withIdentifier: "unwindToToday", sender: BackgroundTimer.passedTime)
         case 2:
             let alert = UIAlertController(title: habitTitle, message: nil, preferredStyle: .actionSheet)
                 alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
                 alert.addAction(UIAlertAction(title: "已完成", style: .destructive, handler: { (_) in
                     //返回数据给TodayVC🔧
+                    BackgroundTimer.endTiming()
+                    self.performSegue(withIdentifier: "unwindToToday", sender: true)
             }))
 //            alert.addAction(UIAlertAction(title: "编辑时间", style: .default, handler: { (_) in
 //

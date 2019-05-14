@@ -72,11 +72,7 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
     //配置习惯卡片的更多操作 ...按钮
     func setCellMoreActionBlock(cell:CardView){
         cell.setBlocks(todayDoneBlock: { (name) in
-            self.model.todayDone(habitName: name)
-            //刷新数据
-            self.reloadDateFromModel()
-            //完成奖励动画
-            self.showAnimationDoneAHabit(name: name)
+           self.finishSomeWork(name: name)
         }, jumpTodayBlock: { (name) in
             self.model.jumpOverSomeHabit(name: name)
             //刷新数据
@@ -86,6 +82,14 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
         }
     }
     //MARK: - 动画和重新从Model中刷新数据
+    
+    func finishSomeWork(name:String) {
+        self.model.todayDone(habitName: name)
+        //刷新数据
+        self.reloadDateFromModel()
+        //完成奖励动画
+        self.showAnimationDoneAHabit(name: name)
+    }
     
     func reloadDateFromModel(){
         collectionView.reloadData()
@@ -126,9 +130,31 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
         performSegue(withIdentifier: "segueToAddNewHabitVC", sender: nil)
     }
     
+    //这里储存数据
+    var excuteHabitName:String!
+    var excuteTimeFromUnwind:Time?
+    var finishThisWork:Bool?
     //Unwind Action
     @IBAction func unwind(segue:UIStoryboardSegue){
         reloadDateFromModel()
+        if let time = excuteTimeFromUnwind {
+            print(time)
+            if model.excuteHabit(name: excuteHabitName, time: time){
+                //刷新数据
+                self.reloadDateFromModel()
+                //完成奖励动画
+                self.showAnimationDoneAHabit(name: excuteHabitName)
+            }
+        }
+        if let bool = finishThisWork{
+            if bool == true {
+                self.finishSomeWork(name: excuteHabitName)
+            }
+        }
+        //清除数据
+        excuteHabitName = nil
+        finishThisWork = nil
+        excuteTimeFromUnwind = nil
         print("back To Today")
     }
     
