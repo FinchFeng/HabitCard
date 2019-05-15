@@ -36,7 +36,10 @@ class HabitDataTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         //Segue
-        print("select this view \(data.name)")
+        print("select this view \(data.name) \(selected)")
+        if selected == true {
+            UIApplication.topViewController()!.performSegue(withIdentifier: "segueToHabitDetailVC", sender: data)
+        }
     }
 
 }

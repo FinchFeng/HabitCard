@@ -212,8 +212,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOK-Hy-zSe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="t7x-kt-nTZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3016.8000000000002" y="-109.29535232383809"/>
+            <point key="canvasLocation" x="3017" y="-87"/>
         </scene>
         <!--Add New Habit View Controller-->
         <scene sceneID="NTQ-PN-63c">
@@ -391,7 +392,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4001" y="-1104"/>
+            <point key="canvasLocation" x="4001" y="-1155"/>
         </scene>
         <!--设置-->
         <scene sceneID="VDj-A6-G2d">
@@ -471,6 +472,8 @@
                     </view>
                     <connections>
                         <outlet property="scrollView" destination="JVh-w6-58J" id="M7d-LA-XBK"/>
+                        <segue destination="t7x-kt-nTZ" kind="unwind" identifier="backToHabitData" unwindAction="unwindBackToHabitDataWithSender:" id="1yJ-3Q-Fup"/>
+                        <segue destination="IAJ-v9-gGI" kind="presentation" identifier="editHabit" id="Hk2-4l-XRL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="inr-gs-DJ3" userLabel="First Responder" sceneMemberID="firstResponder"/>

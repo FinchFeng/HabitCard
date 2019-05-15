@@ -4,7 +4,7 @@
 //
 //  Created by 冯奕琦 on 2019/5/3.
 //  Copyright © 2019 冯奕琦. All rights reserved.
-//  等待上周未完成的测试🔍
+//  等待上周未完成的测试🔍  更改习惯返回之后不是展示在这个页面🔧而且在详情页面还有tabBar
 
 import UIKit
 
@@ -32,6 +32,7 @@ class HabitDataViewController: UIViewController {
         tableView.reloadData()
     }
     
+    
     //上周未完成数组
     
     var lastWeekHaventDoneArray:[HabitData]{
@@ -52,6 +53,23 @@ class HabitDataViewController: UIViewController {
     //Test shit
     @IBAction func test(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "segueToHabitDetailVC", sender: nil)
+    }
+    
+    //MARK:- Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier! == "segueToHabitDetailVC"{
+            if let data = sender! as? HabitData{
+                let destVC = segue.destination as! HabitDetailViewController
+                destVC.habitData = data
+                destVC.checkNameBlock = model.checkNameOfNewHabit
+            }
+        }
+    }
+    
+    @IBAction func unwindBackToHabitData(sender:UIStoryboardSegue){
+        print("back to habitData")
+        tableView.reloadData()
     }
     
     
@@ -124,7 +142,8 @@ extension HabitDataViewController:UITableViewDataSource,UITableViewDelegate{
     //配置点击之后的Segue数据
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+//        let data = model.habitArray[indexPath.row]
+//        performSegue(withIdentifier: "segueToHabitDetailVC", sender: data)
     }
     
 }

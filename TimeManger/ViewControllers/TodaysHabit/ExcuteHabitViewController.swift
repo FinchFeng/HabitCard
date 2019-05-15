@@ -6,7 +6,7 @@
 //  Copyright © 2019 冯奕琦. All rights reserved.
 //
 //
-//生成一个Time（）返回给Model 或者直接告诉model已经完成🔧
+//🔍
 
 import UIKit
 
@@ -54,30 +54,6 @@ class ExcuteHabitViewController: UIViewController {
         super.viewDidAppear(animated)
     }
     
-    //Segue back
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier! == "unwindToToday" {
-            let destVC = segue.destination as! TodaysTaskViewController
-            destVC.excuteHabitName = habitTitle
-            if let excuteTime = sender as? Time{
-                destVC.excuteTimeFromUnwind = excuteTime
-            }
-            if let doneIt = sender as? Bool{
-                //直接完成
-                destVC.finishThisWork = doneIt
-            }
-        }
-    }
-    
-    // changeTimeLabelBlock
-    lazy var checkBlock:(Time)->Void = { [weak self] (time) in
-//        let second = time.second < 10 ? "0\(time.second)" : "\(time.second)"
-//        let min = time.min < 10 ? "0\(time.min)" : "\(time.min)"
-        self!.excuteTimeLabel.text = "\(time.hour):\(time.min):\(time.second)"
-        //更新今日剩余时间
-        let newRemainTime = self!.todayRemainTime - time
-        self!.remainTimeLabel.text = newRemainTime.changeToString()
-    }
     
     
     //MARK: - goback Alert
@@ -116,6 +92,32 @@ class ExcuteHabitViewController: UIViewController {
     
     
     //MARK:- ButtonActions
+    
+    //Segue back
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier! == "unwindToToday" {
+            let destVC = segue.destination as! TodaysTaskViewController
+            destVC.excuteHabitName = habitTitle
+            if let excuteTime = sender as? Time{
+                destVC.excuteTimeFromUnwind = excuteTime
+            }
+            if let doneIt = sender as? Bool{
+                //直接完成
+                destVC.unwindToFinishThisWork = doneIt
+            }
+        }
+    }
+    
+    // changeTimeLabelBlock
+    lazy var checkBlock:(Time)->Void = { [weak self] (time) in
+        //        let second = time.second < 10 ? "0\(time.second)" : "\(time.second)"
+        //        let min = time.min < 10 ? "0\(time.min)" : "\(time.min)"
+        self!.excuteTimeLabel.text = "\(time.hour):\(time.min):\(time.second)"
+        //更新今日剩余时间
+        let newRemainTime = self!.todayRemainTime - time
+        self!.remainTimeLabel.text = newRemainTime.changeToString()
+    }
+    
     @IBAction func pushButton(sender:UIButton){
         print(sender.tag)
         //开始暂停和结束 BackGroundTimer
@@ -130,13 +132,13 @@ class ExcuteHabitViewController: UIViewController {
             }
         case 1:
             BackgroundTimer.endTiming()
-            //返回数据给TodayVC🔧
+            //返回数据给TodayVC
             performSegue(withIdentifier: "unwindToToday", sender: BackgroundTimer.passedTime)
         case 2:
             let alert = UIAlertController(title: habitTitle, message: nil, preferredStyle: .actionSheet)
                 alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
                 alert.addAction(UIAlertAction(title: "已完成", style: .destructive, handler: { (_) in
-                    //返回数据给TodayVC🔧
+                    //返回数据给TodayVC
                     BackgroundTimer.endTiming()
                     self.performSegue(withIdentifier: "unwindToToday", sender: true)
             }))

@@ -11,7 +11,6 @@ import UIKit
 
 class AddNewHabitViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource {
     
-    
 
     @IBOutlet weak var newHabitTextField: UITextField!
     @IBOutlet weak var newHabitDailyTimeField: UITextField!
@@ -20,6 +19,9 @@ class AddNewHabitViewController: UIViewController,UITextFieldDelegate,UIPickerVi
     
     let delegateClass = TextFieldDoneDelegateClass()
     
+    //判断是不是来修改数据的
+    var oldData:HabitData?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         circleView.addCircle(frame: circleView.bounds, fillColor: UIColor.lightGray, strokeColor: UIColor.clear, lineWidth: 0)
@@ -27,15 +29,25 @@ class AddNewHabitViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         //赋值为另外一个Class 的delegate
         newHabitTextField.delegate = delegateClass
         newHabitWeeklyFrequencyField.delegate = delegateClass
+        //判定修改数据
+        if let data = oldData {
+            newHabitTextField.text = data.name
+            let dailyTimeInSecond = Int(data.dailyTime.changeToSecond())
+            newHabitDailyTimeField.text = "\(dailyTimeInSecond/3600):\((dailyTimeInSecond/60)%60)"
+            newHabitWeeklyFrequencyField.text = "\(data.weekilyFrequency)"
+        }
     }
     
-    //Segue
-//    var newHabitData:HabitData!
+    //MARK:- Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier! == "unwindToTodayFromAdding" , let newData = sender! as? HabitData {
             let todaysVC = segue.destination as! TodaysTaskViewController
             //在这里直接添加
-            todaysVC.model.addHabit(newData)
+            if oldData == nil {
+                todaysVC.model.addHabit(newData)
+            }else{
+                todaysVC.model.changeHabit(oldName: oldData!.name, newHabit: newData)
+            }
         }
     }
     

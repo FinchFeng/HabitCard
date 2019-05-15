@@ -4,7 +4,7 @@
 //
 //  Created by 冯奕琦 on 2019/5/3.
 //  Copyright © 2019 冯奕琦. All rights reserved.
-//
+//  
 
 import UIKit
 
@@ -133,10 +133,10 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
     //这里储存数据
     var excuteHabitName:String!
     var excuteTimeFromUnwind:Time?
-    var finishThisWork:Bool?
+    var unwindToFinishThisWork:Bool?
     //Unwind Action
     @IBAction func unwind(segue:UIStoryboardSegue){
-        reloadDateFromModel()
+        
         if let time = excuteTimeFromUnwind {
             print(time)
             if model.excuteHabit(name: excuteHabitName, time: time){
@@ -146,14 +146,15 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
                 self.showAnimationDoneAHabit(name: excuteHabitName)
             }
         }
-        if let bool = finishThisWork{
+        if let bool = unwindToFinishThisWork{
             if bool == true {
                 self.finishSomeWork(name: excuteHabitName)
             }
         }
+        reloadDateFromModel()
         //清除数据
         excuteHabitName = nil
-        finishThisWork = nil
+        unwindToFinishThisWork = nil
         excuteTimeFromUnwind = nil
         print("back To Today")
     }
