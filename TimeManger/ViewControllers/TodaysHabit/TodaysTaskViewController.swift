@@ -4,7 +4,7 @@
 //
 //  Created by 冯奕琦 on 2019/5/3.
 //  Copyright © 2019 冯奕琦. All rights reserved.
-//  
+//  适配iPad横屏🔧
 
 import UIKit
 
@@ -130,13 +130,20 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
         performSegue(withIdentifier: "segueToAddNewHabitVC", sender: nil)
     }
     
-    //这里储存数据
+    //这里储存是否需要从HabitDetail中返回
+    var needToPopHabitDetailVC:Bool?
+    //这里储存执行数据
     var excuteHabitName:String!
     var excuteTimeFromUnwind:Time?
     var unwindToFinishThisWork:Bool?
     //Unwind Action
     @IBAction func unwind(segue:UIStoryboardSegue){
-        
+        if let bool =  needToPopHabitDetailVC ,bool == true{
+            let tabBarVC = tabBarController as! MainTabBarController
+            let navigationVC =  tabBarVC.viewControllers![1] as! UINavigationController
+            print("有执行到这里")
+            navigationVC.popViewController(animated: false)
+        }
         if let time = excuteTimeFromUnwind {
             print(time)
             if model.excuteHabit(name: excuteHabitName, time: time){

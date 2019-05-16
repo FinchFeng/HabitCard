@@ -29,7 +29,6 @@
 		13AC38852282F47700E0E65C /* SPAlertIconDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC387F2282F47700E0E65C /* SPAlertIconDoneView.swift */; };
 		13AC38862282F47700E0E65C /* SPAlertHaptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC38802282F47700E0E65C /* SPAlertHaptic.swift */; };
 		13AC38872282F47700E0E65C /* SPAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC38812282F47700E0E65C /* SPAlert.swift */; };
-		13D6BA502287E9150018AEDF /* Pods_TimeManger_TimeMangerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13D6BA4F2287E9150018AEDF /* Pods_TimeManger_TimeMangerTests.framework */; };
 		13DC72EE227BDC860078C04B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DC72ED227BDC850078C04B /* MainTabBarController.swift */; };
 		13DC72F0227BDDD50078C04B /* TodaysTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DC72EF227BDDD50078C04B /* TodaysTaskViewController.swift */; };
 		13DC72F2227BDE030078C04B /* HabitDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DC72F1227BDE030078C04B /* HabitDataViewController.swift */; };
@@ -104,7 +103,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13D6BA502287E9150018AEDF /* Pods_TimeManger_TimeMangerTests.framework in Frameworks */,
 				29CA79623D4D5BB544F49287 /* Pods_TimeManger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

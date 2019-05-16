@@ -38,6 +38,9 @@ class AddNewHabitViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         }
     }
     
+   
+    
+    
     //MARK:- Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier! == "unwindToTodayFromAdding" , let newData = sender! as? HabitData {
@@ -46,8 +49,14 @@ class AddNewHabitViewController: UIViewController,UITextFieldDelegate,UIPickerVi
             if oldData == nil {
                 todaysVC.model.addHabit(newData)
             }else{
+                todaysVC.needToPopHabitDetailVC = true
                 todaysVC.model.changeHabit(oldName: oldData!.name, newHabit: newData)
             }
+        }
+        //bool是oldata是否为nil
+        if segue.identifier! == "unwindToTodayFromAdding" , let bool = sender as? Bool,bool == false{
+            let todaysVC = segue.destination as! TodaysTaskViewController
+            todaysVC.needToPopHabitDetailVC = true
         }
     }
     
@@ -92,7 +101,7 @@ class AddNewHabitViewController: UIViewController,UITextFieldDelegate,UIPickerVi
     }
     
     @IBAction func cancelButton() {
-        
+        performSegue(withIdentifier: "unwindToTodayFromAdding", sender: oldData == nil)
     }
     
     @IBAction func tapScreen(_ sender: UITapGestureRecognizer) {

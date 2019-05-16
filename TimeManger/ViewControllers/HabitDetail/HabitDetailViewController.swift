@@ -17,6 +17,7 @@ class HabitDetailViewController: UIViewController {
     var habitData:HabitData!
     var themeColor:UIColor! = #colorLiteral(red: 0.1034872308, green: 0.3690240681, blue: 0.5518581867, alpha: 1)
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         //配置右上角的按钮
@@ -38,6 +39,20 @@ class HabitDetailViewController: UIViewController {
         //最后创建contentSize
         scrollView.contentSize = CGSize(width: Constants.screenWidth, height: lastLine+gap)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewWillAppear")
+        self.tabBarController!.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController!.tabBar.isHidden = false
+        print("viewWillDisappear")
+    }
+    
+    //MARK:-
     
     func createALabelGroup(title:String,message:String,yPosition:CGFloat)->CGFloat{
         //title

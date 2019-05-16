@@ -4,7 +4,7 @@
 //
 //  Created by 冯奕琦 on 2019/5/3.
 //  Copyright © 2019 冯奕琦. All rights reserved.
-//  等待上周未完成的测试🔍  更改习惯返回之后不是展示在这个页面🔧而且在详情页面还有tabBar
+//  等待上周未完成的测试🔍 
 
 import UIKit
 
@@ -58,7 +58,7 @@ class HabitDataViewController: UIViewController {
     //MARK:- Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier! == "segueToHabitDetailVC"{
+        if let id = segue.identifier , id == "segueToHabitDetailVC"{
             if let data = sender! as? HabitData{
                 let destVC = segue.destination as! HabitDetailViewController
                 destVC.habitData = data

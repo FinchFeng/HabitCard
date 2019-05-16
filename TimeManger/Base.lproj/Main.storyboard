@@ -233,7 +233,6 @@
                                 <state key="normal" image="closePage"/>
                                 <connections>
                                     <action selector="cancelButton" destination="IAJ-v9-gGI" eventType="touchUpInside" id="Zef-6Y-Imf"/>
-                                    <segue destination="9GK-rH-yhO" kind="unwind" identifier="unwindToTodayFromAdding" unwindAction="unwindWithSegue:" id="2WV-ct-Sl5"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的新习惯是" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8H-PO-moc">
@@ -383,6 +382,7 @@
                         <outlet property="newHabitDailyTimeField" destination="NFG-QF-KiY" id="PmJ-Ce-58r"/>
                         <outlet property="newHabitTextField" destination="lif-j1-R7d" id="aGu-Ic-Nj0"/>
                         <outlet property="newHabitWeeklyFrequencyField" destination="dP3-TA-YvI" id="7QY-qN-QC0"/>
+                        <segue destination="9GK-rH-yhO" kind="unwind" identifier="unwindToTodayFromAdding" unwindAction="unwindWithSegue:" id="cEd-9e-9pb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vbx-wO-xEK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -392,7 +392,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4001" y="-1155"/>
+            <point key="canvasLocation" x="4000.8000000000002" y="-1155.472263868066"/>
         </scene>
         <!--设置-->
         <scene sceneID="VDj-A6-G2d">
@@ -458,13 +458,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVh-w6-58J">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="JVh-w6-58J" firstAttribute="top" secondItem="xhS-tK-g8G" secondAttribute="top" id="2qQ-T9-mdV"/>
-                            <constraint firstItem="JVh-w6-58J" firstAttribute="bottom" secondItem="xhS-tK-g8G" secondAttribute="bottom" id="T2P-vX-hAD"/>
+                            <constraint firstItem="JVh-w6-58J" firstAttribute="bottom" secondItem="AeH-cl-eEx" secondAttribute="bottom" id="T2P-vX-hAD"/>
                             <constraint firstItem="JVh-w6-58J" firstAttribute="trailing" secondItem="xhS-tK-g8G" secondAttribute="trailing" id="TDO-Et-HMW"/>
                             <constraint firstItem="JVh-w6-58J" firstAttribute="leading" secondItem="xhS-tK-g8G" secondAttribute="leading" id="qgL-iK-dSc"/>
                         </constraints>
@@ -767,7 +767,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioN-Kq-goS">
-                                <rect key="frame" x="155" y="34" width="65" height="24"/>
+                                <rect key="frame" x="155" y="26.5" width="65" height="39"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -788,8 +788,8 @@
                                     <constraint firstItem="lFm-7t-M9X" firstAttribute="centerY" secondItem="UqY-fy-ilJ" secondAttribute="centerY" id="dK4-oD-z4V"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日剩余" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RB5-Dn-x55">
-                                <rect key="frame" x="158.5" y="404.5" width="58" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日剩余yyy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RB5-Dn-x55">
+                                <rect key="frame" x="147" y="404.5" width="81" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -837,10 +837,8 @@
                         <color key="backgroundColor" red="0.10348723083734512" green="0.36902406811714172" blue="0.55185818672180176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="RB5-Dn-x55" firstAttribute="centerX" secondItem="UqY-fy-ilJ" secondAttribute="centerX" id="23y-t4-B0Q"/>
-                            <constraint firstItem="ioN-Kq-goS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="68W-sm-vgi" secondAttribute="trailing" id="3df-oZ-83H"/>
                             <constraint firstItem="rq6-XQ-UBc" firstAttribute="leading" secondItem="aHl-9P-Msy" secondAttribute="trailing" constant="45" id="6xL-bu-CBj"/>
                             <constraint firstItem="68W-sm-vgi" firstAttribute="leading" secondItem="nXg-vx-J9F" secondAttribute="leading" constant="26" id="BDL-pu-lqg"/>
-                            <constraint firstItem="ioN-Kq-goS" firstAttribute="top" secondItem="nXg-vx-J9F" secondAttribute="top" constant="14" id="C56-Xb-9UI"/>
                             <constraint firstItem="UqY-fy-ilJ" firstAttribute="centerX" secondItem="nXg-vx-J9F" secondAttribute="centerX" id="C6f-sp-EfO"/>
                             <constraint firstItem="UqY-fy-ilJ" firstAttribute="centerY" secondItem="nXg-vx-J9F" secondAttribute="centerY" multiplier="0.8" id="HAF-Nx-cJK"/>
                             <constraint firstItem="rq6-XQ-UBc" firstAttribute="centerY" secondItem="aHl-9P-Msy" secondAttribute="centerY" id="J03-W6-eI1"/>
@@ -920,6 +918,6 @@
         <image name="pauseButton" width="250" height="250"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sgZ-bT-YVm"/>
+        <segue reference="Hk2-4l-XRL"/>
     </inferredMetricsTieBreakers>
 </document>
