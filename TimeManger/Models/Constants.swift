@@ -14,7 +14,9 @@ class Constants {
     static var screenWidth = UIScreen.main.bounds.width
     static var screenHeight = UIScreen.main.bounds.height
     //Cards
-    static var cardsRadio:CGFloat = 0.87
+    static var cardsWidth:CGFloat = (screenWidth/2)*0.718
+    static var collectionCellPadding:CGFloat = 0.07
+    static var cardsRadio:CGFloat = 0.718
     static var cardsDistance:CGFloat = 0.13
     
 }

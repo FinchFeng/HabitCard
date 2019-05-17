@@ -63,9 +63,21 @@ class HabitModel {
         return true
     }
     //更改卡片的顺序 
-    func reorderHabit(start:Int,end:Int){
-        let reorderHabit = habitArray.remove(at: start)
-        habitArray.insert(reorderHabit, at: end)
+    func reorderHabit(startName:String,endName:String){
+        var startInt:Int!
+        var endInt:Int!
+        for (index,value) in habitArray.enumerated() {
+            if value.name == startName {
+                startInt = index
+            }
+            if value.name == endName {
+                endInt = index
+            }
+        }
+        let reorderHabit = habitArray.remove(at: startInt)
+        habitArray.insert(reorderHabit, at: endInt)
+        print("model reorder Array")
+        print(habitArray)
     }
     //删除一个习惯
     func deleteHabit(name:String){

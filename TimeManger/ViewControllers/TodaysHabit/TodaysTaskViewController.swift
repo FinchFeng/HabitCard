@@ -23,6 +23,14 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
         //配置CollectionView
         collectionView.delegate = self
         collectionView.dataSource = self
+        //添加collectionView的padding
+        let topSpace = CGFloat(0)
+        let hSpace = Constants.screenWidth*0.08
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = topSpace
+        layout.minimumInteritemSpacing = hSpace
+        layout.sectionInset = UIEdgeInsets(top: topSpace, left: hSpace, bottom: 0, right:hSpace)
+        collectionView.collectionViewLayout = layout
         //配置长点手势
         longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
         collectionView.addGestureRecognizer(longPressGesture)
@@ -63,7 +71,8 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         print("刷新item\(indexPath.row)")
-        let id  = indexPath.row%2 == 0 ? "leftCard" : "rightCard"
+//        let id  = indexPath.row%2 == 0 ? "leftCard" : "rightCard"
+        let id = "leftCard"
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: id, for: indexPath) as!  CardView
         //实例
         let data = todaysHabbits[indexPath.row]
@@ -73,24 +82,28 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
         return cell
     }
     
+    
     //顺序移动
     
     func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
         return true
     }
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        model.reorderHabit(start: sourceIndexPath.item, end: destinationIndexPath.item)
-        reloadDataFromModel()
+        let startName = todaysHabbits[sourceIndexPath.row].name
+        let endName = todaysHabbits[destinationIndexPath.row].name
+        print("\(startName) -> \(endName)")
+        model.reorderHabit(startName: startName, endName: endName)
+//        reloadDataFromModel()
     }
-    
     // MARK: - Collection View Flow Layout Delegate
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cardWidth = Constants.screenWidth/2.07
-        let cardHeight = cardWidth/Constants.cardsRadio
+        let cardWidth = Constants.cardsWidth
+        let cardHeight = cardWidth/(Constants.cardsRadio-Constants.collectionCellPadding)
         //返回固定的Card大小
         return CGSize(width: cardWidth, height: cardHeight)
     }
+    
     
     //配置习惯卡片被点击之后跳转到执行习惯的VC
     
@@ -109,7 +122,7 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
             //刷新数据
             self.reloadDataFromModel()
         }) { (data) in
-            //perform segue to 详细View
+            //perform segue to 详细View🔧
         }
     }
     //MARK: - 动画和重新从Model中刷新数据
