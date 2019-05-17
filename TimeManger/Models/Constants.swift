@@ -37,10 +37,11 @@ struct ConstantsColor {
         }
     }
     
-    static var colorsArray = [#colorLiteral(red: 0.1034872308, green: 0.3690240681, blue: 0.5518581867, alpha: 1),#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)]
+    static var colorsArray = [#colorLiteral(red: 0.1034872308, green: 0.3690240681, blue: 0.5518581867, alpha: 1),#colorLiteral(red: 0, green: 0.5352982283, blue: 0.6814761162, alpha: 1),#colorLiteral(red: 0.6589001417, green: 0.775041759, blue: 0.8751162291, alpha: 1),#colorLiteral(red: 0.5701642632, green: 0.7740980983, blue: 0.7254878879, alpha: 1),#colorLiteral(red: 0.3484483361, green: 0.623762846, blue: 0.8358900547, alpha: 1),#colorLiteral(red: 0.4552027583, green: 0.6703909039, blue: 0.7212151289, alpha: 1)]
     //获取新的Color
     static func getAColor()->UIColor{
         let currentOldColorInt = currentUsingColorInt
+        print("颜色Int\(currentOldColorInt)")
         let newColorInt = (currentOldColorInt == colorsArray.count-1 ? 0 : currentOldColorInt+1)
         currentUsingColorInt = newColorInt
         return newColorInt.changeToAColor()

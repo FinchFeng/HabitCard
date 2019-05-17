@@ -23,16 +23,36 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
         //配置CollectionView
         collectionView.delegate = self
         collectionView.dataSource = self
+        //配置长点手势
+        longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
+        collectionView.addGestureRecognizer(longPressGesture)
+        //Print
         print("TodaysTask Loads")
         print(todaysHabbits)
 //        print(model.habitArray)
     }
-    //MARK: - CollectionViews 还有 移动顺序 🔧
+    //MARK: - CollectionViews 还有 移动顺序🔧无法全部的item都reload()
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    var longPressGesture: UILongPressGestureRecognizer!
     //使用CollectionView展示今日习惯 有一个HabitData数组可以直接使用
     var todaysHabbits:[HabitData] {
         return model.habitForTodayArray
+    }
+
+    @objc func handleLongGesture(gesture: UILongPressGestureRecognizer) {
+        switch(gesture.state) {
+        case .began:
+            guard let selectedIndexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else {
+                break
+            }
+            collectionView.beginInteractiveMovementForItem(at: selectedIndexPath)
+        case .changed:
+            collectionView.updateInteractiveMovementTargetPosition(gesture.location(in: gesture.view!))
+        case .ended:
+            collectionView.endInteractiveMovement()
+        default:
+            collectionView.cancelInteractiveMovement()
+        }
     }
     
     // MARK: - UICollectionViewDataSource
@@ -42,6 +62,7 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("刷新item\(indexPath.row)")
         let id  = indexPath.row%2 == 0 ? "leftCard" : "rightCard"
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: id, for: indexPath) as!  CardView
         //实例
@@ -50,6 +71,16 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
         cell.setDatas(data:data)
         setCellMoreActionBlock(cell: cell)
         return cell
+    }
+    
+    //顺序移动
+    
+    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        model.reorderHabit(start: sourceIndexPath.item, end: destinationIndexPath.item)
+        reloadDataFromModel()
     }
     
     // MARK: - Collection View Flow Layout Delegate
@@ -76,7 +107,7 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
         }, jumpTodayBlock: { (name) in
             self.model.jumpOverSomeHabit(name: name)
             //刷新数据
-            self.reloadDateFromModel()
+            self.reloadDataFromModel()
         }) { (data) in
             //perform segue to 详细View
         }
@@ -86,19 +117,19 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
     func finishSomeWork(name:String) {
         self.model.todayDone(habitName: name)
         //刷新数据
-        self.reloadDateFromModel()
+        self.reloadDataFromModel()
         //完成奖励动画
         self.showAnimationDoneAHabit(name: name)
     }
     
-    func reloadDateFromModel(){
+    func reloadDataFromModel(){
         collectionView.reloadData()
     }
     
     func showAnimationDoneAHabit(name:String) {
         //动画
         let alertView = SPAlertView(title: "\(name) 已完成", message: nil, preset: .done)
-        alertView.duration = 0.8//再调整🔧
+        alertView.duration = 1.4//再调整🔧
         alertView.cornerRadius = 35
         alertView.present()
     }
@@ -148,7 +179,7 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
             print(time)
             if model.excuteHabit(name: excuteHabitName, time: time){
                 //刷新数据
-                self.reloadDateFromModel()
+                self.reloadDataFromModel()
                 //完成奖励动画
                 self.showAnimationDoneAHabit(name: excuteHabitName)
             }
@@ -158,7 +189,7 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
                 self.finishSomeWork(name: excuteHabitName)
             }
         }
-        reloadDateFromModel()
+        reloadDataFromModel()
         //清除数据
         excuteHabitName = nil
         unwindToFinishThisWork = nil

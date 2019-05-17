@@ -62,7 +62,11 @@ class HabitModel {
         habitArray.append(habit)
         return true
     }
-    //更改卡片的顺序 🔧跟UICollectionView的方法结合
+    //更改卡片的顺序 
+    func reorderHabit(start:Int,end:Int){
+        let reorderHabit = habitArray.remove(at: start)
+        habitArray.insert(reorderHabit, at: end)
+    }
     //删除一个习惯
     func deleteHabit(name:String){
         for (index,habit) in habitArray.enumerated(){
