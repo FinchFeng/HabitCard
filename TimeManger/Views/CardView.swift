@@ -65,7 +65,12 @@ class CardView: UICollectionViewCell {
             self.goToDetailVC(self.habitData)
         }))
         //使用当前的vc展示
-        UIApplication.topViewController()!.present(alertController, animated: true, completion: nil)
+        let topVC = UIApplication.topViewController()!
+        if let popoverController = alertController.popoverPresentationController {
+            popoverController.sourceView = topVC.view
+            popoverController.sourceRect = self.frame
+        }
+        topVC.present(alertController, animated: true, completion: nil)
     }
     
     

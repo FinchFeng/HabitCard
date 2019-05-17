@@ -16,12 +16,13 @@ class HabitDetailViewController: UIViewController {
     
     var habitData:HabitData!
     var themeColor:UIColor! = #colorLiteral(red: 0.1034872308, green: 0.3690240681, blue: 0.5518581867, alpha: 1)
-    
+    var rightBarItem:UIBarButtonItem!
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         //配置右上角的按钮
         let button = UIBarButtonItem(image: #imageLiteral(resourceName: "moreButtonForDetailView"), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(tapMoreButton))
+        rightBarItem = button
         navigationItem.rightBarButtonItem = button
         //更改bar的颜色和title的颜色
         themeColor = habitData.colorInt.changeToAColor()
@@ -96,6 +97,9 @@ class HabitDetailViewController: UIViewController {
             self.performSegue(withIdentifier: "backToHabitData", sender: self.habitData.name)
         }))
         alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        if let popoverController = alert.popoverPresentationController {
+            popoverController.barButtonItem = rightBarItem
+        }
         present(alert, animated: true, completion: nil)
         
     }

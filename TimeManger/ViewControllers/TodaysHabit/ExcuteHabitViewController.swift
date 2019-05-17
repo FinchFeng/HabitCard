@@ -145,6 +145,11 @@ class ExcuteHabitViewController: UIViewController {
 //            alert.addAction(UIAlertAction(title: "编辑时间", style: .default, handler: { (_) in
 //
 //            }))
+            //适配ipad
+            if let popoverController = alert.popoverPresentationController {
+                popoverController.sourceView = self.view
+                popoverController.sourceRect = sender.frame
+            }
             self.present(alert, animated: true, completion: nil)
         default:
             return

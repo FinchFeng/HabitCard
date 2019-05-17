@@ -142,8 +142,8 @@ extension HabitDataViewController:UITableViewDataSource,UITableViewDelegate{
     //配置点击之后的Segue数据
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let data = model.habitArray[indexPath.row]
-//        performSegue(withIdentifier: "segueToHabitDetailVC", sender: data)
+        let cell = tableView.cellForRow(at: indexPath) as! HabitDataTableViewCell
+        performSegue(withIdentifier: "segueToHabitDetailVC", sender: cell.data)
     }
     
 }
