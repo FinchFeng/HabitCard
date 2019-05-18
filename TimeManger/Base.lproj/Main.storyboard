@@ -442,7 +442,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zIf-ZS-QRG"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="设置" id="WpF-Hq-bOL"/>
+                    <tabBarItem key="tabBarItem" title="设置" image="settingIcon" id="WpF-Hq-bOL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ahK-3m-wVU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -493,7 +493,7 @@
                                     <navigationItem title="今日计划" id="1pv-3M-Fv2">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gbK-pC-1Zt">
                                             <connections>
-                                                <action selector="addNewHabit:" destination="YvO-4V-2LL" id="YJy-y2-STy"/>
+                                                <action selector="addNewHabit" destination="YvO-4V-2LL" id="BRR-hi-nvv"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -616,13 +616,52 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kyG-Of-PPt">
+                                <rect key="frame" x="37.5" y="169" width="300" height="300"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="threeCardImage" translatesAutoresizingMaskIntoConstraints="NO" id="4Ag-XD-rAK">
+                                        <rect key="frame" x="75" y="75" width="150" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="4Ag-XD-rAK" secondAttribute="height" id="Hmh-C5-QGS"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击这里添加您的第一个习惯" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5AS-KJ-a0h">
+                                        <rect key="frame" x="30.5" y="233" width="239" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZc-uf-Ckl">
+                                        <rect key="frame" x="30.5" y="75" width="239" height="180"/>
+                                        <connections>
+                                            <action selector="addNewHabit" destination="YvO-4V-2LL" eventType="touchUpInside" id="vbo-ux-4J1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="4Ag-XD-rAK" firstAttribute="centerX" secondItem="kyG-Of-PPt" secondAttribute="centerX" id="028-9A-vK7"/>
+                                    <constraint firstItem="cZc-uf-Ckl" firstAttribute="trailing" secondItem="5AS-KJ-a0h" secondAttribute="trailing" id="16h-r8-Opw"/>
+                                    <constraint firstAttribute="width" secondItem="kyG-Of-PPt" secondAttribute="height" id="31Q-Nx-HiZ"/>
+                                    <constraint firstItem="cZc-uf-Ckl" firstAttribute="top" secondItem="4Ag-XD-rAK" secondAttribute="top" id="7HV-TO-yXT"/>
+                                    <constraint firstItem="cZc-uf-Ckl" firstAttribute="bottom" secondItem="5AS-KJ-a0h" secondAttribute="bottom" id="7Lu-rw-K0L"/>
+                                    <constraint firstItem="cZc-uf-Ckl" firstAttribute="leading" secondItem="5AS-KJ-a0h" secondAttribute="leading" id="ABB-gQ-qtC"/>
+                                    <constraint firstItem="4Ag-XD-rAK" firstAttribute="centerY" secondItem="kyG-Of-PPt" secondAttribute="centerY" id="Svt-vg-lmI"/>
+                                    <constraint firstItem="4Ag-XD-rAK" firstAttribute="width" secondItem="kyG-Of-PPt" secondAttribute="width" multiplier="0.5" id="bJo-5i-D8I"/>
+                                    <constraint firstItem="5AS-KJ-a0h" firstAttribute="top" secondItem="4Ag-XD-rAK" secondAttribute="bottom" constant="8" id="k92-Lo-F1z"/>
+                                    <constraint firstItem="5AS-KJ-a0h" firstAttribute="centerX" secondItem="4Ag-XD-rAK" secondAttribute="centerX" id="n9B-nT-eld"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.96414607760000004" green="0.96504122020000005" blue="0.97249072790000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="kyG-Of-PPt" firstAttribute="width" secondItem="8p6-GX-htc" secondAttribute="width" multiplier="0.8" id="8KE-VK-xcE"/>
                             <constraint firstItem="g9A-5J-UMR" firstAttribute="trailing" secondItem="rzr-6E-YOY" secondAttribute="trailing" id="E13-bY-X0v"/>
                             <constraint firstItem="RYL-r9-Bfs" firstAttribute="leading" secondItem="g9A-5J-UMR" secondAttribute="leading" id="Kzs-lZ-DBo"/>
                             <constraint firstItem="RYL-r9-Bfs" firstAttribute="top" secondItem="rzr-6E-YOY" secondAttribute="bottom" id="LEa-TP-X8Z"/>
+                            <constraint firstItem="kyG-Of-PPt" firstAttribute="centerX" secondItem="g9A-5J-UMR" secondAttribute="centerX" id="Xz8-GP-xDT"/>
                             <constraint firstItem="RYL-r9-Bfs" firstAttribute="trailing" secondItem="g9A-5J-UMR" secondAttribute="trailing" id="b5n-Vs-t8I"/>
+                            <constraint firstItem="kyG-Of-PPt" firstAttribute="centerY" secondItem="g9A-5J-UMR" secondAttribute="centerY" id="hv4-Ai-qdS"/>
                             <constraint firstItem="rzr-6E-YOY" firstAttribute="top" secondItem="g9A-5J-UMR" secondAttribute="top" id="k63-c2-Zpm"/>
                             <constraint firstItem="RYL-r9-Bfs" firstAttribute="bottom" secondItem="g9A-5J-UMR" secondAttribute="bottom" id="sjz-kC-NmK"/>
                             <constraint firstItem="rzr-6E-YOY" firstAttribute="leading" secondItem="g9A-5J-UMR" secondAttribute="leading" id="uNR-Vw-owU"/>
@@ -632,6 +671,7 @@
                     <navigationItem key="navigationItem" id="GBm-Zi-XNA"/>
                     <connections>
                         <outlet property="collectionView" destination="RYL-r9-Bfs" id="n4D-ju-gMe"/>
+                        <outlet property="firstHabitView" destination="kyG-Of-PPt" id="RxA-Xd-fSK"/>
                         <segue destination="IAJ-v9-gGI" kind="presentation" identifier="segueToAddNewHabitVC" id="sgZ-bT-YVm"/>
                         <segue destination="oU0-OJ-hBi" kind="presentation" identifier="segueToExcuteHabitVC" id="iJB-ba-LCE"/>
                         <segue destination="cGr-YX-j59" kind="show" identifier="segueFromTodayToDetail" id="BEQ-y6-5oc"/>
@@ -650,11 +690,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68W-sm-vgi">
-                                <rect key="frame" x="26" y="34" width="13" height="24"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68W-sm-vgi">
+                                <rect key="frame" x="26" y="34" width="30" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="13" id="7Kd-9A-nIN"/>
-                                    <constraint firstAttribute="width" secondItem="68W-sm-vgi" secondAttribute="height" multiplier="6:11" id="eOK-HN-UEr"/>
+                                    <constraint firstAttribute="width" constant="30" id="7Kd-9A-nIN"/>
+                                    <constraint firstAttribute="width" secondItem="68W-sm-vgi" secondAttribute="height" id="eOK-HN-UEr"/>
                                 </constraints>
                                 <state key="normal" image="backButton"/>
                                 <connections>
@@ -662,7 +702,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioN-Kq-goS">
-                                <rect key="frame" x="155" y="26.5" width="65" height="39"/>
+                                <rect key="frame" x="155" y="29.5" width="65" height="39"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -754,6 +794,7 @@
                     <connections>
                         <outlet property="circleView" destination="UqY-fy-ilJ" id="U8s-JE-DC4"/>
                         <outlet property="excuteTimeLabel" destination="lFm-7t-M9X" id="sl6-iS-juz"/>
+                        <outlet property="goBackButton" destination="68W-sm-vgi" id="5yt-F0-Sab"/>
                         <outlet property="pauseAndRestartButton" destination="sDJ-nF-OKB" id="pgK-hy-jZ9"/>
                         <outlet property="remainTimeLabel" destination="jOz-Yd-grc" id="DN9-o4-lMd"/>
                         <outlet property="startOrEndButton" destination="aHl-9P-Msy" id="KGo-3Z-VKx"/>
@@ -788,7 +829,7 @@
         <scene sceneID="LhY-Ja-jI5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VTf-I6-fRf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="统计" id="sS8-az-09j"/>
+                    <tabBarItem key="tabBarItem" title="统计" image="dataIcon" id="sS8-az-09j"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Sd4-5w-3PX">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -807,7 +848,7 @@
         <scene sceneID="DAT-ta-jgv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="dju-Pm-Dn3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="今日" id="ppp-HA-KPZ"/>
+                    <tabBarItem key="tabBarItem" title="今日" image="todayIcon" id="ppp-HA-KPZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yBZ-Ee-cKv">
                         <autoresizingMask key="autoresizingMask"/>
@@ -825,13 +866,17 @@
     <resources>
         <image name="backButton" width="60" height="110"/>
         <image name="closePage" width="175" height="175"/>
+        <image name="dataIcon" width="54" height="54"/>
         <image name="endButton" width="275" height="275"/>
         <image name="moreActionButton" width="190" height="50"/>
         <image name="moreActionCircleButton" width="275" height="275"/>
         <image name="pauseButton" width="250" height="250"/>
+        <image name="settingIcon" width="54" height="54"/>
+        <image name="threeCardImage" width="580" height="400"/>
+        <image name="todayIcon" width="54" height="58"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="BEQ-y6-5oc"/>
-        <segue reference="Hk2-4l-XRL"/>
+        <segue reference="sgZ-bT-YVm"/>
     </inferredMetricsTieBreakers>
 </document>

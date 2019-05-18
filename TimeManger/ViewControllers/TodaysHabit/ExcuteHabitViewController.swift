@@ -34,11 +34,13 @@ class ExcuteHabitViewController: UIViewController {
     @IBOutlet weak var remainTimeLabel: UILabel!
     @IBOutlet weak var pauseAndRestartButton: UIButton!
     @IBOutlet weak var startOrEndButton: UIButton!
+    @IBOutlet weak var goBackButton: UIButton!
     //MARK: - LifeCycle
     
     var needToRestart:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        goBackButton.imageView?.contentMode = .scaleAspectFit
         titleLabel.text = habitTitle
         remainTimeLabel.text = todayRemainTime.changeToString()
         view.backgroundColor = themeColor

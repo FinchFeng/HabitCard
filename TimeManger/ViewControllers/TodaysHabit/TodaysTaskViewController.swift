@@ -4,7 +4,7 @@
 //
 //  Created by 冯奕琦 on 2019/5/3.
 //  Copyright © 2019 冯奕琦. All rights reserved.
-//  适配iPad横屏🔧
+//  适配iPad横屏🔧 添加图标和无事件的提示信息
 
 import UIKit
 
@@ -63,6 +63,8 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
             performSegue(withIdentifier: "segueToExcuteHabitVC", sender: true)
         }
     }
+    //MARK:无习惯的展示View
+    @IBOutlet weak var firstHabitView: UIView!
     
     //MARK: - CollectionViews
     @IBOutlet weak var collectionView: UICollectionView!
@@ -168,6 +170,7 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
     
     func reloadDataFromModel(){
         collectionView.reloadData()
+        firstHabitView.isHidden = !todaysHabbits.isEmpty
     }
     
     func showAnimationDoneAHabit(name:String) {
@@ -204,7 +207,7 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
     }
     
     
-    @IBAction func addNewHabit(_ sender: UIBarButtonItem) {
+    @IBAction func addNewHabit() {
         performSegue(withIdentifier: "segueToAddNewHabitVC", sender: nil)
     }
     

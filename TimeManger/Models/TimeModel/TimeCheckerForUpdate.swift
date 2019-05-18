@@ -69,7 +69,7 @@ class TimeChecker {
     static var weekilyUpdateBlocks:(()->Void)?
     static var dailyUpdateBlocks:(()->Void)?
     
-    //实现方法:检查这次登陆与上次登陆中的时间段是否跨过需要刷新的时间点,如果跨过就刷新 🔍
+    //实现方法:检查这次登陆与上次登陆中的时间段是否跨过需要刷新的时间点,如果跨过就刷新 
     static func checkUpdate(){
         //获取最近的星期一
         let nextMonday = getNextDate(daily: false)
