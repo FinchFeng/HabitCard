@@ -28,6 +28,8 @@ class HabitDataViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        //检查model是否需要更新
+        TimeChecker.checkUpdate()
         //每次展示这个VC的时候重新刷新数据
         tableView.reloadData()
     }

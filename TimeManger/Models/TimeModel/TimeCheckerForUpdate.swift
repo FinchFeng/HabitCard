@@ -5,7 +5,7 @@
 //  Created by 冯奕琦 on 2019/5/2.
 //  Copyright © 2019 冯奕琦. All rights reserved.
 // 🔍
-//开应用要做的第一件事情就是调用这个类 还有从后台返回前端的时候🔧
+//开应用要做的第一件事情就是调用这个类 还有从后台返回前端的时候
 
 import Foundation
 
@@ -69,8 +69,6 @@ class TimeChecker {
     static var weekilyUpdateBlocks:(()->Void)?
     static var dailyUpdateBlocks:(()->Void)?
     
-    
-    
     //实现方法:检查这次登陆与上次登陆中的时间段是否跨过需要刷新的时间点,如果跨过就刷新 🔍
     static func checkUpdate(){
         //获取最近的星期一
@@ -91,8 +89,8 @@ class TimeChecker {
             //执行block
             dailyUpdateBlocks?()
         }
-        print(nextMonday.description(with: .current))
-        print("nextDailyTime \(nextDailyTime.description(with: .current))")
+//        print(nextMonday.description(with: .current))
+//        print("nextDailyTime \(nextDailyTime.description(with: .current))")
         
     }
     

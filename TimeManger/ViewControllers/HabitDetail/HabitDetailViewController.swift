@@ -43,14 +43,15 @@ class HabitDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("viewWillAppear")
+        print("HabitDetailViewController viewWillAppear")
+        self.navigationController!.isNavigationBarHidden = false
         self.tabBarController!.tabBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController!.tabBar.isHidden = false
-        print("viewWillDisappear")
+        print("HabitDetailViewController viewWillDisappear")
     }
     
     //MARK:-
@@ -94,7 +95,7 @@ class HabitDetailViewController: UIViewController {
         }))
         alert.addAction(UIAlertAction(title: "删除此习惯", style: .destructive, handler: { (_) in
             
-            self.performSegue(withIdentifier: "backToHabitData", sender: self.habitData.name)
+            self.performSegue(withIdentifier: "backToTodayData", sender: self.habitData.name)
         }))
         alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
         if let popoverController = alert.popoverPresentationController {
@@ -105,11 +106,12 @@ class HabitDetailViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier! == "backToHabitData"{
+        if segue.identifier! == "backToTodayData"{
             if let name = sender as? String{
-                let upVC = segue.destination as! HabitDataViewController
+                let upVC = segue.destination as! TodaysTaskViewController
                 //删除这个习惯
                 upVC.model.deleteHabit(name: name)
+                upVC.needToPopHabitDetailVC = true
             }
         }else if segue.identifier! == "editHabit"{
             //更改习惯

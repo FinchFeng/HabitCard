@@ -68,9 +68,15 @@ class AddNewHabitViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         //返回一个新习惯数据
         //检查新名称是否可以使用
         if let frequency = Int(newHabitWeeklyFrequencyField.text ?? "") , (frequency > 0) ,frequency < 8{
-            //检查一下有没有同名
+            //检查一下有没有同名 或者是否有更改
             if let name =  newHabitTextField.text {
-                if checkNameBlock(name){
+                var nameCanBeUsed:Bool
+                if name == oldData?.name {
+                    nameCanBeUsed = true
+                }else{
+                    nameCanBeUsed = checkNameBlock(name)
+                }
+                if nameCanBeUsed {
                     //获取小时和分钟
                     let timeString = newHabitDailyTimeField.text!
                     let newHabitData = HabitData(name: newHabitTextField.text ?? "",

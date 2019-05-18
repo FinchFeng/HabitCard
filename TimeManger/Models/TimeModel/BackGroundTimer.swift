@@ -42,14 +42,15 @@ class BackgroundTimer {
         startTimer()
     }
     
-    static func checkNeedRestart(changeInterFaceBlock:@escaping (Time)->Void){//在后台被删除之后重新打开应用之后可以使用这个重新开始计时
+    static func checkNeedRestart(changeInterFaceBlock:@escaping (Time)->Void,changeLabelToIsPausing:()->Void){//在后台被删除之后重新打开应用之后可以使用这个重新开始计时
         self.changeInterFaceBlock = changeInterFaceBlock
         if isTiming {
             startTimer()
         }
         if isPausing {
             startPausingTime()
-            //更改时间标签为暂停中🔧
+            //更改时间标签为暂停中
+            changeLabelToIsPausing()
         }
     }
     

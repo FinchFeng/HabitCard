@@ -18,9 +18,9 @@ class ViewController: UIViewController {
         //重新进入应用
         
         model = HabitModel()
-        BackgroundTimer.checkNeedRestart{ (time) in
-            self.timeLabel.text = "\(time.hour):\(time.min):\(time.second)"
-        }
+//        BackgroundTimer.checkNeedRestart{ (time) in
+//            self.timeLabel.text = "\(time.hour):\(time.min):\(time.second)"
+//        }
     }
     
     

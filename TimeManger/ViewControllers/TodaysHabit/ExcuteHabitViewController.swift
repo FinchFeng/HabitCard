@@ -35,13 +35,23 @@ class ExcuteHabitViewController: UIViewController {
     @IBOutlet weak var pauseAndRestartButton: UIButton!
     @IBOutlet weak var startOrEndButton: UIButton!
     //MARK: - LifeCycle
+    
+    var needToRestart:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = habitTitle
         remainTimeLabel.text = todayRemainTime.changeToString()
         view.backgroundColor = themeColor
-        //退出重新进的时候在这里配置restart🔧
-        BackgroundTimer.startTiming(changeInterFaceBlock: self.checkBlock)
+        //退出重新进的时候在这里配置restart
+        if needToRestart {
+            BackgroundTimer.checkNeedRestart(changeInterFaceBlock: self.checkBlock){
+                self.excuteTimeLabel.text = "暂停中"
+                pauseAndRestartButton.setImage(#imageLiteral(resourceName: "playButton"), for: .normal)
+            }
+            needToRestart = false
+        }else{
+            BackgroundTimer.startTiming(changeInterFaceBlock: self.checkBlock)
+        }
     }
     
     override func viewDidLayoutSubviews() {

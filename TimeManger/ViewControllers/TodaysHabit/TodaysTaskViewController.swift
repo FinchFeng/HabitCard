@@ -20,12 +20,19 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
         super.viewDidLoad()
         //在这里获取TabBarController的Model
         model = tabBarVC.model
+        //配置checker
+        TimeChecker.weekilyUpdateBlocks = {
+            self.model.culcalterWeekilyData()
+        }
+        TimeChecker.dailyUpdateBlocks = {
+            self.model.updateTodaysHabit()
+        }
         //配置CollectionView
         collectionView.delegate = self
         collectionView.dataSource = self
         //添加collectionView的padding
         let topSpace = CGFloat(0)
-        let hSpace = Constants.screenWidth*0.08
+        let hSpace = Constants.screenWidth*0.09
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = topSpace
         layout.minimumInteritemSpacing = hSpace
@@ -39,7 +46,25 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
         print(todaysHabbits)
 //        print(model.habitArray)
     }
-    //MARK: - CollectionViews 还有 移动顺序🔧无法全部的item都reload()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //检查model是否需要更新
+        TimeChecker.checkUpdate()
+        self.navigationController!.isNavigationBarHidden = true
+        reloadDataFromModel()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //检查是否需要跳转到执行界面
+        if BackgroundTimer.isTiming || BackgroundTimer.isPausing{
+            print("还在计时中")
+            performSegue(withIdentifier: "segueToExcuteHabitVC", sender: true)
+        }
+    }
+    
+    //MARK: - CollectionViews
     @IBOutlet weak var collectionView: UICollectionView!
     var longPressGesture: UILongPressGestureRecognizer!
     //使用CollectionView展示今日习惯 有一个HabitData数组可以直接使用
@@ -71,8 +96,7 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         print("刷新item\(indexPath.row)")
-//        let id  = indexPath.row%2 == 0 ? "leftCard" : "rightCard"
-        let id = "leftCard"
+        let id = "cardCell"
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: id, for: indexPath) as!  CardView
         //实例
         let data = todaysHabbits[indexPath.row]
@@ -93,7 +117,6 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
         let endName = todaysHabbits[destinationIndexPath.row].name
         print("\(startName) -> \(endName)")
         model.reorderHabit(startName: startName, endName: endName)
-//        reloadDataFromModel()
     }
     // MARK: - Collection View Flow Layout Delegate
     
@@ -106,10 +129,17 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
     
     
     //配置习惯卡片被点击之后跳转到执行习惯的VC
+    var lastSelectedIndex:Int{//使用这个跳转执行View
+        get{
+            return UserDefaults.standard.object(forKey: "lastSelectedIndex") as! Int
+        }
+        set{
+            UserDefaults.standard.set(newValue, forKey: "lastSelectedIndex")
+        }
+    }
     
-    var selectedIndex = 0
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedIndex = indexPath.row
+        lastSelectedIndex = indexPath.row
         performSegue(withIdentifier: "segueToExcuteHabitVC", sender: nil)
     }
     
@@ -122,7 +152,8 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
             //刷新数据
             self.reloadDataFromModel()
         }) { (data) in
-            //perform segue to 详细View🔧
+            //perform segue to 详细View
+            self.performSegue(withIdentifier: "segueFromTodayToDetail", sender: data)
         }
     }
     //MARK: - 动画和重新从Model中刷新数据
@@ -153,12 +184,21 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier! == "segueToExcuteHabitVC"{
             let destiVC = segue.destination as! ExcuteHabitViewController
-            let selectData = todaysHabbits[selectedIndex]
+            let selectData = todaysHabbits[lastSelectedIndex]
             destiVC.habitTitle = selectData.name
             destiVC.themeColor = selectData.colorInt.changeToAColor()
             destiVC.todayRemainTime = selectData.todaysRemainTime
+            //检查是否是segue去restartTimer的
+            if let needToRestart = sender as? Bool,needToRestart == true{
+                destiVC.needToRestart = needToRestart
+            }
         }else if segue.identifier! == "segueToAddNewHabitVC"{
             let destiVC = segue.destination as! AddNewHabitViewController
+            destiVC.checkNameBlock = model.checkNameOfNewHabit
+        }else if segue.identifier! == "segueFromTodayToDetail"{
+            let data = sender as! HabitData
+            let destiVC = segue.destination as! HabitDetailViewController
+            destiVC.habitData = data
             destiVC.checkNameBlock = model.checkNameOfNewHabit
         }
     }
@@ -184,9 +224,10 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
     @IBAction func unwind(segue:UIStoryboardSegue){
         if let bool =  needToPopHabitDetailVC ,bool == true{
             let tabBarVC = tabBarController as! MainTabBarController
-            let navigationVC =  tabBarVC.viewControllers![1] as! UINavigationController
-            print("有执行到这里")
-            navigationVC.popViewController(animated: false)
+            tabBarVC.tabBar.isHidden = false
+            if let navigationVC =  tabBarVC.viewControllers?[1] as? UINavigationController{
+             navigationVC.popViewController(animated: false)
+            }
         }
         if let time = excuteTimeFromUnwind {
             print(time)

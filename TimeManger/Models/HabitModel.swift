@@ -40,13 +40,11 @@ class HabitModel {
                 habitArray[index].name = newHabit.name
                 habitArray[index].dailyTime = newHabit.dailyTime
                 habitArray[index].weekilyFrequency = newHabit.weekilyFrequency
-                //检查这周或者今天需要执行的数据是否需要更改
-                if habitArray[index].todaysRemainTime > newHabit.dailyTime{
+                //更改这周或者今天需要执行的数据
+                if existHabit.todayNeedToDisplay {
                     habitArray[index].todaysRemainTime = newHabit.dailyTime
                 }
-                if habitArray[index].thisWeekRemainFrequancy > newHabit.weekilyFrequency{
-                    habitArray[index].thisWeekRemainFrequancy = newHabit.weekilyFrequency
-                }
+                habitArray[index].thisWeekRemainFrequancy = newHabit.weekilyFrequency
                 return
             }
         }
