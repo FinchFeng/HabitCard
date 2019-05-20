@@ -17,8 +17,10 @@ class HabitDataTableViewCell: UITableViewCell {
     @IBOutlet weak var daysLabel: UILabel!
     
     var data:HabitData!
+    var isHaventDoneCell:Bool!
     func setDataIn(data:HabitData,isHaventDoneCell:Bool){
         self.data = data
+        self.isHaventDoneCell = isHaventDoneCell
         //设置数据
         if isHaventDoneCell {
             habitTitle.text = data.name

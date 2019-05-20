@@ -44,7 +44,6 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
         //Print
         print("TodaysTask Loads")
         print(todaysHabbits)
-//        print(model.habitArray)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,7 +63,9 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
         }
     }
     //MARK:无习惯的展示View
-    @IBOutlet weak var firstHabitView: UIView!
+    @IBOutlet weak var messageHabitView: UIView!
+    @IBOutlet weak var messageHabitLabel: UILabel!
+    @IBOutlet weak var addNewHabitButton: UIButton!
     
     //MARK: - CollectionViews
     @IBOutlet weak var collectionView: UICollectionView!
@@ -170,7 +171,18 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
     
     func reloadDataFromModel(){
         collectionView.reloadData()
-        firstHabitView.isHidden = !todaysHabbits.isEmpty
+        if model.habitArray.isEmpty {
+            messageHabitLabel.text = "点击这里添加您的第一个习惯"
+            addNewHabitButton.isEnabled = true
+            messageHabitView.isHidden = false
+        }else if todaysHabbits.isEmpty{
+            messageHabitLabel.text = "Yeah!今天的任务都完成了"
+            addNewHabitButton.isEnabled = false
+            messageHabitView.isHidden = false
+        }else{
+            messageHabitView.isHidden = true
+        }
+        
     }
     
     func showAnimationDoneAHabit(name:String) {

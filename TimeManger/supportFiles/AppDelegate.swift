@@ -27,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         //检查是否更新
         TimeChecker.checkUpdate()
+        if let vc = UIApplication.topViewController() as? TodaysTaskViewController{
+            vc.reloadDataFromModel()
+        }
     }
     
     

@@ -9,6 +9,8 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    
+    //配置设置Cell
 
     override func viewDidLoad() {
         super.viewDidLoad()

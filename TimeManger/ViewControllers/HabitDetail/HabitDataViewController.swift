@@ -107,18 +107,18 @@ extension HabitDataViewController:UITableViewDataSource,UITableViewDelegate{
                 let cell = getATitleCell()
                 cell.set(title: "上周未完成")
                 return cell
-            }else if row <= lastWeekHaventDoneArray.count+1{
+            }else if row <= lastWeekHaventDoneArray.count{
                 //生成未完成
                 let index = row-1
                 let cell = getACell()
                 cell.setDataIn(data: lastWeekHaventDoneArray[index], isHaventDoneCell: true)
                 return cell
-            }else if row == lastWeekHaventDoneArray.count+2{
+            }else if row == lastWeekHaventDoneArray.count+1{
                 let cell = getATitleCell()
                 cell.set(title: "已经坚持")
                 return cell
             }else{
-                //生成未完成
+                //生成已经坚持
                 let index = row-lastWeekHaventDoneArray.count-2
                 let cell = getACell()
                 cell.setDataIn(data: haveExecuteHabitArray[index], isHaventDoneCell: false)
@@ -144,8 +144,11 @@ extension HabitDataViewController:UITableViewDataSource,UITableViewDelegate{
     //配置点击之后的Segue数据
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! HabitDataTableViewCell
-        performSegue(withIdentifier: "segueToHabitDetailVC", sender: cell.data)
+        if let cell = tableView.cellForRow(at: indexPath) as? HabitDataTableViewCell {
+            if cell.isHaventDoneCell == false {
+                performSegue(withIdentifier: "segueToHabitDetailVC", sender: cell.data)
+            }
+        }
     }
     
 }

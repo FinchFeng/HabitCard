@@ -127,7 +127,11 @@ class ExcuteHabitViewController: UIViewController {
         self!.excuteTimeLabel.text = "\(time.hour):\(time.min):\(time.second)"
         //更新今日剩余时间
         let newRemainTime = self!.todayRemainTime - time
-        self!.remainTimeLabel.text = newRemainTime.changeToString()
+        if Time() > newRemainTime {
+            self!.remainTimeLabel.text = "0h0"
+        }else{
+            self!.remainTimeLabel.text = newRemainTime.changeToString()
+        }
     }
     
     @IBAction func pushButton(sender:UIButton){
