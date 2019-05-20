@@ -4,7 +4,7 @@
 //
 //  Created by 冯奕琦 on 2019/5/2.
 //  Copyright © 2019 冯奕琦. All rights reserved.
-// 🔍
+// 
 //开应用要做的第一件事情就是调用这个类 还有从后台返回前端的时候
 
 import Foundation
@@ -49,10 +49,19 @@ class TimeChecker {
     //需要日刷新的时间 例如 2:00 AM
     static var dailyUpdateTime:Int{
         get{
-            return userDefault.object(forKey: "dailyUpdateTime") as! Int
+            if let oldData = userDefault.object(forKey: "dailyUpdateTime") as? Int{
+                return oldData
+            }else{
+                //初始化
+                
+                userDefault.set(2, forKey: "dailyUpdateTime")
+                return 2
+            }
         }
         set{
             userDefault.set(newValue, forKey: "dailyUpdateTime")
+            //更新下一个日期
+            currentNextDaliyDate = getNextDate(daily: true)
         }
     }
     //需要周刷新的时间 例如 周一
@@ -97,7 +106,7 @@ class TimeChecker {
     private static func getNextDate(daily:Bool)->Date{
         let currentTimePoint = Date()
         if daily {
-            return  Calendar.current.nextDate(after: currentTimePoint, matching: DateComponents(hour:2), matchingPolicy: .nextTime)!
+            return  Calendar.current.nextDate(after: currentTimePoint, matching: DateComponents(hour:dailyUpdateTime), matchingPolicy: .nextTime)!
         }else{
             return Calendar.current.nextDate(after: currentTimePoint, matching: DateComponents(weekday:2), matchingPolicy: .nextTime)!
         }
