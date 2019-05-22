@@ -172,11 +172,11 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
     func reloadDataFromModel(){
         collectionView.reloadData()
         if model.habitArray.isEmpty {
-            messageHabitLabel.text = "点击这里添加您的第一个习惯"
+            messageHabitLabel.text = ConstantsWord.message1
             addNewHabitButton.isEnabled = true
             messageHabitView.isHidden = false
         }else if todaysHabbits.isEmpty{
-            messageHabitLabel.text = "Yeah!今天的任务都完成了"
+            messageHabitLabel.text = ConstantsWord.mesdage2
             addNewHabitButton.isEnabled = false
             messageHabitView.isHidden = false
         }else{
@@ -187,7 +187,7 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
     
     func showAnimationDoneAHabit(name:String) {
         //动画
-        let alertView = SPAlertView(title: "\(name) 已完成", message: nil, preset: .done)
+        let alertView = SPAlertView(title: "\(name) \(ConstantsWord.taskDone)", message: nil, preset: .done)
         alertView.duration = 1.5//再调整🔧
         alertView.cornerRadius = 35
         alertView.present()

@@ -10,7 +10,7 @@
 
 import UIKit
 
-class ExcuteHabitViewController: UIViewController {
+class ExcuteHabitViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     
     //在上一个VC调用
     func setDataIn(habit:HabitData) {
@@ -158,9 +158,23 @@ class ExcuteHabitViewController: UIViewController {
                     BackgroundTimer.endTiming()
                     self.performSegue(withIdentifier: "unwindToToday", sender: true)
             }))
-//            alert.addAction(UIAlertAction(title: "编辑时间", style: .default, handler: { (_) in
-//
-//            }))
+            alert.addAction(UIAlertAction(title: "编辑执行时间", style: .default, handler: { (_) in
+                //展示一个pikerView
+                let vc = UIViewController()
+                vc.preferredContentSize = CGSize(width: 250,height: 250)
+                let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: 250, height: 250))
+                pickerView.delegate = self
+                pickerView.dataSource = self
+                vc.view.addSubview(pickerView)
+                let editRadiusAlert = UIAlertController(title: "选择新的时间", message: "", preferredStyle: .alert)
+                editRadiusAlert.setValue(vc, forKey: "contentViewController")
+                editRadiusAlert.addAction(UIAlertAction(title: "完成", style: .default, handler: {(_) in
+                    //修改时间
+                    BackgroundTimer.set(time: Time(hour: pickerView.selectedRow(inComponent: 0), min: pickerView.selectedRow(inComponent: 1), second: 0))
+                }))
+                editRadiusAlert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+                self.present(editRadiusAlert, animated: true)
+            }))
             //适配ipad
             if let popoverController = alert.popoverPresentationController {
                 popoverController.sourceView = self.view
@@ -172,6 +186,20 @@ class ExcuteHabitViewController: UIViewController {
         }
         
     }
-
+    
+    //MARK: -  PickerViewDelegate
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 2
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return component == 0 ? 20 : 60
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let result = component == 0 ? "\(row)h" : "\(row)m"
+        return result
+    }
 
 }
