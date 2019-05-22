@@ -4,7 +4,7 @@
 //
 //  Created by 冯奕琦 on 2019/5/3.
 //  Copyright © 2019 冯奕琦. All rights reserved.
-//  适配iPad横屏🔧 添加图标和无事件的提示信息
+//  适配iPad横屏🔧
 
 import UIKit
 
@@ -188,7 +188,7 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
     func showAnimationDoneAHabit(name:String) {
         //动画
         let alertView = SPAlertView(title: "\(name) 已完成", message: nil, preset: .done)
-        alertView.duration = 1.4//再调整🔧
+        alertView.duration = 1.5//再调整🔧
         alertView.cornerRadius = 35
         alertView.present()
     }
