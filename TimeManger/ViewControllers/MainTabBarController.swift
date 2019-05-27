@@ -15,6 +15,8 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("MainTabBar ViewLoad")
+        model.culcalterWeekilyData()
+//        model.updateTodaysHabit()
     }
     
 

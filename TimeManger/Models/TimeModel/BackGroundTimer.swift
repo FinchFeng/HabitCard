@@ -212,6 +212,7 @@ struct Time:Codable {
     }
     
     static func *(time:Time,int:Int)->Time{
+        if int == 0 { return Time() }
         var result = Time()
         for _ in 1...int{
             result = result + time

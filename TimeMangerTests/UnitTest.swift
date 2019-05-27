@@ -18,7 +18,7 @@ class UnitTest: XCTestCase {
   
 
     func testExample() {
-       TimeChecker.checkUpdate()
+//       TimeChecker.checkUpdate()
     }
 
 

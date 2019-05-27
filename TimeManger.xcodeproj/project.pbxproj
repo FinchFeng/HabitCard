@@ -679,6 +679,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fengyiqi.TimeMangerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_REFLECTION_METADATA_LEVEL = none;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeManger.app/TimeManger";
@@ -701,6 +702,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fengyiqi.TimeMangerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_REFLECTION_METADATA_LEVEL = none;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeManger.app/TimeManger";

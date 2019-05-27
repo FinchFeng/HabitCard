@@ -31,7 +31,7 @@ class TimeMangerTests: XCTestCase {
     }
 
     func testDailyUpdate(){
-        model.updateTodaysHabit()
+        model.culcalterWeekilyData()
         printAllhabit()
     }
     
