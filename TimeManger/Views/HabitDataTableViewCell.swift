@@ -26,12 +26,12 @@ class HabitDataTableViewCell: UITableViewCell {
             habitTitle.text = data.name
             background.backgroundColor = UIColor.red
             hourLabel.text = data.lastWeekHaventDoneTime.changeToString()
-            daysLabel.text = "\(data.lastWeekHaventDoneFrequancy)天"
+            daysLabel.text = "\(data.lastWeekHaventDoneFrequancy)\(ConstantsWord.days)"
         }else{
             habitTitle.text = data.name
             background.backgroundColor = data.colorInt.changeToAColor()
             hourLabel.text = ""
-            daysLabel.text = "\(data.totalExecuteDays)天"
+            daysLabel.text = "\(data.totalExecuteDays)\(ConstantsWord.days)"
         }
     }
     

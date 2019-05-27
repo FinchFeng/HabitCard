@@ -22,8 +22,25 @@ class AddNewHabitViewController: UIViewController,UITextFieldDelegate,UIPickerVi
     //判断是不是来修改数据的
     var oldData:HabitData?
     
+    //语言数据
+    @IBOutlet weak var newHabitLabel: UILabel!
+    @IBOutlet weak var newHabitTimeLabel1: UILabel!
+    @IBOutlet weak var newHabitTImeLabel2: UILabel!
+    @IBOutlet weak var newHabitFrequencyLabel1: UILabel!
+    @IBOutlet weak var newHabitFrequencyLable2: UILabel!
+    @IBOutlet weak var doneLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //语言
+        newHabitLabel.text = ConstantsWord.myNewHabitName
+        newHabitTimeLabel1.text = ConstantsWord.myNewHabitTime1
+        newHabitTImeLabel2.text = ConstantsWord.myNewHabitTime2
+        newHabitFrequencyLabel1.text = ConstantsWord.myNewHabitFrequency1
+        newHabitFrequencyLable2.text = ConstantsWord.myNewHabitFrequency2
+        doneLabel.text = ConstantsWord.done
+        
         circleView.addCircle(frame: circleView.bounds, fillColor: UIColor.lightGray, strokeColor: UIColor.clear, lineWidth: 0)
         newHabitDailyTimeField.delegate = self
         //赋值为另外一个Class 的delegate
@@ -87,22 +104,22 @@ class AddNewHabitViewController: UIViewController,UITextFieldDelegate,UIPickerVi
                     performSegue(withIdentifier: "unwindToTodayFromAdding", sender: newHabitData)
                 }else{
                     //有同名
-                    showMassage("此名字被使用过了")
+                    showMassage(ConstantsWord.checkMessage1)
                 }
             }else{
                 //没有输入名称
-                showMassage("没有输入名称")
+                showMassage(ConstantsWord.checkMessage2)
             }
             
         }else{
-            showMassage("每周次数不能超过7")
+            showMassage(ConstantsWord.checkMessage3)
         }
         
     }
     
     func showMassage(_ word:String){
-        let controller = UIAlertController(title: "注意", message: word, preferredStyle: .alert)
-        controller.addAction(UIAlertAction(title: "好的", style: .default, handler: nil))
+        let controller = UIAlertController(title: ConstantsWord.attention, message: word, preferredStyle: .alert)
+        controller.addAction(UIAlertAction(title: ConstantsWord.good, style: .default, handler: nil))
         self.present(controller, animated: true, completion: nil)
     }
     
@@ -127,12 +144,12 @@ class AddNewHabitViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         pickerView.delegate = self
         pickerView.dataSource = self
         vc.view.addSubview(pickerView)
-        let editRadiusAlert = UIAlertController(title: "选择时间长度", message: "", preferredStyle: .alert)
+        let editRadiusAlert = UIAlertController(title: ConstantsWord.choseTimeLong, message: "", preferredStyle: .alert)
         editRadiusAlert.setValue(vc, forKey: "contentViewController")
-        editRadiusAlert.addAction(UIAlertAction(title: "完成", style: .default, handler: {(_) in
+        editRadiusAlert.addAction(UIAlertAction(title: ConstantsWord.complete, style: .default, handler: {(_) in
             self.newHabitDailyTimeField.text = "\(pickerView.selectedRow(inComponent: 0)):\(pickerView.selectedRow(inComponent: 1))"
         }))
-        editRadiusAlert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        editRadiusAlert.addAction(UIAlertAction(title: ConstantsWord.cancel, style: .cancel, handler: nil))
         self.present(editRadiusAlert, animated: true)
         return false
     } 

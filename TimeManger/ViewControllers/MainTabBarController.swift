@@ -14,9 +14,10 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBar.items![0].title = ConstantsWord.todaysTask
+        self.tabBar.items![1].title = ConstantsWord.habitData
+        self.tabBar.items![2].title = ConstantsWord.settting
         print("MainTabBar ViewLoad")
-        model.culcalterWeekilyData()
-//        model.updateTodaysHabit()
     }
     
 

@@ -14,8 +14,14 @@ class CardView: UICollectionViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var dailyTime: UILabel!
     @IBOutlet weak var weekilyTime: UILabel!
+    //语言设置
+    @IBOutlet weak var todayLabel: UILabel!
+    @IBOutlet weak var thisweekLabel: UILabel!
     
     override func draw(_ rect: CGRect) {
+        //配置语言
+        todayLabel.text = ConstantsWord.todayRemain
+        thisweekLabel.text = ConstantsWord.thisWeek
         super.draw(rect)
         self.clipsToBounds = false
         cardBackgroundView.layer.cornerRadius = 8
@@ -53,15 +59,15 @@ class CardView: UICollectionViewCell {
     
     @IBAction func moreAcation(){
         print("MoreActions")
-        let alertController = UIAlertController(title: "工作卡片", message: nil, preferredStyle: .actionSheet)
-        alertController.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-        alertController.addAction(UIAlertAction(title: "今天跳过此习惯", style: .destructive, handler: { (_) in
+        let alertController = UIAlertController(title: "\(habitData.name)\(ConstantsWord.card)", message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: ConstantsWord.cancel, style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: ConstantsWord.jumpToday, style: .destructive, handler: { (_) in
             self.jumpTodayBlock(self.habitData.name)
         }))
-        alertController.addAction(UIAlertAction(title: "已完成此习惯", style: .default, handler: { (_) in
+        alertController.addAction(UIAlertAction(title: ConstantsWord.todayDone, style: .default, handler: { (_) in
             self.todayDoneBlock(self.habitData.name)
         }))
-        alertController.addAction(UIAlertAction(title: "查看或编辑此习惯", style: .default, handler: { (_) in
+        alertController.addAction(UIAlertAction(title: ConstantsWord.lookDetail, style: .default, handler: { (_) in
             self.goToDetailVC(self.habitData)
         }))
         //使用当前的vc展示

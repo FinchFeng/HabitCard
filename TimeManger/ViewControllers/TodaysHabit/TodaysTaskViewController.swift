@@ -15,9 +15,13 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
     var tabBarVC:MainTabBarController {
         return self.tabBarController! as! MainTabBarController
     }
+    @IBOutlet weak var navigationTitle: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //配置语言
+        self.navigationController?.tabBarItem.title = ConstantsWord.todaysTask
+        self.navigationTitle.title = ConstantsWord.todaysTitle
         //在这里获取TabBarController的Model
         model = tabBarVC.model
         //配置checker

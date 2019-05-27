@@ -10,12 +10,16 @@ import UIKit
 
 class SettingsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UIPickerViewDelegate,UIPickerViewDataSource {
     
-
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
     //配置设置Cell
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationBar.topItem?.title = ConstantsWord.settting
+        self.tabBarItem.title = ConstantsWord.settting
+        
         tableView.tableFooterView = UIView()
         tableView.dataSource = self
         tableView.delegate = self
@@ -30,6 +34,7 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let id = indexPath.row==0 ? "contactUs" : "changeUpdateTime"
         let cell = tableView.dequeueReusableCell(withIdentifier: id)!
+        cell.textLabel?.text = indexPath.row==0 ? ConstantsWord.contantUs : ConstantsWord.updateTime
         if indexPath.row == 1{
             cell.detailTextLabel?.text = "\(TimeChecker.dailyUpdateTime):00"
         }
@@ -40,13 +45,13 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
         if indexPath.row == 0 {
             //出现一个联系框与后台进行反馈
             let alert = UIAlertController(
-                title: "联系我们",
+                title: ConstantsWord.contantUs,
                 message: nil,
                 preferredStyle: .alert
             )
             self.alert = alert
             alert.addAction(UIAlertAction(
-                title: "发送",
+                title: ConstantsWord.send,
                 style: .default)
             { (action: UIAlertAction) -> Void in
                 //从父ViewController中获取TextFields
@@ -58,9 +63,9 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
                 }
             } )
             alert.addTextField(configurationHandler: { textField in
-                textField.placeholder = "请输入您的建议"
+                textField.placeholder = ConstantsWord.suggestPlaceholder
             })
-            alert.addAction(UIAlertAction(title: "取消", style: UIAlertAction.Style.cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: ConstantsWord.cancel, style: UIAlertAction.Style.cancel, handler: nil))
             present(alert, animated: true, completion: nil)
         }
         if indexPath.row == 1 {
@@ -71,9 +76,9 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
             pickerView.delegate = self
             pickerView.dataSource = self
             vc.view.addSubview(pickerView)
-            let editRadiusAlert = UIAlertController(title: "选择每天更新时间点", message: "", preferredStyle: .alert)
+            let editRadiusAlert = UIAlertController(title: ConstantsWord.chosenUpdateTimePoint, message: "", preferredStyle: .alert)
             editRadiusAlert.setValue(vc, forKey: "contentViewController")
-            editRadiusAlert.addAction(UIAlertAction(title: "完成", style: .default, handler: {(_) in
+            editRadiusAlert.addAction(UIAlertAction(title: ConstantsWord.complete, style: .default, handler: {(_) in
                 let newHour = Int(pickerView.selectedRow(inComponent: 0))
                 print(newHour)
                 //设置新时间
@@ -81,7 +86,7 @@ class SettingsViewController: UIViewController,UITableViewDataSource,UITableView
                 print(TimeChecker.currentNextDaliyDate.description(with: Locale.current))
                 self.tableView.reloadData()
             }))
-            editRadiusAlert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+            editRadiusAlert.addAction(UIAlertAction(title: ConstantsWord.cancel, style: .cancel, handler: nil))
             self.present(editRadiusAlert, animated: true)
         }
         tableView.deselectRow(at: indexPath, animated: true)

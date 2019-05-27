@@ -40,8 +40,10 @@ class ConstantsWord {
     
     //setting
     static var contantUs = isLanguageChinese ? "联系我们" : "Contact us"
-    static var updateTime = isLanguageChinese ? "更新时间" : "Update time"
-    
+    static var updateTime = isLanguageChinese ? "今日计划更新时间" : "Today's plan update time "
+    static var send = isLanguageChinese ? "发送" : "Send"
+    static var suggestPlaceholder = isLanguageChinese ? "请输入您的建议" : "Please enter your suggestion"
+    static var chosenUpdateTimePoint = isLanguageChinese ? "选择每天更新时间点" : "Choose a time point for daily updates"
     // 二级页面
     static var todaysTime = isLanguageChinese ? "今日剩余" : "Remaining today"
     
@@ -54,7 +56,7 @@ class ConstantsWord {
     static var myNewHabitTime2 = isLanguageChinese ? "时间" : "time"
     static var myNewHabitFrequency1 = isLanguageChinese ? "我想每周执行" : "I want to perform weekly"
     static var myNewHabitFrequency2 = isLanguageChinese ? "次" : "times"
-    static var done = isLanguageChinese ? "确定" : ""
+    static var done = isLanguageChinese ? "确定" : "Done"
     
     //AlertSheet
     static var jumpToday = isLanguageChinese ? "今天跳过此习惯" : "Skip this habit today"
@@ -68,6 +70,20 @@ class ConstantsWord {
     
     static var message1 = isLanguageChinese ? "点击这里添加您的第一个习惯" : "Click here to add your first habit"
     static var mesdage2 = isLanguageChinese ? "Yeah!今天的任务都完成了" : "Yeah! Today's mission is complete."
+    static var checkMessage1 = isLanguageChinese ? "此名字被使用过了" : "This name has been used"
+    static var checkMessage2 = isLanguageChinese ? "没有输入名称" : "No name entered"
+    static var checkMessage3 = isLanguageChinese ? "每周次数不能超过7" : "The number of times per week cannot exceed 7"
+    static var editTime = isLanguageChinese ? "编辑执行时间" : "Edit execution time"
+    static var choseNewTime = isLanguageChinese ? "选择新的时间" : "Choose a new time"
+    //对话框
+    static var choseTimeLong = isLanguageChinese ? "选择时间长度" : "Select length of time"
+    static var complete = isLanguageChinese ? "完成" : "Complete"
+    static var attention = isLanguageChinese ? "注意" : "attention"
+    static var good = isLanguageChinese ? "好的" : "OK"
+    
+    static var backMessage = isLanguageChinese ? "返回之后当前执行时间将作废" : "The current execution time will be invalid after returning"
+    static var backButton = isLanguageChinese ? "返回(下次不再提醒)" : "Return (no more reminder next time)"
+    static var stopping = isLanguageChinese ? "暂停中" : "Stopping"
 }
 
 struct ConstantsColor {

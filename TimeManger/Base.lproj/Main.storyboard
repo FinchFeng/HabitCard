@@ -373,8 +373,14 @@
                     </view>
                     <connections>
                         <outlet property="circleView" destination="xSj-nc-3ej" id="6Ee-V8-ctG"/>
+                        <outlet property="doneLabel" destination="1Ed-Xr-lvu" id="czr-dq-aQJ"/>
                         <outlet property="newHabitDailyTimeField" destination="NFG-QF-KiY" id="PmJ-Ce-58r"/>
+                        <outlet property="newHabitFrequencyLabel1" destination="qx5-9d-4gG" id="BHO-kJ-M1c"/>
+                        <outlet property="newHabitFrequencyLable2" destination="hjE-As-aIo" id="N3J-jJ-yds"/>
+                        <outlet property="newHabitLabel" destination="v8H-PO-moc" id="B2P-VB-Ni2"/>
+                        <outlet property="newHabitTImeLabel2" destination="MU2-gP-yBp" id="tlN-57-jXv"/>
                         <outlet property="newHabitTextField" destination="lif-j1-R7d" id="aGu-Ic-Nj0"/>
+                        <outlet property="newHabitTimeLabel1" destination="sAh-FI-XLF" id="b84-xL-Mkw"/>
                         <outlet property="newHabitWeeklyFrequencyField" destination="dP3-TA-YvI" id="7QY-qN-QC0"/>
                         <segue destination="9GK-rH-yhO" kind="unwind" identifier="unwindToTodayFromAdding" unwindAction="unwindWithSegue:" id="cEd-9e-9pb"/>
                     </connections>
@@ -464,6 +470,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="设置" image="settingIcon" id="WpF-Hq-bOL"/>
                     <connections>
+                        <outlet property="navigationBar" destination="9bL-gO-PhM" id="Bhb-Tn-fpf"/>
                         <outlet property="tableView" destination="1vQ-Ct-ePz" id="Nl9-Id-yNM"/>
                     </connections>
                 </viewController>
@@ -633,7 +640,9 @@
                                         <connections>
                                             <outlet property="cardBackgroundView" destination="pnM-eY-svi" id="44h-53-vYa"/>
                                             <outlet property="dailyTime" destination="pNO-if-BVK" id="HC3-MH-JOP"/>
+                                            <outlet property="thisweekLabel" destination="0B3-Lp-va0" id="Sqx-r8-wAk"/>
                                             <outlet property="title" destination="39Y-jR-F3q" id="b9m-Ry-W0N"/>
+                                            <outlet property="todayLabel" destination="Jj7-IO-Qb1" id="K5J-L0-sWG"/>
                                             <outlet property="weekilyTime" destination="axG-ry-9RA" id="o7V-EE-Du0"/>
                                         </connections>
                                     </collectionViewCell>
@@ -697,6 +706,7 @@
                         <outlet property="collectionView" destination="RYL-r9-Bfs" id="n4D-ju-gMe"/>
                         <outlet property="messageHabitLabel" destination="5AS-KJ-a0h" id="nJU-hU-dnY"/>
                         <outlet property="messageHabitView" destination="kyG-Of-PPt" id="RxA-Xd-fSK"/>
+                        <outlet property="navigationTitle" destination="1pv-3M-Fv2" id="S8f-Qk-eAu"/>
                         <segue destination="IAJ-v9-gGI" kind="presentation" identifier="segueToAddNewHabitVC" id="sgZ-bT-YVm"/>
                         <segue destination="oU0-OJ-hBi" kind="presentation" identifier="segueToExcuteHabitVC" id="iJB-ba-LCE"/>
                         <segue destination="cGr-YX-j59" kind="show" identifier="segueFromTodayToDetail" id="BEQ-y6-5oc"/>
@@ -824,6 +834,7 @@
                         <outlet property="remainTimeLabel" destination="jOz-Yd-grc" id="DN9-o4-lMd"/>
                         <outlet property="startOrEndButton" destination="aHl-9P-Msy" id="KGo-3Z-VKx"/>
                         <outlet property="titleLabel" destination="ioN-Kq-goS" id="Hba-4P-ZNM"/>
+                        <outlet property="todayRemainLabel" destination="RB5-Dn-x55" id="FKK-NU-sbj"/>
                         <segue destination="9GK-rH-yhO" kind="unwind" identifier="unwindToToday" unwindAction="unwindWithSegue:" id="O0Y-hR-oak"/>
                     </connections>
                 </viewController>

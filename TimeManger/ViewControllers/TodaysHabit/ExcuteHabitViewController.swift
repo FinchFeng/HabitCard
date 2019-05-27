@@ -35,11 +35,14 @@ class ExcuteHabitViewController: UIViewController,UIPickerViewDelegate,UIPickerV
     @IBOutlet weak var pauseAndRestartButton: UIButton!
     @IBOutlet weak var startOrEndButton: UIButton!
     @IBOutlet weak var goBackButton: UIButton!
+    @IBOutlet weak var todayRemainLabel: UILabel!
     //MARK: - LifeCycle
     
     var needToRestart:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        todayRemainLabel.text = ConstantsWord.todaysTime
+        
         goBackButton.imageView?.contentMode = .scaleAspectFit
         titleLabel.text = habitTitle
         remainTimeLabel.text = todayRemainTime.changeToString()
@@ -47,7 +50,7 @@ class ExcuteHabitViewController: UIViewController,UIPickerViewDelegate,UIPickerV
         //退出重新进的时候在这里配置restart
         if needToRestart {
             BackgroundTimer.checkNeedRestart(changeInterFaceBlock: self.checkBlock){
-                self.excuteTimeLabel.text = "暂停中"
+                self.excuteTimeLabel.text = ConstantsWord.stopping
                 pauseAndRestartButton.setImage(#imageLiteral(resourceName: "playButton"), for: .normal)
             }
             needToRestart = false
@@ -88,17 +91,17 @@ class ExcuteHabitViewController: UIViewController,UIPickerViewDelegate,UIPickerV
             BackgroundTimer.endTiming()
             self.performSegue(withIdentifier: "unwindToToday", sender: nil)
         }
-        let alert = UIAlertController(title: "提示", message: "返回之后当前执行时间将作废", preferredStyle: .alert)
+        let alert = UIAlertController(title: ConstantsWord.attention, message:ConstantsWord.backMessage, preferredStyle: .alert)
 //        alert.addAction(UIAlertAction(title: "返回", style: .destructive, handler: {(_) in
 //            BackgroundTimer.endTiming()
 //            self.performSegue(withIdentifier: "unwindToToday", sender: nil)
 //        }))
-        alert.addAction(UIAlertAction(title: "返回(下次不再提醒)", style: .destructive, handler: {(_) in
+        alert.addAction(UIAlertAction(title: ConstantsWord.backButton, style: .destructive, handler: {(_) in
             self.needToAlert = false
             BackgroundTimer.endTiming()
             self.performSegue(withIdentifier: "unwindToToday", sender: nil)
         }))
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: ConstantsWord.cancel, style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -152,13 +155,13 @@ class ExcuteHabitViewController: UIViewController,UIPickerViewDelegate,UIPickerV
             performSegue(withIdentifier: "unwindToToday", sender: BackgroundTimer.passedTime)
         case 2:
             let alert = UIAlertController(title: habitTitle, message: nil, preferredStyle: .actionSheet)
-                alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-                alert.addAction(UIAlertAction(title: "已完成", style: .destructive, handler: { (_) in
+                alert.addAction(UIAlertAction(title: ConstantsWord.cancel, style: .cancel, handler: nil))
+                alert.addAction(UIAlertAction(title: ConstantsWord.taskDone, style: .destructive, handler: { (_) in
                     //返回数据给TodayVC
                     BackgroundTimer.endTiming()
                     self.performSegue(withIdentifier: "unwindToToday", sender: true)
             }))
-            alert.addAction(UIAlertAction(title: "编辑执行时间", style: .default, handler: { (_) in
+            alert.addAction(UIAlertAction(title: ConstantsWord.editTime, style: .default, handler: { (_) in
                 //展示一个pikerView
                 let vc = UIViewController()
                 vc.preferredContentSize = CGSize(width: 250,height: 250)
@@ -166,13 +169,13 @@ class ExcuteHabitViewController: UIViewController,UIPickerViewDelegate,UIPickerV
                 pickerView.delegate = self
                 pickerView.dataSource = self
                 vc.view.addSubview(pickerView)
-                let editRadiusAlert = UIAlertController(title: "选择新的时间", message: "", preferredStyle: .alert)
+                let editRadiusAlert = UIAlertController(title: ConstantsWord.choseNewTime, message: "", preferredStyle: .alert)
                 editRadiusAlert.setValue(vc, forKey: "contentViewController")
-                editRadiusAlert.addAction(UIAlertAction(title: "完成", style: .default, handler: {(_) in
+                editRadiusAlert.addAction(UIAlertAction(title: ConstantsWord.complete, style: .default, handler: {(_) in
                     //修改时间
                     BackgroundTimer.set(time: Time(hour: pickerView.selectedRow(inComponent: 0), min: pickerView.selectedRow(inComponent: 1), second: 0))
                 }))
-                editRadiusAlert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+                editRadiusAlert.addAction(UIAlertAction(title: ConstantsWord.cancel, style: .cancel, handler: nil))
                 self.present(editRadiusAlert, animated: true)
             }))
             //适配ipad

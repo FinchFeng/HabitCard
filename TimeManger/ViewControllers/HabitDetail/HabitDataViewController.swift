@@ -18,6 +18,10 @@ class HabitDataViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //配置语言
+        self.title = ConstantsWord.habitDataTitle
+        self.navigationController?.tabBarItem.title = ConstantsWord.habitData
+        self.navigationItem.backBarButtonItem?.title = ConstantsWord.habitData
         //在这里获取TabBarController的Model
         model = tabBarVC.model
         //delegate设置
@@ -105,7 +109,7 @@ extension HabitDataViewController:UITableViewDataSource,UITableViewDelegate{
             //生成未完成的cell
             if row == 0 {
                 let cell = getATitleCell()
-                cell.set(title: "上周未完成")
+                cell.set(title: ConstantsWord.lastweek)
                 return cell
             }else if row <= lastWeekHaventDoneArray.count{
                 //生成未完成
@@ -115,7 +119,7 @@ extension HabitDataViewController:UITableViewDataSource,UITableViewDelegate{
                 return cell
             }else if row == lastWeekHaventDoneArray.count+1{
                 let cell = getATitleCell()
-                cell.set(title: "已经坚持")
+                cell.set(title: ConstantsWord.allHabit)
                 return cell
             }else{
                 //生成已经坚持
@@ -128,7 +132,7 @@ extension HabitDataViewController:UITableViewDataSource,UITableViewDelegate{
             //只要生成普通的就好
             if row == 0{
                 let cell = getATitleCell()
-                cell.set(title: "已经坚持")
+                cell.set(title: ConstantsWord.allHabit)
                 return cell
             }else{
                 //生成未完成
