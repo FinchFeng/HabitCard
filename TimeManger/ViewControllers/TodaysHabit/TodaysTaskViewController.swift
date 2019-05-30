@@ -207,6 +207,7 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
             destiVC.habitTitle = selectData.name
             destiVC.themeColor = selectData.colorInt.changeToAColor()
             destiVC.todayRemainTime = selectData.todaysRemainTime
+            destiVC.motivation = selectData.motive
             //检查是否是segue去restartTimer的
             if let needToRestart = sender as? Bool,needToRestart == true{
                 destiVC.needToRestart = needToRestart

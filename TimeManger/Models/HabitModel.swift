@@ -42,6 +42,7 @@ class HabitModel {
                 habitArray[index].name = newHabit.name
                 habitArray[index].dailyTime = newHabit.dailyTime
                 habitArray[index].weekilyFrequency = newHabit.weekilyFrequency
+                habitArray[index].motive = newHabit.motive
                 // 更改这周或者今天需要执行的数据
                 if existHabit.todayNeedToDisplay {
                     habitArray[index].todaysRemainTime = newHabit.dailyTime
@@ -210,8 +211,18 @@ extension HabitModel { // 储存代码
 
     func getHabitDataFromDocument() -> [HabitData] {
         if let data = try? Data(contentsOf: HabitModel.ArchiveURL) {
-            let array = try! JSONDecoder().decode(Array<HabitData>.self, from: data)
-            return array
+            if let array = try? JSONDecoder().decode(Array<HabitData>.self, from: data){
+                return array
+            }else{
+                print("更新数据类型")
+                //这些是旧的数据对他们进行操作
+                let oldDataArray = try! JSONDecoder().decode(Array<OldHabitData>.self, from: data)
+                let newDataArray = oldDataArray.map { HabitData(oldData: $0) }
+                //重新存入系统
+                setHabitDataToDocument(newDataArray)
+                return newDataArray
+            }
+            
         } else {
             return []
         }

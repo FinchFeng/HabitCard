@@ -247,6 +247,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.60098958329999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的动力是" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcM-GT-OuO">
+                                <rect key="frame" x="16" y="263" width="127" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.60098958329999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MU2-gP-yBp">
                                 <rect key="frame" x="317" y="143" width="51" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
@@ -326,14 +332,31 @@
                                     <action selector="doneAction" destination="IAJ-v9-gGI" eventType="touchUpInside" id="9dv-Zb-go8"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="Qxs-cu-JnQ">
+                                <rect key="frame" x="16" y="315" width="339" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WbG-45-gKn">
+                                <rect key="frame" x="16" y="345" width="339" height="3"/>
+                                <color key="backgroundColor" red="0.39996230599999999" green="0.40002405639999999" blue="0.39994883539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="tbp-vp-iOy"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="Qxs-cu-JnQ" firstAttribute="top" secondItem="gcM-GT-OuO" secondAttribute="bottom" constant="22" id="1CS-Qv-X4S"/>
                             <constraint firstItem="NJd-Bf-mNy" firstAttribute="leading" secondItem="NFG-QF-KiY" secondAttribute="leading" id="1D1-Bl-tU4"/>
                             <constraint firstItem="NFG-QF-KiY" firstAttribute="leading" secondItem="sAh-FI-XLF" secondAttribute="trailing" id="1PX-XH-nE4"/>
+                            <constraint firstItem="WbG-45-gKn" firstAttribute="leading" secondItem="Qxs-cu-JnQ" secondAttribute="leading" id="2sM-fo-iHP"/>
+                            <constraint firstItem="WbG-45-gKn" firstAttribute="trailing" secondItem="Qxs-cu-JnQ" secondAttribute="trailing" id="4t6-if-Yr5"/>
                             <constraint firstItem="MU2-gP-yBp" firstAttribute="leading" secondItem="NFG-QF-KiY" secondAttribute="trailing" id="4zj-Ka-3zr"/>
                             <constraint firstItem="Ffv-uB-Hl3" firstAttribute="trailing" secondItem="lif-j1-R7d" secondAttribute="trailing" id="5iH-7Y-Qff"/>
+                            <constraint firstItem="WbG-45-gKn" firstAttribute="top" secondItem="Qxs-cu-JnQ" secondAttribute="bottom" id="8Ke-Ni-ar4"/>
                             <constraint firstItem="MU2-gP-yBp" firstAttribute="firstBaseline" secondItem="NFG-QF-KiY" secondAttribute="firstBaseline" id="AIG-v8-4G9"/>
                             <constraint firstItem="nIW-IC-IHQ" firstAttribute="top" secondItem="xSj-nc-3ej" secondAttribute="top" id="AIi-q5-MO8"/>
                             <constraint firstItem="xSj-nc-3ej" firstAttribute="centerX" secondItem="XQr-gR-rzt" secondAttribute="centerX" id="BBd-A7-9m5"/>
@@ -350,12 +373,16 @@
                             <constraint firstItem="dVe-wG-ciQ" firstAttribute="trailing" secondItem="dP3-TA-YvI" secondAttribute="trailing" id="RYM-FX-736"/>
                             <constraint firstItem="NJd-Bf-mNy" firstAttribute="top" secondItem="NFG-QF-KiY" secondAttribute="bottom" id="SFu-Zf-bDs"/>
                             <constraint firstItem="NJd-Bf-mNy" firstAttribute="trailing" secondItem="NFG-QF-KiY" secondAttribute="trailing" id="Tz9-2O-F27"/>
+                            <constraint firstItem="Qxs-cu-JnQ" firstAttribute="leading" secondItem="gcM-GT-OuO" secondAttribute="leading" id="UQE-Lg-wUC"/>
                             <constraint firstItem="Ffv-uB-Hl3" firstAttribute="leading" secondItem="lif-j1-R7d" secondAttribute="leading" id="VnZ-f7-Ozg"/>
                             <constraint firstItem="Ffv-uB-Hl3" firstAttribute="top" secondItem="lif-j1-R7d" secondAttribute="bottom" id="XcQ-ni-GKz"/>
                             <constraint firstItem="1Ed-Xr-lvu" firstAttribute="centerY" secondItem="xSj-nc-3ej" secondAttribute="centerY" id="Xsq-EG-UdE"/>
                             <constraint firstItem="sAh-FI-XLF" firstAttribute="leading" secondItem="v8H-PO-moc" secondAttribute="leading" id="Y0s-mi-oUu"/>
                             <constraint firstItem="1Ed-Xr-lvu" firstAttribute="centerX" secondItem="xSj-nc-3ej" secondAttribute="centerX" id="bz5-z1-ich"/>
+                            <constraint firstItem="XQr-gR-rzt" firstAttribute="trailing" secondItem="Qxs-cu-JnQ" secondAttribute="trailing" constant="20" id="c0t-Sr-pas"/>
+                            <constraint firstItem="gcM-GT-OuO" firstAttribute="top" secondItem="qx5-9d-4gG" secondAttribute="bottom" constant="30" id="cic-bL-ZfH"/>
                             <constraint firstItem="hjE-As-aIo" firstAttribute="leading" secondItem="dP3-TA-YvI" secondAttribute="trailing" id="ebh-w7-hCH"/>
+                            <constraint firstItem="gcM-GT-OuO" firstAttribute="leading" secondItem="qx5-9d-4gG" secondAttribute="leading" id="lAU-Sa-DeG"/>
                             <constraint firstItem="v8H-PO-moc" firstAttribute="top" secondItem="YD4-kT-grW" secondAttribute="bottom" constant="18" id="lWi-UM-zuc"/>
                             <constraint firstItem="dVe-wG-ciQ" firstAttribute="leading" secondItem="dP3-TA-YvI" secondAttribute="leading" id="liK-73-owP"/>
                             <constraint firstItem="sAh-FI-XLF" firstAttribute="top" secondItem="v8H-PO-moc" secondAttribute="bottom" constant="30" id="qGc-aP-r2o"/>
@@ -372,6 +399,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="becauseLabel" destination="gcM-GT-OuO" id="33o-3H-fF3"/>
                         <outlet property="circleView" destination="xSj-nc-3ej" id="6Ee-V8-ctG"/>
                         <outlet property="doneLabel" destination="1Ed-Xr-lvu" id="czr-dq-aQJ"/>
                         <outlet property="newHabitDailyTimeField" destination="NFG-QF-KiY" id="PmJ-Ce-58r"/>
@@ -382,6 +410,7 @@
                         <outlet property="newHabitTextField" destination="lif-j1-R7d" id="aGu-Ic-Nj0"/>
                         <outlet property="newHabitTimeLabel1" destination="sAh-FI-XLF" id="b84-xL-Mkw"/>
                         <outlet property="newHabitWeeklyFrequencyField" destination="dP3-TA-YvI" id="7QY-qN-QC0"/>
+                        <outlet property="reasonTextField" destination="Qxs-cu-JnQ" id="IOX-uh-8TI"/>
                         <segue destination="9GK-rH-yhO" kind="unwind" identifier="unwindToTodayFromAdding" unwindAction="unwindWithSegue:" id="cEd-9e-9pb"/>
                     </connections>
                 </viewController>
@@ -803,9 +832,16 @@
                                     <action selector="pushButtonWithSender:" destination="oU0-OJ-hBi" eventType="touchUpInside" id="kmt-1T-N3O"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的动力" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dV0-jc-e6X">
+                                <rect key="frame" x="143" y="76.5" width="89.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.10348723083734512" green="0.36902406811714172" blue="0.55185818672180176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="dV0-jc-e6X" firstAttribute="centerX" secondItem="ioN-Kq-goS" secondAttribute="centerX" id="02b-VT-h5t"/>
                             <constraint firstItem="RB5-Dn-x55" firstAttribute="centerX" secondItem="UqY-fy-ilJ" secondAttribute="centerX" id="23y-t4-B0Q"/>
                             <constraint firstItem="rq6-XQ-UBc" firstAttribute="leading" secondItem="aHl-9P-Msy" secondAttribute="trailing" constant="45" id="6xL-bu-CBj"/>
                             <constraint firstItem="68W-sm-vgi" firstAttribute="leading" secondItem="nXg-vx-J9F" secondAttribute="leading" constant="26" id="BDL-pu-lqg"/>
@@ -819,6 +855,7 @@
                             <constraint firstItem="jOz-Yd-grc" firstAttribute="top" secondItem="RB5-Dn-x55" secondAttribute="bottom" constant="4" id="bHJ-bB-CRJ"/>
                             <constraint firstItem="UqY-fy-ilJ" firstAttribute="width" secondItem="1jh-4L-tfm" secondAttribute="width" multiplier="0.618" id="cK5-5I-M2W"/>
                             <constraint firstItem="RB5-Dn-x55" firstAttribute="top" secondItem="UqY-fy-ilJ" secondAttribute="bottom" constant="14" id="dcW-X9-884"/>
+                            <constraint firstItem="dV0-jc-e6X" firstAttribute="top" secondItem="ioN-Kq-goS" secondAttribute="bottom" constant="8" symbolic="YES" id="dxC-g0-8Dy"/>
                             <constraint firstItem="ioN-Kq-goS" firstAttribute="centerX" secondItem="nXg-vx-J9F" secondAttribute="centerX" id="mPO-tT-NHc"/>
                             <constraint firstItem="68W-sm-vgi" firstAttribute="top" secondItem="nXg-vx-J9F" secondAttribute="top" constant="14" id="sWf-wk-wqX"/>
                             <constraint firstItem="aHl-9P-Msy" firstAttribute="leading" secondItem="sDJ-nF-OKB" secondAttribute="trailing" constant="45" id="t8G-dC-HgR"/>
@@ -830,6 +867,7 @@
                         <outlet property="circleView" destination="UqY-fy-ilJ" id="U8s-JE-DC4"/>
                         <outlet property="excuteTimeLabel" destination="lFm-7t-M9X" id="sl6-iS-juz"/>
                         <outlet property="goBackButton" destination="68W-sm-vgi" id="5yt-F0-Sab"/>
+                        <outlet property="myMotivationLabel" destination="dV0-jc-e6X" id="gpF-ur-xtT"/>
                         <outlet property="pauseAndRestartButton" destination="sDJ-nF-OKB" id="pgK-hy-jZ9"/>
                         <outlet property="remainTimeLabel" destination="jOz-Yd-grc" id="DN9-o4-lMd"/>
                         <outlet property="startOrEndButton" destination="aHl-9P-Msy" id="KGo-3Z-VKx"/>

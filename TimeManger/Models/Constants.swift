@@ -68,6 +68,7 @@ class ConstantsWord {
     static var editHabit = isLanguageChinese ? "编辑此习惯" : "Edit this habit"
     static var deleteHabit = isLanguageChinese ? "删除此习惯" : "Delete this habit"
     
+    static var motiveMessage = isLanguageChinese ? "我的动力是" : "My motivation is"
     static var message1 = isLanguageChinese ? "点击这里添加您的第一个习惯" : "Click here to add your first habit"
     static var mesdage2 = isLanguageChinese ? "Yeah!今天的任务都完成了" : "Yeah! Today's mission is complete."
     static var checkMessage1 = isLanguageChinese ? "此名字被使用过了" : "This name has been used"

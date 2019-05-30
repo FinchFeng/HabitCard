@@ -12,19 +12,11 @@ import UIKit
 
 class ExcuteHabitViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     
-    //在上一个VC调用
-    func setDataIn(habit:HabitData) {
-        //配置颜色
-        self.view.backgroundColor = habit.colorInt.changeToAColor()
-        //title
-        habitTitle = habit.name
-        //今日的remainTime
-        self.todayRemainTime = habit.todaysRemainTime
-    }
     
     //Segue过来的数据
     var themeColor:UIColor!
     var habitTitle:String!
+    var motivation:String!
     var todayRemainTime:Time!
     
     //IBOutlet
@@ -36,17 +28,19 @@ class ExcuteHabitViewController: UIViewController,UIPickerViewDelegate,UIPickerV
     @IBOutlet weak var startOrEndButton: UIButton!
     @IBOutlet weak var goBackButton: UIButton!
     @IBOutlet weak var todayRemainLabel: UILabel!
+    @IBOutlet weak var myMotivationLabel: UILabel!
+    
     //MARK: - LifeCycle
     
     var needToRestart:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         todayRemainLabel.text = ConstantsWord.todaysTime
-        
         goBackButton.imageView?.contentMode = .scaleAspectFit
         titleLabel.text = habitTitle
         remainTimeLabel.text = todayRemainTime.changeToString()
         view.backgroundColor = themeColor
+        myMotivationLabel.text = motivation
         //退出重新进的时候在这里配置restart
         if needToRestart {
             BackgroundTimer.checkNeedRestart(changeInterFaceBlock: self.checkBlock){

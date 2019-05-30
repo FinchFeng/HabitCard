@@ -16,6 +16,7 @@ class AddNewHabitViewController: UIViewController,UITextFieldDelegate,UIPickerVi
     @IBOutlet weak var newHabitDailyTimeField: UITextField!
     @IBOutlet weak var newHabitWeeklyFrequencyField: UITextField!
     @IBOutlet weak var circleView: UIView!
+    @IBOutlet weak var reasonTextField: UITextField!
     
     let delegateClass = TextFieldDoneDelegateClass()
     
@@ -29,6 +30,7 @@ class AddNewHabitViewController: UIViewController,UITextFieldDelegate,UIPickerVi
     @IBOutlet weak var newHabitFrequencyLabel1: UILabel!
     @IBOutlet weak var newHabitFrequencyLable2: UILabel!
     @IBOutlet weak var doneLabel: UILabel!
+    @IBOutlet weak var becauseLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -40,18 +42,21 @@ class AddNewHabitViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         newHabitFrequencyLabel1.text = ConstantsWord.myNewHabitFrequency1
         newHabitFrequencyLable2.text = ConstantsWord.myNewHabitFrequency2
         doneLabel.text = ConstantsWord.done
+        becauseLabel.text = ConstantsWord.motiveMessage
         
         circleView.addCircle(frame: circleView.bounds, fillColor: UIColor.lightGray, strokeColor: UIColor.clear, lineWidth: 0)
         newHabitDailyTimeField.delegate = self
         //赋值为另外一个Class 的delegate
         newHabitTextField.delegate = delegateClass
         newHabitWeeklyFrequencyField.delegate = delegateClass
+        reasonTextField.delegate = delegateClass
         //判定修改数据
         if let data = oldData {
             newHabitTextField.text = data.name
             let dailyTimeInSecond = Int(data.dailyTime.changeToSecond())
             newHabitDailyTimeField.text = "\(dailyTimeInSecond/3600):\((dailyTimeInSecond/60)%60)"
             newHabitWeeklyFrequencyField.text = "\(data.weekilyFrequency)"
+            reasonTextField.text = data.motive
         }
     }
     
@@ -96,10 +101,12 @@ class AddNewHabitViewController: UIViewController,UITextFieldDelegate,UIPickerVi
                 if nameCanBeUsed {
                     //获取小时和分钟
                     let timeString = newHabitDailyTimeField.text!
+                    let motive = reasonTextField.text ?? ""
                     let newHabitData = HabitData(name: newHabitTextField.text ?? "",
                                                  dailyTime: timeString.changeToTime(),
                                                  weekilyFrequency:frequency,
-                                                 color: ConstantsColor.getAColor())
+                                                 color: ConstantsColor.getAColor(),
+                                                 motive:motive)
                     //unwind新的habit
                     performSegue(withIdentifier: "unwindToTodayFromAdding", sender: newHabitData)
                 }else{
@@ -132,6 +139,7 @@ class AddNewHabitViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         newHabitTextField.resignFirstResponder()
         newHabitWeeklyFrequencyField.resignFirstResponder()
         newHabitDailyTimeField.resignFirstResponder()
+        reasonTextField.resignFirstResponder()
     }
     
     //MARK: - UITextFeild Delegate
