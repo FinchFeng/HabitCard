@@ -15,6 +15,7 @@
 		13084AF822707FD900FA98C9 /* TimeMangerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13084AF722707FD900FA98C9 /* TimeMangerTests.swift */; };
 		136D9D13227D7C0100DC85C4 /* UnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136D9D12227D7C0000DC85C4 /* UnitTest.swift */; };
 		137146DC227A8DAB0022A104 /* TimeCheckerForUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137146DB227A8DAB0022A104 /* TimeCheckerForUpdate.swift */; };
+		1373F96422A4A71800EB3586 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1373F96322A4A71800EB3586 /* NotificationCenter.swift */; };
 		13969E83227DBD1C0012CBB9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13969E82227DBD1C0012CBB9 /* Extensions.swift */; };
 		139736112272C793002B50F4 /* BackGroundTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139736102272C793002B50F4 /* BackGroundTimer.swift */; };
 		139F518E2276946200DF5F85 /* HabitDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F518D2276946200DF5F85 /* HabitDataModel.swift */; };
@@ -66,6 +67,7 @@
 		13084AF922707FD900FA98C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		136D9D12227D7C0000DC85C4 /* UnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTest.swift; sourceTree = "<group>"; };
 		137146DB227A8DAB0022A104 /* TimeCheckerForUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCheckerForUpdate.swift; sourceTree = "<group>"; };
+		1373F96322A4A71800EB3586 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		1393A4F022845F5900BB7631 /* TimeManger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TimeManger.entitlements; sourceTree = "<group>"; };
 		13969E82227DBD1C0012CBB9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		139736102272C793002B50F4 /* BackGroundTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackGroundTimer.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				139F518F2276A00900DF5F85 /* HabitModel.swift */,
 				13969E82227DBD1C0012CBB9 /* Extensions.swift */,
 				139FA91322801F4400F657B9 /* Constants.swift */,
+				1373F96322A4A71800EB3586 /* NotificationCenter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -348,6 +351,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 0;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
 						};
 					};
 					13084AF222707FD900FA98C9 = {
@@ -461,6 +467,7 @@
 				13AC38872282F47700E0E65C /* SPAlert.swift in Sources */,
 				13DC72F0227BDDD50078C04B /* TodaysTaskViewController.swift in Sources */,
 				13AC38862282F47700E0E65C /* SPAlertHaptic.swift in Sources */,
+				1373F96422A4A71800EB3586 /* NotificationCenter.swift in Sources */,
 				13AC38712282531400E0E65C /* TitleTableViewCell.swift in Sources */,
 				13969E83227DBD1C0012CBB9 /* Extensions.swift in Sources */,
 			);

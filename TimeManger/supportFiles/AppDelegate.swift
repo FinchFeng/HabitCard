@@ -17,12 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var andioPlayer:AVAudioPlayer!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        AppNotification.registerForPushNotifications()
         return true
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         //啥都不做
     }
+    
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         //检查是否更新

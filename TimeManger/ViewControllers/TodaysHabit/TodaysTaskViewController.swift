@@ -186,7 +186,8 @@ class TodaysTaskViewController: UIViewController,UICollectionViewDataSource,UICo
         }else{
             messageHabitView.isHidden = true
         }
-        
+        //更改badge
+        AppNotification.changeBadge(to: todaysHabbits.count)
     }
     
     func showAnimationDoneAHabit(name:String) {

@@ -85,6 +85,9 @@ class ConstantsWord {
     static var backMessage = isLanguageChinese ? "返回之后当前执行时间将作废" : "The current execution time will be invalid after returning"
     static var backButton = isLanguageChinese ? "返回(下次不再提醒)" : "Return (no more reminder next time)"
     static var stopping = isLanguageChinese ? "暂停中" : "Stopping"
+    
+    //权限问题
+    static var getAuthority = isLanguageChinese ? "在设置中更改应用提醒权限？" : "Go to setting and change app notification permissions?"
 }
 
 struct ConstantsColor {
