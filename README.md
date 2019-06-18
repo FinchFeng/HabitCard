@@ -1,4 +1,4 @@
-# TimeManger
+# HabitCard
 习惯卡:极简单有效的方式助你养成习惯
 
 ## 应用信息⬇️<br>
